@@ -308,13 +308,6 @@ const Order = () => {
             />
           </div>
 
-          <p className="terms">
-            By proceeding, you agree to the{" "}
-            <a href="/terms" target="_blank" rel="noopener noreferrer">
-              Terms
-            </a>.
-          </p>
-
           <div className="payment-buttons">
             {order.paymentStatus === "Pending" ? (
               <button
