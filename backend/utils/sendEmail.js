@@ -32,7 +32,7 @@ const sendEmail = async ({ to, subject, template, data }) => {
     htmlContent = `
       <h2>Order Successfully Placed, Your Invoice</h2>
       <p>Dear Customer,</p>
-      <p>Your order with Router Unlock Service has been successfully placed and payment processed.</p>
+      <p>Thank you! Your order with GenuineUnlocker Router Unlock Service has been placed successfully, and your payment has been received.</p>
       <h3>Order Details:</h3>
       <ul>
         <li><strong>Order ID:</strong> ${orderId}</li>
@@ -41,13 +41,13 @@ const sendEmail = async ({ to, subject, template, data }) => {
         <li><strong>Network:</strong> ${network}</li>
         <li><strong>IMEI:</strong> ${imei}</li>
         <li><strong>Serial Number:</strong> ${serialNumber}</li>
-        <li><strong>Mobile Number:</strong> ${mobileNumber}</li>
+        <li><strong>Whatsapp Number:</strong> ${mobileNumber}</li>
         <li><strong>Email:</strong> ${email}</li>
-        <li><strong>Amount:</strong> Rs${amount}</li>
+        <li><strong>Amount Paid:</strong> Rs ${amount}</li>
         <li><strong>Payment Time:</strong> ${paymentTime}</li>
       </ul>
       <p>We will process your unlock request shortly. Contact us at genuineunlockerinfo@gmail.com if you have any questions.</p>
-      <p>Best regards,<br>Router Unlock Service Team</p>
+      <p>Best regards,<br>Genuine Unlocker Team</p>
     `;
   } else if (template === 'newOrder') {
     htmlContent = `
@@ -61,13 +61,13 @@ const sendEmail = async ({ to, subject, template, data }) => {
         <li><strong>Network:</strong> ${network}</li>
         <li><strong>IMEI:</strong> ${imei}</li>
         <li><strong>Serial Number:</strong> ${serialNumber}</li>
-        <li><strong>Mobile Number:</strong> ${mobileNumber}</li>
+        <li><strong>Customer Whatsapp Number:</strong> ${mobileNumber}</li>
         <li><strong>Customer Email:</strong> ${email || 'Not provided'}</li>
-        <li><strong>Amount:</strong> Rs${amount}</li>
+        <li><strong>Amount Received:</strong> Rs ${amount}</li>
         <li><strong>Payment Time:</strong> ${paymentTime}</li>
       </ul>
       <p>Please review and process the order promptly.</p>
-      <p>Best regards,<br>Router Unlock Service System</p>
+      <p>Best regards,<br>Genuine Unlocker System</p>
     `;
   } else {
     throw new Error('Invalid email template specified');
@@ -75,7 +75,7 @@ const sendEmail = async ({ to, subject, template, data }) => {
 
   // Email options
   const mailOptions = {
-    from: `"Router Unlock Service" <${process.env.EMAIL_USER}>`,
+    from: `"Genuine Unlocker" <${process.env.EMAIL_USER}>`,
     to,
     subject,
     html: htmlContent,
