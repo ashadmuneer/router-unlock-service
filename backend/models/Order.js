@@ -1,0 +1,20 @@
+const mongoose = require('mongoose');
+
+const orderSchema = new mongoose.Schema({
+  brand: { type: String, required: true },
+  model: { type: String, required: true },
+  network: { type: String, required: true },
+  imei: { type: String, required: true },
+  serialNumber: { type: String, required: true },
+  mobileNumber: { type: String, required: true },
+  email: { type: String, required: true },
+  amount: { type: Number, required: true },
+  termsAccepted: { type: Boolean, required: true },
+  orderId: { type: String, required: true },
+  paymentId: { type: String },
+  paymentStatus: { type: String, default: 'Pending' },
+  paymentTime: { type: Date },
+  createdAt: { type: Date, default: Date.now },
+});
+
+module.exports = mongoose.model('Order', orderSchema);

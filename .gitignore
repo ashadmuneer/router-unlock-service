@@ -1,0 +1,7 @@
+# .gitignore
+/Frontend/node_modules
+/backend/node_modules
+/Frontend/build
+/Frontend/.env
+/backend/.env
+*.log
