@@ -148,7 +148,7 @@ const UnlockSection = () => {
     });
 
     try {
-      const response = await fetch("http://localhost:5000/api/create-order", {
+      const response = await fetch("import.meta.env.VITE_API_URL/api/create-order", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
