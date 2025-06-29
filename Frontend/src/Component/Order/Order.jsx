@@ -26,7 +26,7 @@ const Order = () => {
       setLoading(true);
       try {
         const response = await fetch(
-          `http://localhost:5000/api/order-details/${orderId}`
+          `import.meta.env.VITE_API_URL/api/order-details/${orderId}`
         );
         const data = await response.json();
         if (response.ok) {
@@ -68,7 +68,7 @@ const Order = () => {
         handler: async function (response) {
           try {
             const res = await fetch(
-              "http://localhost:5000/api/verify-payment",
+              "import.meta.env.VITE_API_URL/api/verify-payment",
               {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -83,7 +83,7 @@ const Order = () => {
             if (result.status === "success") {
               alert("✅ Payment completed successfully! An invoice has been sent to your email.");
               const updated = await fetch(
-                `http://localhost:5000/api/order-details/${orderId}`
+                `import.meta.env.VITE_API_URL/api/order-details/${orderId}`
               );
               const updatedData = await updated.json();
               if (updated.ok) {
@@ -112,7 +112,7 @@ const Order = () => {
 
             // Mark payment as failed
             try {
-              await fetch("http://localhost:5000/api/verify-payment", {
+              await fetch("import.meta.env.VITE_API_URL/api/verify-payment", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -124,7 +124,7 @@ const Order = () => {
 
               // Update UI
               const updatedRes = await fetch(
-                `http://localhost:5000/api/order-details/${orderId}`
+                `import.meta.env.VITE_API_URL/api/order-details/${orderId}`
               );
               const updatedData = await updatedRes.json();
               if (updatedRes.ok) setOrder(updatedData);
