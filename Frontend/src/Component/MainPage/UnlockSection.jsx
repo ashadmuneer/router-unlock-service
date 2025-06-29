@@ -106,85 +106,85 @@ const UnlockSection = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError("");
-    setLoading(true);
+  e.preventDefault();
+  setError("");
+  setLoading(true);
 
-    if (!serialNumber || !mobileNumber || !email || !termsAccepted) {
-      setError(
-        "Please fill in all fields and agree to the terms and conditions"
-      );
-      setLoading(false);
-      return;
-    }
+  if (!serialNumber || !mobileNumber || !email || !termsAccepted) {
+    setError("Please fill in all fields and agree to the terms and conditions");
+    setLoading(false);
+    return;
+  }
 
-    if (!/^\d{10}$/.test(mobileNumber)) {
-      setError("Mobile number must be 10 digits");
-      setLoading(false);
-      return;
-    }
+  if (!/^\d{10}$/.test(mobileNumber)) {
+    setError("Mobile number must be 10 digits");
+    setLoading(false);
+    return;
+  }
 
-    if (!/^[a-zA-Z0-9]+$/.test(serialNumber)) {
-      setError("Serial number must be alphanumeric");
-      setLoading(false);
-      return;
-    }
+  if (!/^[a-zA-Z0-9]+$/.test(serialNumber)) {
+    setError("Serial number must be alphanumeric");
+    setLoading(false);
+    return;
+  }
 
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      setError("Please enter a valid email address");
-      setLoading(false);
-      return;
-    }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    setError("Please enter a valid email address");
+    setLoading(false);
+    return;
+  }
 
-    console.log("Submitting order:", {
-      brand: selectedBrand,
-      model: selectedModel,
-      network: selectedNetwork,
-      imei,
-      serialNumber,
-      mobileNumber,
-      email,
-      termsAccepted,
+  console.log("Submitting order:", {
+    brand: selectedBrand,
+    model: selectedModel,
+    network: selectedNetwork,
+    imei,
+    serialNumber,
+    mobileNumber,
+    email,
+    termsAccepted,
+  });
+
+  const url = `${import.meta.env.VITE_API_URL}/api/create-order`;
+  console.log("API URL:", url); // Debug the resolved URL
+
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        brand: selectedBrand,
+        model: selectedModel,
+        network: selectedNetwork,
+        imei,
+        serialNumber,
+        mobileNumber,
+        email,
+        termsAccepted,
+      }),
     });
 
-    try {
-      const response = await fetch("import.meta.env.VITE_API_URL/api/create-order", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          brand: selectedBrand,
-          model: selectedModel,
-          network: selectedNetwork,
-          imei,
-          serialNumber,
-          mobileNumber,
-          email,
-          termsAccepted,
-        }),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        if (data.orderId) {
-          navigate(`/order/${data.orderId}`);
-        } else {
-          setError("Order created, but no orderId received");
-          console.error("Missing orderId in response", data);
-        }
-      } else {
-        setError(data.error || "Failed to create order");
-        console.error("API error:", data.error);
-      }
-    } catch (error) {
-      console.error("Fetch error:", error.message);
-      setError("An error occurred. Please try again later.");
-    } finally {
-      setLoading(false);
+    if (!response.ok) {
+      const errorText = await response.text(); // Log raw response
+      throw new Error(`HTTP error! status: ${response.status}, ${errorText}`);
     }
-  };
+
+    const data = await response.json();
+    console.log("Response:", data);
+
+    if (data.orderId) {
+      navigate(`/order/${data.orderId}`);
+    } else {
+      setError("Order created, but no orderId received");
+      console.error("Missing orderId in response", data);
+    }
+  } catch (error) {
+    console.error("Fetch error:", error.message);
+    setError("An error occurred. Please try again later.");
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <section className="unlock-section">
