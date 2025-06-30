@@ -6,6 +6,8 @@ import './App.css';
 import BlogDetailPage from './Component/Blogdetailpage/BlogDetailPage';
 import OrderTracking from './Component/OrderTracking/OrderTracking';
 import Order from './Component/Order/Order';
+import TermsAndConditions from './Component/Termandconditions/TermsAndConditions';
+import About from './Component/AboutUs/About';
 
 const App = () => {
   return (
@@ -18,6 +20,8 @@ const App = () => {
         <Route path="/blog/:id" element={<BlogDetailPage />} />
         <Route path="/track-order" element={<OrderTracking />} />
         <Route path="/order-tracking" element={<OrderTracking />} />
+        <Route path="/terms" element={<TermsAndConditions />} />
+        <Route path="/about" element={<About />} />
       </Routes>
       <Footer />
     </>
