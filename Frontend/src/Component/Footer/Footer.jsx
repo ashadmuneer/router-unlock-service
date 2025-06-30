@@ -1,47 +1,61 @@
-import React from "react";
-import "./Footer.css";
-import Logo from '../../assets/Genuine Unlocker Logo.png'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './Footer.css';
+import Logo from '../../assets/Genuine Unlocker Logo.png';
 
 const Footer = () => {
   return (
     <footer>
       <div className="container footer-container">
         <div className="col-3">
-          <img
-            src={Logo}
-            alt="Logo"
-          />
-          <br />
-          <div className="social">
-            <a href="#"><i className="fa-brands fa-facebook-f"></i></a>
-            <a href="#"><i className="fa-brands fa-instagram"></i></a>
-            <a href="#"><i className="fa-brands fa-twitter"></i></a>
-            <a href="#"><i className="fa-brands fa-linkedin-in"></i></a>
-          </div>
-          <br />
-          {/* <span className="address">Address: somewhere over the rainbow</span> */}
+          <img src={Logo} alt="Genuine Unlocker Logo" className="footer-logo" />
+          {/* <div className="social">
+            <a href="#" aria-label="Facebook">
+              <i className="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <i className="fa-brands fa-instagram"></i>
+            </a>
+            <a href="#" aria-label="Twitter">
+              <i className="fa-brands fa-twitter"></i>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+              <i className="fa-brands fa-linkedin-in"></i>
+            </a>
+          </div> */}
         </div>
 
         <div className="col-3">
-          <h6>About</h6>
-          <p style={{ textAlign: "justify", fontSize: "0.5rem" }}>
-            At GenuineUnlocker, we are dedicated to providing fast, reliable, and legal WiFi router unlocking services to customers worldwide. Our mission is to empower you to use your router with any compatible network, giving you the freedom and flexibility to stay connected without restrictions.
-          </p>
+          <h6>Quick Links</h6>
+          <ul>
+            <li>
+              <Link to="/about" className="footer-link">About Us</Link>
+            </li>
+            <li>
+              <Link to="/terms" className="footer-link">Terms and Conditions</Link>
+            </li>
+          </ul>
         </div>
 
         <div className="col-3">
-          <h6>Get Help</h6>
-          <a href="https://wa.me/966571749463" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-whatsapp"></i>Whatsapp Help Line</a>
-        </div>
-
-        <div className="col-3">
-          <h6>Contact</h6>
-          <a href="#">mailme@gmail.com</a>
+          <h6>For Any Inquiries, Contact Us</h6>
+          <ul>
+            <li>
+              <a href="https://wa.me/919140672714" target="_blank" rel="noopener noreferrer" className="footer-link">
+                <i className="fa-brands fa-whatsapp"></i> WhatsApp
+              </a>
+            </li>
+            <li>
+              <a href="mailto:support@genuineunlocker.net" className="footer-link">
+                <i className="fa-solid fa-envelope"></i> Email
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
 
       <div className="copyright">
-        Copyright &#169; 2024 | Footerpen All rights reserved
+        Copyright © 2025 | GenuineUnlocker All rights reserved
       </div>
     </footer>
   );
