@@ -318,7 +318,7 @@ const Order = () => {
                 {paymentLoading ? (
                   <div className="button-spinner"></div>
                 ) : (
-                  `💸 Pay Now Rs${order.amount || "0"}`
+                  `💸 Pay Now SAR ${order.amount || "0"}`
                 )}
               </button>
             ) : (
@@ -355,7 +355,7 @@ const Order = () => {
           </div>
           <div className="summary-item">
             <span>{order.model || "Device"} Eligibility Check</span>
-            <span>Rs{order.amount || "0"}</span>
+            <span>SAR {order.amount || "0"}</span>
           </div>
           <div className="logo-container">
             <img src={Logo} alt="Genuine Unlocker Logo" />

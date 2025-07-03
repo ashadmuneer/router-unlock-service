@@ -46,7 +46,7 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="mailto:support@genuineunlocker.net" className="footer-link">
+              <a href="mailto:genuineunlockerinfo@gmail.com" className="footer-link">
                 <i className="fa-solid fa-envelope"></i> Email
               </a>
             </li>
