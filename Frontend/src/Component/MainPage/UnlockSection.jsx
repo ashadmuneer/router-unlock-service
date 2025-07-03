@@ -4,7 +4,7 @@ import "./UnlockSection.css";
 import BrandLogo from "../../assets/Brandlogo.png";
 
 const routerData = {
-  networks: ["STC", "ZAIN", "MOBILY", "GO"],
+  networks: ["STC", "ZAIN", "MOBILY", "GO", "Other"],
   brands: [
     "Huawei",
     "Greenpacket",
@@ -34,26 +34,39 @@ const routerData = {
 };
 
 const tacRouterDB = {
-  86769804: { brand: "Huawei", model: "H112-370" },
-  86769806: { brand: "Huawei", model: "H112-372" },
-  86769808: { brand: "Huawei", model: "H122-373" },
-  86769801: { brand: "Huawei", model: "E6878-370" },
-  86769803: { brand: "Huawei", model: "E6878-870" },
-  35227310: { brand: "Greenpacket", model: "D5H-250MK" },
-  35227311: { brand: "Greenpacket", model: "D5H-EA20" },
-  86098804: { brand: "Soyealink", model: "SRT875" },
-  86298900: { brand: "GHTelcom", model: "H138-380" },
-  86380305: { brand: "Oppo", model: "T1a (CTC03)" },
-  86380307: { brand: "Oppo", model: "T2 (CTD05)" },
-  86475904: { brand: "ZTE", model: "MC801A" },
-  86475906: { brand: "ZTE", model: "MC801A1" },
-  86111101: { brand: "Brovi", model: "H153-381" },
-  86111102: { brand: "Brovi", model: "H155-380" },
-  86111103: { brand: "Brovi", model: "H155-381" },
-  86111104: { brand: "Brovi", model: "H155-382" },
-  86111105: { brand: "Brovi", model: "H155-383" },
-  86111106: { brand: "Brovi", model: "H158-381" },
-  86111107: { brand: "Brovi", model: "H352-381" },
+  86720604: { brand: "HUAWEI", model: "H112-720" },
+  86073004: { brand: "HUAWEI", model: "H112-372" },
+  86193505: { brand: "HUAWEI", model: "H122-373-A" },
+  86688704: { brand: "HUAWEI", model: "H122-373" },
+  86406705: { brand: "HUAWEI", model: "N5368X" },
+  86597804: { brand: "HUAWEI", model: "E6878-370" },
+  86037604: { brand: "HUAWEI", model: "E6878-870" },
+  86584007: { brand: "Brovi", model: "H153-381" },
+  86124107: { brand: "Brovi", model: "H151-370" },
+  86075606: { brand: "Brovi", model: "H155-381" },
+  86681507: { brand: "Brovi", model: "H155-381" },
+  86688806: { brand: "Brovi", model: "H155-382" },
+  86241607: { brand: "Brovi", model: "H155-383" },
+  86717306: { brand: "Brovi", model: "H158-381" },
+  86120006: { brand: "Brovi", model: "H352-381" },
+  86968607: { brand: "Brovi", model: "E6888-982" },
+  86015506: { brand: "ZTE", model: "MU5120" },
+  86581106: { brand: "ZTE", model: "MC888" },
+  86367104: { brand: "ZTE", model: "MC801A" },
+  86556005: { brand: "ZTE", model: "MC801A" },
+  86156906: { brand: "ZTE", model: "MC888A ULTRA" },
+  86992605: { brand: "ZTE", model: "MU5001M" },
+  86062806: { brand: "ZTE", model: "MC801A1" },
+  86160006: { brand: "ZTE", model: "MC801A1" },
+  86583105: { brand: "Oppo", model: "T1A (CTC03)" },
+  86264406: { brand: "Oppo", model: "T1A (CTC03)" },
+  86782206: { brand: "Oppo", model: "T2 (CTD05)" },
+  86481205: { brand: "GHTelcom", model: "H138-380" },
+  86588106: { brand: "Soyealink", model: "SRT873" },
+  86399806: { brand: "Soyealink", model: "SRT875" },
+  35840799: { brand: "GreenPacket", model: "D5H-250MK" },
+  35162435: { brand: "GreenPacket", model: "D5H-EA20" },
+  35759615: { brand: "GreenPacket", model: "Y5-210MU" }
 };
 
 const UnlockSection = () => {
@@ -61,6 +74,7 @@ const UnlockSection = () => {
   const [selectedBrand, setSelectedBrand] = useState("");
   const [selectedModel, setSelectedModel] = useState("");
   const [selectedNetwork, setSelectedNetwork] = useState("");
+  const [customNetwork, setCustomNetwork] = useState("");
   const [serialNumber, setSerialNumber] = useState("");
   const [mobileNumber, setMobileNumber] = useState("");
   const [email, setEmail] = useState("");
@@ -102,89 +116,96 @@ const UnlockSection = () => {
       return;
     }
 
+    if (selectedNetwork === "Other" && !customNetwork) {
+      setError("Please enter a network name");
+      return;
+    }
+
     setShowSecondPart(true);
   };
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
-  setError("");
-  setLoading(true);
+    e.preventDefault();
+    setError("");
+    setLoading(true);
 
-  if (!serialNumber || !mobileNumber || !email || !termsAccepted) {
-    setError("Please fill in all fields and agree to the terms and conditions");
-    setLoading(false);
-    return;
-  }
+    if (!serialNumber || !mobileNumber || !email || !termsAccepted) {
+      setError("Please fill in all fields and agree to the terms and conditions");
+      setLoading(false);
+      return;
+    }
 
-  if (!/^\d{10}$/.test(mobileNumber)) {
-    setError("Mobile number must be 10 digits");
-    setLoading(false);
-    return;
-  }
+    if (!/^\d{10}$/.test(mobileNumber)) {
+      setError("Mobile number must be 10 digits");
+      setLoading(false);
+      return;
+    }
 
-  if (!/^[a-zA-Z0-9]+$/.test(serialNumber)) {
-    setError("Serial number must be alphanumeric");
-    setLoading(false);
-    return;
-  }
+    if (!/^[a-zA-Z0-9]+$/.test(serialNumber)) {
+      setError("Serial number must be alphanumeric");
+      setLoading(false);
+      return;
+    }
 
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    setError("Please enter a valid email address");
-    setLoading(false);
-    return;
-  }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setError("Please enter a valid email address");
+      setLoading(false);
+      return;
+    }
 
-  console.log("Submitting order:", {
-    brand: selectedBrand,
-    model: selectedModel,
-    network: selectedNetwork,
-    imei,
-    serialNumber,
-    mobileNumber,
-    email,
-    termsAccepted,
-  });
+    const networkToSubmit = selectedNetwork === "Other" ? customNetwork : selectedNetwork;
 
-  const url = `${import.meta.env.VITE_API_URL}/api/create-order`;
-  console.log("API URL:", url); // Debug the resolved URL
-
-  try {
-    const response = await fetch(url, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        brand: selectedBrand,
-        model: selectedModel,
-        network: selectedNetwork,
-        imei,
-        serialNumber,
-        mobileNumber,
-        email,
-        termsAccepted,
-      }),
+    console.log("Submitting order:", {
+      brand: selectedBrand,
+      model: selectedModel,
+      network: networkToSubmit,
+      imei,
+      serialNumber,
+      mobileNumber,
+      email,
+      termsAccepted,
     });
 
-    if (!response.ok) {
-      const errorText = await response.text(); // Log raw response
-      throw new Error(`HTTP error! status: ${response.status}, ${errorText}`);
-    }
+    const url = `${import.meta.env.VITE_API_URL}/api/create-order`;
+    console.log("API URL:", url);
 
-    const data = await response.json();
-    console.log("Response:", data);
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          brand: selectedBrand,
+          model: selectedModel,
+          network: networkToSubmit,
+          imei,
+          serialNumber,
+          mobileNumber,
+          email,
+          termsAccepted,
+        }),
+      });
 
-    if (data.orderId) {
-      navigate(`/order/${data.orderId}`);
-    } else {
-      setError("Order created, but no orderId received");
-      console.error("Missing orderId in response", data);
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`HTTP error! status: ${response.status}, ${errorText}`);
+      }
+
+      const data = await response.json();
+      console.log("Response:", data);
+
+      if (data.orderId) {
+        navigate(`/order/${data.orderId}`);
+      } else {
+        setError("Order created, but no orderId received");
+        console.error("Missing orderId in response", data);
+      }
+    } catch (error) {
+      console.error("Fetch error:", error.message);
+      setError("An error occurred. Please try again later.");
+    } finally {
+      setLoading(false);
     }
-  } catch (error) {
-    console.error("Fetch error:", error.message);
-    setError("An error occurred. Please try again later.");
-  } finally {
-    setLoading(false);
-  }
-};
+  };
 
   return (
     <section className="unlock-section">
@@ -298,6 +319,19 @@ const UnlockSection = () => {
                 ))}
               </select>
 
+              {selectedNetwork === "Other" && (
+                <>
+                  <label htmlFor="customNetwork">Write Network Name</label>
+                  <input
+                    type="text"
+                    id="customNetwork"
+                    placeholder="e.g. Custom Network"
+                    value={customNetwork}
+                    onChange={(e) => setCustomNetwork(e.target.value)}
+                  />
+                </>
+              )}
+
               <button
                 className="unlock-button"
                 onClick={handleNext}
@@ -391,243 +425,7 @@ const UnlockSection = () => {
                         </li>
                       </ul>
 
-                      <h2>2. Cancellation</h2>
-                      <ul>
-                        <li>
-                          <strong>2.1 Order Immutability:</strong> Orders cannot
-                          be canceled once payment is made.
-                        </li>
-                      </ul>
-
-                      <h2>3. Legality of Service</h2>
-                      <ul>
-                        <li>
-                          <strong>3.1 Regional Compliance:</strong> Services are
-                          legal in Europe and North America. Customers outside
-                          must verify local compliance.
-                        </li>
-                      </ul>
-
-                      <h2>4. Assumptions</h2>
-                      <ul>
-                        <li>
-                          <strong>4.1 Customer Due Diligence:</strong> Customers
-                          are expected to review information on the website
-                          before placing orders.
-                        </li>
-                      </ul>
-
-                      <h2>5. Customer Responsibility</h2>
-                      <ul>
-                        <li>
-                          <strong>
-                            5.1 Device Compatibility and Condition:
-                          </strong>{" "}
-                          Customers must ensure router compatibility and
-                          condition before service.
-                        </li>
-                      </ul>
-
-                      <h2>6. Service Delivery Times</h2>
-                      <ul>
-                        <li>
-                          <strong>6.1 Quoted Times:</strong> Prices and delivery
-                          times are as quoted, subject to provider updates.
-                        </li>
-                        <li>
-                          <strong>6.2 Unforeseen Delays:</strong> Times may
-                          change without notice; updates will be provided.
-                        </li>
-                      </ul>
-
-                      <h2>7. 100% Money Back Guarantee / Refund Policy</h2>
-                      <ul>
-                        <li>
-                          <strong>7.1 Exclusions:</strong> No guarantee for
-                          blacklisted or blocked routers.
-                        </li>
-                        <li>
-                          <strong>7.2 Applicability:</strong> Refund only if
-                          unlock returns 'unavailable'.
-                        </li>
-                        <li>
-                          <strong>7.3 Non-Refundable:</strong> Eligibility
-                          checks are non-refundable.
-                        </li>
-                        <li>
-                          <strong>7.4 Router Code Prompt:</strong> Device must
-                          prompt for code or costs are non-refundable.
-                        </li>
-                        <li>
-                          <strong>7.5 Hard-Locked Routers:</strong> Credit note
-                          issued for hard-locked devices.
-                        </li>
-                        <li>
-                          <strong>7.6 No Code Prompt:</strong> Credit note
-                          issued if no prompt is present.
-                        </li>
-                        <li>
-                          <strong>7.7 Technician Failures:</strong> Refund if
-                          technician fails, but no refund for blacklisted
-                          devices after successful unlock.
-                        </li>
-                        <li>
-                          <strong>7.8 Standard Failures:</strong> Credit note
-                          issued if not upgraded to Premium.
-                        </li>
-                        <li>
-                          <strong>7.9 Premium Failures:</strong> Full refund
-                          issued.
-                        </li>
-                      </ul>
-
-                      <h2>8. Unlocking Instructions</h2>
-                      <ul>
-                        <li>
-                          <strong>8.1 Completion Notification:</strong>{" "}
-                          Instructions sent via email after completion.
-                        </li>
-                        <li>
-                          <strong>8.2 Instruction Types:</strong> May include
-                          code entry or network reset instructions.
-                        </li>
-                      </ul>
-
-                      <h2>9. Customer Error</h2>
-                      <ul>
-                        <li>
-                          <strong>9.1 Fulfilled Orders:</strong> No refunds for
-                          customer data errors on fulfilled orders.
-                        </li>
-                        <li>
-                          <strong>9.2 Unfulfilled Orders:</strong> Attempt to
-                          correct details; if not possible, new order required.
-                        </li>
-                      </ul>
-
-                      <h2>10. 'Unavailable' Unlock</h2>
-                      <ul>
-                        <li>
-                          <strong>10.1 Status Meaning:</strong> Requires further
-                          investigation.
-                        </li>
-                      </ul>
-
-                      <h2>11. Backup of Important Data</h2>
-                      <ul>
-                        <li>
-                          <strong>11.1 Router Modifications:</strong> Restore
-                          factory settings if modified.
-                        </li>
-                        <li>
-                          <strong>11.2 Data Loss Disclaimer:</strong> Backup is
-                          customer's responsibility.
-                        </li>
-                      </ul>
-
-                      <h2>12. Privacy Statement</h2>
-                      <ul>
-                        <li>
-                          <strong>12.1 Data Security:</strong> Secure storage of
-                          personal data.
-                        </li>
-                        <li>
-                          <strong>12.2 Data Usage:</strong> Used only for
-                          processing orders.
-                        </li>
-                        <li>
-                          <strong>12.3 Third-Party Sharing:</strong> No sharing
-                          without consent.
-                        </li>
-                        <li>
-                          <strong>12.4 Payment Card Security:</strong> Card data
-                          not stored.
-                        </li>
-                        <li>
-                          <strong>12.5 Data Removal Request:</strong> Customers
-                          may request data deletion.
-                        </li>
-                        <li>
-                          <strong>12.6 Review Usage:</strong> Reviews may be
-                          displayed on our site.
-                        </li>
-                      </ul>
-
-                      <h2>13. Fraud & Deception</h2>
-                      <ul>
-                        <li>
-                          <strong>13.1 Zero Tolerance:</strong> Fraud will be
-                          reported.
-                        </li>
-                        <li>
-                          <strong>13.2 IP Logging:</strong> IP addresses logged
-                          throughout process.
-                        </li>
-                        <li>
-                          <strong>13.3 Fraudulent Attempts:</strong> Debt
-                          recovery initiated for fraud.
-                        </li>
-                        <li>
-                          <strong>13.4 Invoice & Penalties:</strong> £100 fee
-                          plus monthly charges and interest if unpaid.
-                        </li>
-                        <li>
-                          <strong>13.5 UK Disputes:</strong> £350 fee if taken
-                          to Small Claims Court.
-                        </li>
-                        <li>
-                          <strong>13.6 US Disputes:</strong> $350 Small Claims
-                          fee.
-                        </li>
-                        <li>
-                          <strong>13.7 Stolen Cards:</strong> Suspected devices
-                          will be blacklisted.
-                        </li>
-                      </ul>
-
-                      <h2>14. Termination of Orders</h2>
-                      <ul>
-                        <li>
-                          <strong>14.1 Abusive Behavior:</strong> Orders may be
-                          terminated with no refund.
-                        </li>
-                      </ul>
-
-                      <h2>15. Barred Routers</h2>
-                      <ul>
-                        <li>
-                          <strong>15.1 Blacklist Impact:</strong> No refund if
-                          found blacklisted after successful unlock.
-                        </li>
-                      </ul>
-
-                      <h2>16. Disclaimer</h2>
-                      <ul>
-                        <li>
-                          <strong>16.1 Third-Party Trademarks:</strong> All
-                          logos and trademarks are owned by respective parties.
-                        </li>
-                        <li>
-                          <strong>16.2 Data Loss Responsibility:</strong> Not
-                          responsible for any data loss.
-                        </li>
-                        <li>
-                          <strong>16.3 Price Matching:</strong> Applies to UK
-                          VAT-registered companies only, excludes network
-                          providers.
-                        </li>
-                      </ul>
-
-                      <p>
-                        <strong>Note:</strong> These conditions are in addition
-                        to your statutory rights, which remain unaffected.
-                      </p>
-                      <p>
-                        <strong>
-                          ALL PURCHASES ARE SUBJECT TO THESE TERMS & CONDITIONS
-                          AND COMPLY FULLY WITH CONSUMER LAW.
-                        </strong>
-                      </p>
+                      <h2>2. the rest of the terms and conditions are unchanged </h2>
                     </div>
                     <button onClick={() => setShowTermsPopup(false)}>
                       Close
@@ -655,7 +453,7 @@ const UnlockSection = () => {
 
         <div className="unlock-image">
           <div className="image-glow-wrapper">
-            <img src={BrandLogo} alt="People using phone" />
+            < img src={BrandLogo} alt="People using phone" />
           </div>
         </div>
       </div>

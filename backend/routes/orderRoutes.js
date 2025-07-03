@@ -12,12 +12,13 @@ const razorpay = new Razorpay({
   key_secret: process.env.RAZORPAY_KEY_SECRET,
 });
 
-// Pricing based on network
+// Pricing based on network (in SAR)
 const networkPricing = {
-  STC: 20,
-  ZAIN: 25,
-  MOBILY: 22,
-  GO: 18,
+  STC: 230,      // ~20 INR
+  ZAIN: 130,   // ~25 INR
+  MOBILY: 230,   // ~22 INR
+  GO: 230,     // ~18 INR
+  Other: 230,   // ~250 INR
 };
 
 // Create order
@@ -30,19 +31,18 @@ router.post('/create-order', async (req, res) => {
     return res.status(400).json({ error: 'All fields are required and terms must be accepted' });
   }
 
-  if (!networkPricing[network]) {
-    return res.status(400).json({ error: 'Invalid network selected' });
-  }
-
   // Validate email format
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return res.status(400).json({ error: 'Invalid email format' });
   }
 
+  // Use predefined price or default to 12 SAR for custom networks
+  const amount = networkPricing[network] || 12;
+
   try {
     const razorpayOrder = await razorpay.orders.create({
-      amount: networkPricing[network] * 100,
-      currency: 'INR',
+      amount: amount * 100, // Convert to halala (1 SAR = 100 halala)
+      currency: 'SAR',
       receipt: `receipt_${Date.now()}`,
     });
 
@@ -55,7 +55,8 @@ router.post('/create-order', async (req, res) => {
       mobileNumber,
       email,
       termsAccepted,
-      amount: networkPricing[network],
+      amount,
+      currency: 'SAR', // Store currency in the order
       orderId: razorpayOrder.id,
     });
 
@@ -151,6 +152,7 @@ router.post('/verify-payment', async (req, res) => {
             mobileNumber: order.mobileNumber,
             email: order.email,
             amount: order.amount,
+            currency: order.currency || 'SAR',
             orderId: order.orderId,
             paymentTime: order.paymentTime.toISOString(),
           },
@@ -175,6 +177,7 @@ router.post('/verify-payment', async (req, res) => {
           mobileNumber: order.mobileNumber,
           email: order.email || 'Not provided',
           amount: order.amount,
+          currency: order.currency || 'SAR',
           orderId: order.orderId,
           paymentTime: order.paymentTime.toISOString(),
           termsAccepted: order.termsAccepted,
@@ -212,6 +215,7 @@ router.get('/order-details/:orderId', async (req, res) => {
       email: order.email,
       termsAccepted: order.termsAccepted,
       amount: order.amount,
+      currency: order.currency || 'SAR',
       paymentStatus: order.paymentStatus,
       paymentTime: order.paymentTime ? order.paymentTime.toISOString() : null,
     });
@@ -245,6 +249,7 @@ router.get('/track-order/:imei', async (req, res) => {
       termsAccepted: order.termsAccepted,
       status: order.paymentStatus,
       amount: order.amount,
+      currency: order.currency || 'SAR',
       paymentTime: order.paymentTime ? order.paymentTime.toISOString() : null,
     }));
 

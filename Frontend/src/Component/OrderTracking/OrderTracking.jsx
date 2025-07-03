@@ -91,7 +91,7 @@ const OrderTracking = () => {
               <p><span>Brand:</span> {order.brand}</p>
               <p><span>Model:</span> {order.model}</p>
               <p><span>Network:</span> {order.network}</p>
-              <p><span>Amount:</span> ${order.amount}</p>
+              <p><span>Amount:</span> SAR {order.amount}</p>
               <p><span>Status:</span> {order.status}</p>
               {order.paymentTime && (
                 <p><span>Payment Time:</span> {order.paymentTime}</p>

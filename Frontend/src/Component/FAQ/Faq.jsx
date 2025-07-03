@@ -3,35 +3,44 @@ import "./Faq.css";
 
 const faqData = [
   {
-    question: "What amenities are typically offered in a small hotel?",
+    question: "Will factory resetting the device cause it to lock again?",
     answare:
-      "Small hotels often provide free Wi-Fi, complimentary breakfast, daily housekeeping, toiletries, and sometimes access to shared spaces like a lounge or garden.",
+      "No, factory resetting the device will not cause it to lock again. Once a device is unlocked, it remains permanently unlocked, and a factory reset does not re-lock it.",
   },
   {
-    question: "How can a small hotel improve guest satisfaction?",
+    question: "Will unlocking void the router’s warranty?",
     answare:
-      "By offering personalized service, maintaining cleanliness, responding quickly to requests, providing local recommendations, and ensuring a comfortable stay with good amenities.",
+      "No, unlocking does not void the router’s warranty. IMEI-based unlocking, recommended by manufacturers, does not harm the device’s hardware or software, so the warranty remains intact.",
   },
   {
-    question:
-      "What are the advantages of staying in a small hotel over a large chain?",
+    question: "Will the device support all mobile operator SIMs after unlocking?",
     answare:
-      "Small hotels often offer a more intimate atmosphere, personalized attention, unique decor, and a local experience compared to the standardized approach of large chains.",
+      "Yes, after unlocking, the device will work with SIMs from all compatible mobile operators, provided the network is technologically compatible (e.g., GSM or CDMA). However, you should check the device’s IMEI for network compatibility with the new carrier.",
   },
   {
-    question: "What challenges do small hotels commonly face?",
+    question: "Does the device need to be unlocked only once?",
     answare:
-      "Limited marketing budgets, competition with larger hotels, seasonal demand fluctuations, and maintaining consistent service quality with a small staff.",
+      "Yes, the device only needs to be unlocked once. After using the unlock code or process, the device is permanently unlocked, and no further unlocking is required.",
   },
   {
-    question: "How can a small hotel attract more bookings?",
+    question: "Will the device remain permanently unlocked with the unlocking code?",
     answare:
-      "By optimizing online presence (website, social media, and OTAs), offering promotions, encouraging guest reviews, providing unique experiences, and leveraging local partnerships.",
+      "Yes, the device stays permanently unlocked after using the unlocking code. The code removes the SIM lock permanently, and the device will not re-lock, even after software updates or resets.",
   },
   {
-    question: "What is the importance of customer reviews for a small hotel?",
+    question: "Will unlocking reduce internet speed?",
     answare:
-      "Positive reviews build trust, improve search rankings, attract new guests, and provide feedback for service improvements. Negative reviews, if addressed well, can demonstrate responsiveness.",
+      "No, unlocking does not affect internet speed. Internet speed depends on the device’s hardware, network coverage, and carrier frequency bands, not the unlocking process.",
+  },
+  {
+    question: "What is the process after payment is done?",
+    answare:
+      "After payment is completed, the unlocking process is as follows: Provide your device’s IMEI number, model, and current network provider details. The service provider (carrier or third-party service) will process your request and send an unlock code or instructions via email or on-screen prompts. For iOS devices, unlocking is typically done over-the-air. For Android devices, you may need to enter the provided code. The process may take 6 to 24 hours, depending on the carrier and device. Once unlocked, insert a new SIM card to activate the device.",
+  },
+  {
+    question: "How can I contact support for any queries?",
+    answare:
+      'For any queries, you can contact support exclusively via email. Reach out to your carrier’s support email  genuineunlockerinfo@gmail.com',
   },
 ];
 
