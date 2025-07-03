@@ -14,11 +14,11 @@ const razorpay = new Razorpay({
 
 // Pricing based on network (in SAR)
 const networkPricing = {
-  STC: 230,      // ~20 INR
-  ZAIN: 130,   // ~25 INR
-  MOBILY: 230,   // ~22 INR
-  GO: 230,     // ~18 INR
-  Other: 230,   // ~250 INR
+  STC: 230,
+  ZAIN: 130,
+  MOBILY: 230,
+  GO: 230,
+  Other: 230,
 };
 
 // Create order
@@ -36,8 +36,12 @@ router.post('/create-order', async (req, res) => {
     return res.status(400).json({ error: 'Invalid email format' });
   }
 
-  // Use predefined price or default to 12 SAR for custom networks
-  const amount = networkPricing[network] || 12;
+  // Use predefined price or default to 230 SAR for custom networks
+  const amount = networkPricing[network] || networkPricing.Other;
+
+  if (!amount) {
+    return res.status(400).json({ error: 'Invalid network pricing' });
+  }
 
   try {
     const razorpayOrder = await razorpay.orders.create({
@@ -56,7 +60,7 @@ router.post('/create-order', async (req, res) => {
       email,
       termsAccepted,
       amount,
-      currency: 'SAR', // Store currency in the order
+      currency: 'SAR',
       orderId: razorpayOrder.id,
     });
 
