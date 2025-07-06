@@ -66,7 +66,7 @@ const tacRouterDB = {
   86399806: { brand: "Soyealink", model: "SRT875" },
   35840799: { brand: "GreenPacket", model: "D5H-250MK" },
   35162435: { brand: "GreenPacket", model: "D5H-EA20" },
-  35759615: { brand: "GreenPacket", model: "Y5-210MU" }
+  35759615: { brand: "GreenPacket", model: "Y5-210MU" },
 };
 
 const UnlockSection = () => {
@@ -84,6 +84,24 @@ const UnlockSection = () => {
   const [showSecondPart, setShowSecondPart] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
+  // Handle IMEI input: allow only numbers, max 15 digits
+  const handleImeiChange = (e) => {
+    const value = e.target.value;
+    // Allow only digits and limit to 15 characters
+    if (/^\d{0,15}$/.test(value)) {
+      setImei(value);
+    }
+  };
+
+  // Handle Serial Number input: allow only capital letters and numbers, max 20 characters
+  const handleSerialNumberChange = (e) => {
+    const value = e.target.value.toUpperCase(); // Force uppercase
+    // Allow only alphanumeric characters and limit to 20 characters
+    if (/^[A-Z0-9]{0,20}$/.test(value)) {
+      setSerialNumber(value);
+    }
+  };
 
   useEffect(() => {
     if (imei.length >= 8) {
@@ -112,7 +130,7 @@ const UnlockSection = () => {
     }
 
     if (!/^\d{15}$/.test(imei)) {
-      setError("IMEI must be 15 digits");
+      setError("IMEI must be exactly 15 digits");
       return;
     }
 
@@ -141,8 +159,8 @@ const UnlockSection = () => {
       return;
     }
 
-    if (!/^[a-zA-Z0-9]+$/.test(serialNumber)) {
-      setError("Serial number must be alphanumeric");
+    if (!/^[A-Z0-9]{1,20}$/.test(serialNumber)) {
+      setError("Serial number must be alphanumeric (capital letters and numbers) and up to 20 characters");
       setLoading(false);
       return;
     }
@@ -238,9 +256,10 @@ const UnlockSection = () => {
                 <input
                   type="text"
                   id="imei"
-                  placeholder="e.g. 867698041234567"
+                  placeholder="Enter the 15-digit IMEI number"
                   value={imei}
-                  onChange={(e) => setImei(e.target.value)}
+                  onChange={handleImeiChange}
+                  maxLength={15} // Enforce max length in UI
                 />
                 {imei.length > 0 && (
                   <p
@@ -259,7 +278,7 @@ const UnlockSection = () => {
                     {/^\d{15}$/.test(imei) && tacRouterDB[imei.substring(0, 8)]
                       ? "IMEI is verified and brand and model are auto-selected"
                       : imei.length < 15
-                      ? "Please enter full IMEI number"
+                      ? "Please enter exactly 15 digits"
                       : "Please enter Brand and Model manually"}
                   </p>
                 )}
@@ -346,9 +365,10 @@ const UnlockSection = () => {
               <input
                 type="text"
                 id="serialNumber"
-                placeholder="e.g. 867xxxxxxxxxxxx"
+                placeholder="Enter the serial number"
                 value={serialNumber}
-                onChange={(e) => setSerialNumber(e.target.value)}
+                onChange={handleSerialNumberChange}
+                maxLength={20} // Enforce max length in UI
               />
 
               <label htmlFor="mobileNumber">Enter WhatsApp Number</label>
@@ -384,7 +404,7 @@ const UnlockSection = () => {
                     onClick={() => setShowTermsPopup(true)}
                   >
                     Terms and Conditions
-                  </span>
+clouds                  </span>
                 </label>
               </div>
 
@@ -425,7 +445,7 @@ const UnlockSection = () => {
                         </li>
                       </ul>
 
-                      <h2>2. the rest of the terms and conditions are unchanged </h2>
+                      <h2>2. The rest of the terms and conditions are unchanged</h2>
                     </div>
                     <button onClick={() => setShowTermsPopup(false)}>
                       Close
@@ -453,7 +473,7 @@ const UnlockSection = () => {
 
         <div className="unlock-image">
           <div className="image-glow-wrapper">
-            < img src={BrandLogo} alt="People using phone" />
+            <img src={BrandLogo} alt="People using phone" />
           </div>
         </div>
       </div>
