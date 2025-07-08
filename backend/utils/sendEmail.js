@@ -43,7 +43,7 @@ const sendEmail = async ({ to, subject, template, data }) => {
         <li><strong>Serial Number:</strong> ${serialNumber}</li>
         <li><strong>Whatsapp Number:</strong> ${mobileNumber}</li>
         <li><strong>Email:</strong> ${email}</li>
-        <li><strong>Amount Paid:</strong> SAR ${amount}</li>
+        <li><strong>Amount Paid:</strong> USD ${amount}</li>
         <li><strong>Payment Time:</strong> ${paymentTime}</li>
       </ul>
       <p>We will process your unlock request shortly. Contact us at genuineunlockerinfo@gmail.com if you have any questions.</p>
@@ -63,7 +63,7 @@ const sendEmail = async ({ to, subject, template, data }) => {
         <li><strong>Serial Number:</strong> ${serialNumber}</li>
         <li><strong>Customer Whatsapp Number:</strong> ${mobileNumber}</li>
         <li><strong>Customer Email:</strong> ${email || 'Not provided'}</li>
-        <li><strong>Amount Received:</strong> SAR ${amount}</li>
+        <li><strong>Amount Received:</strong> USD ${amount}</li>
         <li><strong>Payment Time:</strong> ${paymentTime}</li>
       </ul>
       <p>Please review and process the order promptly.</p>

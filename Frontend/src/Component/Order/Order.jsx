@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import "./Order.css";
-import Logo from "../../assets/Genuine Unlocker Logo.png"; // Ensure this path is correct
+import Logo from "../../assets/Genuine Unlocker Logo.png";
 
 const Order = () => {
   const { orderId } = useParams();
@@ -10,38 +10,12 @@ const Order = () => {
   const [loading, setLoading] = useState(true);
   const [paymentLoading, setPaymentLoading] = useState(false);
 
-  // Environment variables with fallbacks
-  const API_BASE_URL = (import.meta.env.VITE_API_URL || "https://api.example.com").replace(/\/$/, "");
-  const RAZORPAY_KEY = import.meta.env.VITE_RAZORPAY_KEY_ID || "";
+  const API_BASE_URL = (
+    import.meta.env.VITE_API_URL || "http://localhost:5000"
+  ).replace(/\/$/, "");
+  const PAYPAL_CLIENT_ID = import.meta.env.VITE_PAYPAL_CLIENT_ID || "";
 
-  // Simple email validation regex
-  const isValidEmail = (email) => {
-    return email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  };
-
-  // Load Razorpay script
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://checkout.razorpay.com/v1/checkout.js";
-    script.async = true;
-    let isMounted = true;
-
-    script.onload = () => {
-      if (isMounted) setError("");
-    };
-    script.onerror = () => {
-      if (isMounted) setError("Failed to load payment gateway. Please refresh the page.");
-    };
-
-    document.body.appendChild(script);
-
-    return () => {
-      isMounted = false;
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
-      }
-    };
-  }, []);
+  const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   // Fetch order details
   useEffect(() => {
@@ -54,163 +28,153 @@ const Order = () => {
 
       setLoading(true);
       try {
-        const response = await fetch(`${API_BASE_URL}/api/order-details/${orderId}`, {
-          headers: { Accept: "application/json" },
-          signal: AbortSignal.timeout(10000), // 10s timeout
-        });
-        if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.error || `HTTP error ${response.status}`);
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 10000);
+
+        const res = await fetch(
+          `${API_BASE_URL}/api/order-details/${orderId}`,
+          {
+            headers: { Accept: "application/json" },
+            signal: controller.signal,
+          }
+        );
+        clearTimeout(timeout);
+
+        if (!res.ok) {
+          const err = await res.json();
+          throw new Error(err.error || "Error fetching order.");
         }
-        const data = await response.json();
-        if (!data?.orderId) {
-          throw new Error("Invalid order data received.");
-        }
-        // Log the received data to debug email
-        console.log("Received order data:", data);
-        if (data.email && !isValidEmail(data.email)) {
-          console.warn("Invalid email format received:", data.email);
-          data.email = null; // Treat invalid email as not provided
-        }
+
+        const data = await res.json();
+        if (!data?.orderId) throw new Error("Invalid order data.");
+        if (!isValidEmail(data.email)) data.email = "";
+
         setOrder(data);
         setError("");
       } catch (err) {
-        console.error("Fetch order error:", err.message);
-        setError(err.message || "Failed to fetch order details. Please try again.");
+        setError(err.message);
       } finally {
         setLoading(false);
       }
     };
+
     fetchOrder();
   }, [orderId, API_BASE_URL]);
 
-  // Initiate Razorpay payment
-  const initiatePayment = async () => {
-    if (!window.Razorpay) {
-      setError("Payment gateway not loaded. Please refresh the page.");
-      return;
-    }
+  // Load PayPal SDK and render
+  useEffect(() => {
+    if (!order || order.paymentStatus !== "Pending") return;
 
-    if (!RAZORPAY_KEY) {
-      setError("Payment configuration missing. Please contact support.");
-      return;
-    }
+    const container = document.getElementById("paypal-button-container");
 
-    if (!order?.amount || !order?.orderId) {
-      setError("Invalid order details. Please try again.");
-      return;
-    }
+    const loadPayPalSDK = () => {
+      if (!PAYPAL_CLIENT_ID) {
+        setError("PayPal Client ID missing.");
+        return;
+      }
 
-    if (order.email && !isValidEmail(order.email)) {
-      setError("Invalid email address. Please update your order details.");
-      return;
-    }
+      const scriptId = "paypal-sdk";
+      const renderWhenReady = () => {
+        if (window.paypal) renderPayPalButton();
+      };
 
-    setPaymentLoading(true);
-    try {
-      const options = {
-        key: RAZORPAY_KEY,
-        amount: Math.round(Number(order.amount) * 100),
-        currency: "INR",
-        order_id: order.orderId,
-        name: "Genuine Unlocker",
-        description: `${order.model || "Device"} Eligibility Check`,
-        handler: async (response) => {
+      if (!document.getElementById(scriptId)) {
+        const script = document.createElement("script");
+        script.id = scriptId;
+        script.src = `https://www.paypal.com/sdk/js?client-id=${PAYPAL_CLIENT_ID}&currency=USD`;
+        script.async = true;
+
+        script.onload = renderWhenReady;
+        script.onerror = () =>
+          setError("⚠️ Failed to load PayPal. Please refresh.");
+
+        document.body.appendChild(script);
+      } else {
+        renderWhenReady();
+      }
+    };
+
+    loadPayPalSDK();
+
+    // ResizeObserver: Retry if container becomes visible later (mobile fix)
+    const observer = new ResizeObserver(() => {
+      if (window.paypal && container?.children?.length === 0) {
+        renderPayPalButton();
+      }
+    });
+
+    if (container) observer.observe(container);
+
+    return () => observer.disconnect();
+  }, [order, PAYPAL_CLIENT_ID]);
+
+  const renderPayPalButton = () => {
+    const container = document.getElementById("paypal-button-container");
+    if (!window.paypal || !order?.orderId || !order?.amount || !container) return;
+
+    const rect = container.getBoundingClientRect();
+    if (rect.width < 100 || rect.height < 30) return;
+
+    if (container.children.length > 0) return;
+
+    window.paypal
+      .Buttons({
+        createOrder: () => order.orderId,
+        onApprove: async (data) => {
+          setPaymentLoading(true);
           try {
-            const res = await fetch(`${API_BASE_URL}/api/verify-payment`, {
+            const response = await fetch(`${API_BASE_URL}/api/verify-payment`, {
               method: "POST",
               headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                orderId: response.razorpay_order_id,
-                paymentId: response.razorpay_payment_id,
-                signature: response.razorpay_signature,
-              }),
+              body: JSON.stringify({ orderId: data.orderID }),
             });
-            const result = await res.json();
+            const result = await response.json();
+
             if (result.status === "success") {
               alert(
-                `✅ Payment completed successfully! ${
-                  order.email
-                    ? "An invoice has been sent to your email."
-                    : "No email provided for invoice delivery."
+                `✅ Payment completed! ${
+                  order.email ? "Invoice sent to email." : "No email provided."
                 }`
               );
-              const updated = await fetch(`${API_BASE_URL}/api/order-details/${orderId}`);
+              const updated = await fetch(
+                `${API_BASE_URL}/api/order-details/${orderId}`
+              );
               const updatedData = await updated.json();
-              if (updated.ok) {
-                setOrder(updatedData);
-              }
+              if (updated.ok) setOrder(updatedData);
             } else {
-              alert("❌ Payment verification failed. Please contact support.");
+              alert("❌ Payment verification failed.");
             }
           } catch (err) {
-            console.error("Payment verification error:", err);
-            alert("⚠️ Error verifying payment. Please try again.");
+            alert("⚠️ Payment verification failed.");
           } finally {
             setPaymentLoading(false);
           }
         },
-        prefill: {
-          contact: order.mobileNumber || "",
-          email: order.email || "",
+        onCancel: () => {
+          alert("❌ Payment was not completed. User cancelled the payment.");
+          setPaymentLoading(false);
         },
-        theme: {
-          color: "#28a745",
+        onError: (err) => {
+          console.error("PayPal Error:", err);
+          setError("❌ PayPal failed. Please try again.");
+          setPaymentLoading(false);
         },
-        modal: {
-          ondismiss: async () => {
-            try {
-              await fetch(`${API_BASE_URL}/api/verify-payment`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                  orderId: order.orderId,
-                  paymentId: null,
-                  signature: null,
-                }),
-              });
-              const updatedRes = await fetch(`${API_BASE_URL}/api/order-details/${orderId}`);
-              const updatedData = await updatedRes.json();
-              if (updatedRes.ok) {
-                setOrder(updatedData);
-              }
-              alert("❌ Payment was cancelled.");
-            } catch (err) {
-              console.error("Error updating failed payment status:", err);
-              alert("⚠️ Error updating payment status. Please try again.");
-            } finally {
-              setPaymentLoading(false);
-            }
-          },
-        },
-      };
-
-      const rzp = new window.Razorpay(options);
-      rzp.open();
-    } catch (err) {
-      console.error("Payment initiation error:", err);
-      setError("Failed to initiate payment. Please try again.");
-      setPaymentLoading(false);
-    }
+      })
+      .render(container);
   };
 
-  // Format date for display
   const formatDateTime = (isoString) => {
     if (!isoString) return "Not available";
-    try {
-      const date = new Date(isoString);
-      if (isNaN(date.getTime())) return "Invalid date";
-      return date.toLocaleString("en-IN", {
-        dateStyle: "medium",
-        timeStyle: "short",
-        timeZone: "Asia/Kolkata",
-      });
-    } catch {
-      return "Invalid date";
-    }
+    const date = new Date(isoString);
+    return isNaN(date.getTime())
+      ? "Invalid date"
+      : date.toLocaleString("en-IN", {
+          dateStyle: "medium",
+          timeStyle: "short",
+          timeZone: "Asia/Kolkata",
+        });
   };
 
-  // Handle loading state
   if (loading) {
     return (
       <div className="loader-container">
@@ -220,29 +184,21 @@ const Order = () => {
     );
   }
 
-  // Handle error state with retry option
   if (error) {
     return (
       <div className="error-container">
-        <p className="error-message" style={{ color: "red" }}>
-          {error}
-        </p>
-        <button
-          className="retry-button"
-          onClick={() => window.location.reload()}
-          style={{ marginTop: "10px", padding: "8px 16px" }}
-        >
+        <p className="error-message" style={{ color: "red" }}>{error}</p>
+        <button className="retry-button" onClick={() => window.location.reload()}>
           Retry
         </button>
       </div>
     );
   }
 
-  // Handle case when order is not found
   if (!order) {
     return (
       <div className="error-container">
-        <p>Order not found. Please try again later.</p>
+        <p>Order not found.</p>
         <Link to="/track-order">Track another order</Link>
       </div>
     );
@@ -253,90 +209,57 @@ const Order = () => {
       <div className="order-container">
         <div className="left-section">
           <h1>
-            Order a {order.brand || "Device"} {order.model || "Model"} router unlock for{" "}
-            {order.network || "Network"}.
+            Order a {order.brand || "Device"} {order.model || "Model"} router unlock for {order.network || "Network"}.
           </h1>
           <p className="description">
-            Unlock Your {order.brand || "Device"} {order.model || "Model"} Router for Seamless Use with{" "}
-            {order.network || "Network"}.
+            Unlock your {order.brand || "Device"} router for seamless use with {order.network || "Network"}.
           </p>
 
           {(order.paymentStatus === "Success" || order.paymentStatus === "Failed") && (
             <>
               <div className="input-group-order">
                 <label>ORDER ID</label>
-                <input type="text" value={order.orderId || "N/A"} readOnly />
+                <input value={order.orderId} readOnly />
               </div>
               <div className="input-group-order">
                 <label>PAYMENT DATE & TIME</label>
-                <input type="text" value={formatDateTime(order.paymentTime)} readOnly />
+                <input value={formatDateTime(order.paymentTime)} readOnly />
               </div>
             </>
           )}
 
-          <div className="input-group-order">
-            <label>Brand</label>
-            <input type="text" value={order.brand || "N/A"} readOnly />
-          </div>
-          <div className="input-group-order">
-            <label>Model</label>
-            <input type="text" value={order.model || "N/A"} readOnly />
-          </div>
-          <div className="input-group-order">
-            <label>IMEI Number</label>
-            <input type="text" value={order.imei || "N/A"} readOnly />
-          </div>
-          <div className="input-group-order">
-            <label>S/N</label>
-            <input type="text" value={order.serialNumber || "N/A"} readOnly />
-          </div>
-          <div className="input-group-order">
-            <label>Network</label>
-            <input type="text" value={order.network || "N/A"} readOnly />
-          </div>
-          <div className="input-group-order">
-            <label>WhatsApp Number</label>
-            <input type="text" value={order.mobileNumber || "N/A"} readOnly />
-          </div>
-          <div className="input-group-order">
-            <label>Email</label>
-            <input
-              type="text"
-              value={order.email || "Not provided"}
-              readOnly
-              style={{ width: "100%", minWidth: "200px" }} // Ensure sufficient width
-            />
-          </div>
+          <div className="input-group-order"><label>Brand</label><input value={order.brand || "N/A"} readOnly /></div>
+          <div className="input-group-order"><label>Model</label><input value={order.model || "N/A"} readOnly /></div>
+          <div className="input-group-order"><label>IMEI Number</label><input value={order.imei || "N/A"} readOnly /></div>
+          <div className="input-group-order"><label>S/N</label><input value={order.serialNumber || "N/A"} readOnly /></div>
+          <div className="input-group-order"><label>Network</label><input value={order.network || "N/A"} readOnly /></div>
+          <div className="input-group-order"><label>WhatsApp Number</label><input value={order.mobileNumber || "Not provided"} readOnly /></div>
+          <div className="input-group-order"><label>Email</label><input value={order.email || "Not provided"} readOnly /></div>
 
           <div className="payment-buttons">
             {order.paymentStatus === "Pending" ? (
-              <button
-                className="payment-button pay-now"
-                onClick={initiatePayment}
-                disabled={paymentLoading}
-              >
-                {paymentLoading ? (
-                  <div className="button-spinner"></div>
-                ) : (
-                  `💸 Pay Now SAR ${order.amount || "0"}`
-                )}
-              </button>
+              <div className="paypal-button-wrapper">
+                <div id="paypal-button-container" />
+              </div>
             ) : (
-              <p
-                className="payment-status"
-                style={{
-                  color:
-                    order.paymentStatus === "Success"
-                      ? "#0e9512"
-                      : order.paymentStatus === "Failed"
-                      ? "#d00000"
-                      : "#000",
-                }}
-              >
+              <p className="payment-status" style={{
+                color: order.paymentStatus === "Success"
+                  ? "#0e9512"
+                  : order.paymentStatus === "Failed"
+                  ? "#d00000"
+                  : "#000"
+              }}>
                 Payment Status: {order.paymentStatus || "Unknown"}
               </p>
             )}
           </div>
+
+          {paymentLoading && (
+            <div className="loader-overlay">
+              <div className="modern-spinner"></div>
+              <p>Processing Payment...</p>
+            </div>
+          )}
 
           <p className="note">
             Ensure your device prompts for an unlock code with a non-{order.network || "Network"} SIM. Otherwise, a credit note will be issued.
@@ -349,13 +272,10 @@ const Order = () => {
 
         <div className="right-section">
           <h2>Order Summary</h2>
-          <div className="summary-item">
-            <span>PRODUCT</span>
-            <span>TOTAL</span>
-          </div>
+          <div className="summary-item"><span>PRODUCT</span><span>TOTAL</span></div>
           <div className="summary-item">
             <span>{order.model || "Device"} Eligibility Check</span>
-            <span>SAR {order.amount || "0"}</span>
+            <span>USD {order.amount || "0"}</span>
           </div>
           <div className="logo-container">
             <img src={Logo} alt="Genuine Unlocker Logo" />

@@ -1,7 +1,7 @@
 .order-page-wrapper {
   width: 100%;
-  min-height: calc(100vh - 160px); /* Adjust based on fixed navbar + footer */
-  padding: 0 16px;
+  min-height: calc(100vh - 160px); /* Adjust based on navbar + footer */
+  padding: 0 4vw; /* Responsive padding */
   box-sizing: border-box;
   overflow-y: auto;
   background: linear-gradient(135deg, #e0e7ff 0%, #f3e8ff 100%);
@@ -9,19 +9,18 @@
 
 .order-container {
   display: flex;
-  gap: 25px;
+  gap: 2rem; /* Responsive gap */
   max-width: 1200px;
   margin: 0 auto;
   flex-wrap: wrap;
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding: 5rem 0; /* Responsive padding */
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
   color: #333;
 }
 
 .left-section, .right-section {
-  padding: 30px;
+  padding: 2rem;
   background: white;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
@@ -34,62 +33,65 @@
 
 .left-section {
   flex: 2;
+  min-width: 280px; /* Ensure minimum width for small screens */
   background: linear-gradient(145deg, #ffffff, #f9f9f9);
 }
 
 .right-section {
   flex: 1;
+  min-width: 250px; /* Ensure minimum width for small screens */
   background: linear-gradient(145deg, #ffffff, #f9f9f9);
 }
 
 /* --- Text and Inputs --- */
 .order-container h1 {
-  font-size: 28px;
-  margin-bottom: 20px;
+  font-size: clamp(1.5rem, 4vw, 1.75rem); /* Responsive font size */
+  margin-bottom: 1.5rem;
   color: #7c08b2;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0.5rem;
   font-weight: 600;
 }
 
 .order-container h1 span {
-  font-size: 30px;
+  font-size: clamp(1.6rem, 4.5vw, 1.875rem);
 }
 
 .description {
-  font-size: 14px;
+  font-size: clamp(0.875rem, 2.5vw, 1rem);
   color: #6b7280;
-  margin-bottom: 25px;
+  margin-bottom: 1.5rem;
   line-height: 1.6;
 }
 
 .input-group-order {
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 }
 
 .input-group-order label {
   display: block;
-  font-size: 14px;
+  font-size: clamp(0.75rem, 2.2vw, 0.875rem);
   font-weight: 600;
-  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
   color: #4b5563;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 .input-group-order input {
-  all: unset; /* removes all default input styles */
+  all: unset;
   font-weight: bold;
-  font-size: 15px;
-  color:#7c08b2;
+  font-size: clamp(0.875rem, 2.5vw, 1rem);
+  color: #7c08b2;
+  width: 100%; /* Full width for inputs */
 }
 
 /* --- Terms and Links --- */
 .terms {
-  font-size: 13px;
+  font-size: clamp(0.75rem, 2vw, 0.8125rem);
   color: #6b7280;
-  margin: 20px 0;
+  margin: 1.25rem 0;
 }
 
 .terms a {
@@ -106,30 +108,49 @@
 /* --- Payment Buttons --- */
 .payment-buttons {
   display: flex;
-  gap: 10px;
-  margin-bottom: 15px;
+  gap: 0.625rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
 }
 
 .payment-button {
   flex: 1;
-  padding: 14px;
+  padding: 0.875rem;
   color: white;
   border: none;
   border-radius: 8px;
-  font-size: 16px;
+  font-size: clamp(0.875rem, 2.5vw, 1rem);
   font-weight: 500;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 0.75rem;
   transition: background 0.3s ease, transform 0.2s ease;
-  background:linear-gradient(90deg, #007bff, #0056b3);;
+  background: linear-gradient(90deg, #007bff, #0056b3);
+  min-height: 44px; /* Ensure touch-friendly size */
 }
 
 .payment-button:disabled {
   background: #cccccc;
   cursor: not-allowed;
+}
+
+.paypal-button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.25rem;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+#paypal-button-container {
+  min-height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Prevent overly wide PayPal button */
 }
 
 /* --- Loader Styles --- */
@@ -143,12 +164,12 @@
 }
 
 .modern-spinner {
-  width: 50px;
-  height: 50px;
-  border: 5px solid rgba(40, 167, 69, 0.2);
-  border-top: 5px solid #28a745;
+  width: clamp(40px, 10vw, 50px);
+  height: clamp(40px, 10vw, 50px);
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #333;
   border-radius: 50%;
-  animation: spin 0.8s linear infinite;
+  animation: spin 1s linear infinite;
 }
 
 .button-spinner {
@@ -158,42 +179,41 @@
   border-top: 3px solid #ffffff;
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
-  margin-right: 8px;
+  margin-right: 0.5rem;
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  to { transform: rotate(360deg); }
 }
 
 /* --- Payment Status --- */
 .payment-status {
-  font-size: 20px;
+  font-size: clamp(1rem, 3vw, 1.25rem);
   font-weight: 800;
-  margin-bottom: 15px;
+  margin-bottom: 1rem;
 }
 
 /* --- Note --- */
 .note {
-  font-size: 13px;
+  font-size: clamp(0.75rem, 2vw, 0.8125rem);
   color: #6b7280;
-  margin-top: 15px;
+  margin-top: 1rem;
   line-height: 1.6;
 }
 
 /* --- Right Section Summary --- */
 .right-section h2 {
-  font-size: 20px;
+  font-size: clamp(1.125rem, 3vw, 1.25rem);
   font-weight: 600;
-  margin-bottom: 25px;
+  margin-bottom: 1.5rem;
   color: #7c08b2;
 }
 
 .summary-item {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 15px;
-  font-size: 15px;
+  margin-bottom: 1rem;
+  font-size: clamp(0.875rem, 2.5vw, 1rem);
   color: #4b5563;
 }
 
@@ -203,9 +223,9 @@
 }
 
 .progress {
-  font-size: 14px;
+  font-size: clamp(0.75rem, 2.2vw, 0.875rem);
   color: #6b7280;
-  margin: 20px 0;
+  margin: 1.25rem 0;
   font-style: italic;
 }
 
@@ -215,7 +235,7 @@
 }
 
 .details {
-  font-size: 13px;
+  font-size: clamp(0.75rem, 2vw, 0.8125rem);
   color: #6b7280;
   line-height: 1.6;
 }
@@ -223,30 +243,116 @@
 /* --- Branding --- */
 .logo-container {
   text-align: center;
-  margin: 25px 0;
+  margin: 1.5rem 0;
 }
 
 .logo-container img {
-  max-width: 120px;
+  max-width: clamp(100px, 25vw, 120px);
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* --- Responsive --- */
+/* --- Error Container --- */
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 160px);
+  text-align: center;
+  padding: 1rem;
+}
+
+.error-message {
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  margin-bottom: 1rem;
+}
+
+.retry-button {
+  padding: 0.75rem 1.5rem;
+  font-size: clamp(0.875rem, 2.5vw, 1rem);
+  color: white;
+  background: linear-gradient(90deg, #007bff, #0056b3);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  min-height: 44px; /* Touch-friendly */
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 1024px) {
+  .order-container {
+    padding: 3rem 0;
+  }
+
+  .left-section, .right-section {
+    flex: 1;
+    padding: 1.5rem;
+  }
+}
+
 @media (max-width: 768px) {
   .order-container {
     flex-direction: column;
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding: 2rem 0;
     min-height: calc(100vh - 120px);
   }
 
   .left-section, .right-section {
     flex: 1;
+    min-width: 100%; /* Full width on mobile */
   }
 
   .payment-buttons {
     flex-direction: column;
-    gap: 10px;
+    gap: 0.625rem;
   }
+
+  #paypal-button-container {
+    min-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .order-page-wrapper {
+    padding: 0 3vw;
+  }
+
+  .order-container {
+    padding: 1.5rem 0;
+  }
+
+  .left-section, .right-section {
+    padding: 1rem;
+  }
+
+  .order-container h1 {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .payment-button, .retry-button {
+    font-size: clamp(0.75rem, 2.2vw, 0.875rem);
+    padding: 0.625rem;
+  }
+
+  .logo-container img {
+    max-width: clamp(80px, 20vw, 100px);
+  }
+}
+
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.85);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
 }
