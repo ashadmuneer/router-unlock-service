@@ -147,20 +147,18 @@ const UnlockSection = () => {
     setError("");
     setLoading(true);
 
-    if (!serialNumber || !mobileNumber || !email || !termsAccepted) {
-      setError("Please fill in all fields and agree to the terms and conditions");
-      setLoading(false);
-      return;
-    }
-
-    if (!/^\d{10}$/.test(mobileNumber)) {
-      setError("Mobile number must be 10 digits");
+    if (!serialNumber || !email || !termsAccepted) {
+      setError(
+        "Please fill in all fields and agree to the terms and conditions"
+      );
       setLoading(false);
       return;
     }
 
     if (!/^[A-Z0-9]{1,20}$/.test(serialNumber)) {
-      setError("Serial number must be alphanumeric (capital letters and numbers) and up to 20 characters");
+      setError(
+        "Serial number must be alphanumeric (capital letters and numbers) and up to 20 characters"
+      );
       setLoading(false);
       return;
     }
@@ -171,22 +169,11 @@ const UnlockSection = () => {
       return;
     }
 
-    const networkToSubmit = selectedNetwork === "Other" ? customNetwork : selectedNetwork;
+    const networkToSubmit =
+      selectedNetwork === "Other" ? customNetwork : selectedNetwork;
 
-    console.log("Submitting order:", {
-      brand: selectedBrand,
-      model: selectedModel,
-      network: networkToSubmit,
-      imei,
-      serialNumber,
-      mobileNumber,
-      email,
-      termsAccepted,
-    });
 
     const url = `${import.meta.env.VITE_API_URL}/api/create-order`;
-    console.log("API URL:", url);
-
     try {
       const response = await fetch(url, {
         method: "POST",
@@ -209,7 +196,6 @@ const UnlockSection = () => {
       }
 
       const data = await response.json();
-      console.log("Response:", data);
 
       if (data.orderId) {
         navigate(`/order/${data.orderId}`);
@@ -371,15 +357,6 @@ const UnlockSection = () => {
                 maxLength={20} // Enforce max length in UI
               />
 
-              <label htmlFor="mobileNumber">Enter WhatsApp Number</label>
-              <input
-                type="text"
-                id="mobileNumber"
-                placeholder="e.g. 89xxxxxxxx"
-                value={mobileNumber}
-                onChange={(e) => setMobileNumber(e.target.value)}
-              />
-
               <label htmlFor="email">Enter Email</label>
               <input
                 type="email"
@@ -389,6 +366,35 @@ const UnlockSection = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
+
+              <label htmlFor="mobileNumber">Enter WhatsApp Number</label>
+              <div style={{ display: "flex", gap: "0.5rem" }}>
+                <select
+                  value={mobileNumber.startsWith("+966") ? "+966" : "+91"}
+                  onChange={(e) =>
+                    setMobileNumber(
+                      (prev) => e.target.value + prev.replace(/^\+?\d{1,4}/, "")
+                    )
+                  }
+                >
+                  <option value="+966">🇸🇦 +966 (KSA)</option>
+                  <option value="+91">🇮🇳 +91 (India)</option>
+                  <option value="+971">🇦🇪 +971 (UAE)</option>
+                  <option value="+1">🇺🇸 +1 (USA)</option>
+                </select>
+                <input
+                  type="tel"
+                  id="mobileNumber"
+                  placeholder="Enter number"
+                  value={mobileNumber.replace(/^\+?\d{1,4}/, "")}
+                  onChange={(e) =>
+                    setMobileNumber((prev) => {
+                      const code = prev.match(/^\+?\d{1,4}/)?.[0] || "+966";
+                      return code + e.target.value.replace(/\D/g, "");
+                    })
+                  }
+                />
+              </div>
 
               <div className="terms-checkbox">
                 <input
@@ -403,8 +409,8 @@ const UnlockSection = () => {
                     className="terms-link"
                     onClick={() => setShowTermsPopup(true)}
                   >
-                    Terms and Conditions
-clouds                  </span>
+                    Terms and Conditions clouds{" "}
+                  </span>
                 </label>
               </div>
 
@@ -445,7 +451,9 @@ clouds                  </span>
                         </li>
                       </ul>
 
-                      <h2>2. The rest of the terms and conditions are unchanged</h2>
+                      <h2>
+                        2. The rest of the terms and conditions are unchanged
+                      </h2>
                     </div>
                     <button onClick={() => setShowTermsPopup(false)}>
                       Close

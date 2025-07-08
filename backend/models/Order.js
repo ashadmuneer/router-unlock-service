@@ -6,7 +6,7 @@ const orderSchema = new mongoose.Schema({
   network: { type: String, required: true },
   imei: { type: String, required: true },
   serialNumber: { type: String, required: true },
-  mobileNumber: { type: String, required: true },
+  mobileNumber: { type: String },
   email: { type: String, required: true },
   amount: { type: Number, required: true },
   termsAccepted: { type: Boolean, required: true },
