@@ -3,600 +3,204 @@ export const cardData = [
     id: 1,
     tag: "Technology",
     tagColor: "tag-teal",
-    title: "Why the Tesla Cybertruck Redefines Electric Vehicles",
-    description:
-      "Explore the innovative design and technology behind Tesla's Cybertruck.",
-    image:
-      "https://images.pexels.com/photos/3861458/pexels-photo-3861458.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    title: "How to Unlock OPPO 5G CPE T1a (CTC03)",
+    description: "Step-by-step guide to unlock the OPPO 5G CPE T1a router for networks like Zain.",
+    image: "https://img.youtube.com/vi/ZfB4KDu994A/maxresdefault.jpg",
     user: {
-      name: "John Doe",
-      time: "2 minutes ago",
-      image:
-        "https://images.pexels.com/photos/736716/pexels-photo-736716.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      name: "Genuine Unlocker",
+      time: "Just now",
+      image: "https://yt3.ggpht.com/ytc/AGIKgqP0Aq0XzZc5xL9Qk1Ffd7IExZ7Crw9JHcZn7g=s88-c-k-c0x00ffffff-no-rj",
     },
     content: [
-      {
-        title: "Revolutionary Design",
-        text: "The Cybertruck's angular exoskeleton is built for durability and efficiency.",
-      },
-      {
-        title: "Impact on EVs",
-        text: "Tesla's innovation sets a new benchmark for electric vehicle performance.",
-      },
+      { title: "Model Covered", text: "This video focuses on OPPO 5G CPE T1a (CTC03) router unlocking." },
+      { title: "Carrier Unlock", text: "Unlocking is demonstrated for Zain and other supported networks." },
     ],
-    video: {
-      title: "Tesla Cybertruck Unveil",
-      url: "https://www.youtube.com/embed/m7atGkba-Z8",
-    },
+    video: { title: "OPPO 5G CPE T1a Unlock Guide", url: "https://www.youtube.com/embed/ZfB4KDu994A" },
   },
   {
     id: 2,
-    tag: "Travel",
-    tagColor: "tag-travel",
-    title: "Road Tripping with the Tesla Cybertruck",
-    description:
-      "Discover how the Cybertruck makes long-distance travel seamless and eco-friendly.",
-    image:
-      "https://images.unsplash.com/photo-1530521954074-e64f6810b32d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    tag: "Technology",
+    tagColor: "tag-blue",
+    title: "Unlock Huawei 5G CPE Pro 2 (H122-373) Easily",
+    description: "Unlock your Huawei 5G CPE Pro 2 router for global carrier support.",
+    image: "https://img.youtube.com/vi/6DbACIRlcvY/maxresdefault.jpg",
     user: {
-      name: "Bobur Rajapov",
-      time: "22 September, 2020",
-      image:
-        "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      name: "Genuine Unlocker",
+      time: "Just now",
+      image: "https://yt3.ggpht.com/ytc/AGIKgqP0Aq0XzZc5xL9Qk1Ffd7IExZ7Crw9JHcZn7g=s88-c-k-c0x00ffffff-no-rj",
     },
     content: [
-      {
-        title: "Travel with Ease",
-        text: "The Cybertruck's range and storage make road trips effortless.",
-      },
-      {
-        title: "Eco-Conscious Journeys",
-        text: "Travel sustainably with Tesla’s electric powertrain.",
-      },
+      { title: "Model Covered", text: "Huawei 5G CPE Pro 2 (H122-373) full unlocking process." },
+      { title: "Network Compatibility", text: "Supports unlocking for use with Saudi, UAE, and other carriers." },
     ],
-    video: {
-      title: "Cybertruck Road Trip Guide",
-      url: "https://www.youtube.com/embed/6zrn4-FfbXw",
-    },
+    video: { title: "Huawei 5G CPE Pro 2 Unlock Tutorial", url: "https://www.youtube.com/embed/6DbACIRlcvY" },
   },
   {
     id: 3,
     tag: "Technology",
-    tagColor: "tag-teal",
-    title: "The Future of Battery Technology in EVs",
-    description:
-      "How advancements in battery tech are powering the next generation of vehicles.",
-    image:
-      "https://images.pexels.com/photos/3861458/pexels-photo-3861458.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    tagColor: "tag-orange",
+    title: "BROVI 5G CPE 5 (H155-381) Unlocking Guide",
+    description: "Learn how to unlock the BROVI 5G CPE 5 router model H155-381 for any carrier.",
+    image: "https://img.youtube.com/vi/OC_RctGH6Ng/maxresdefault.jpg",
     user: {
-      name: "Alice Smith",
-      time: "3 hours ago",
-      image:
-        "https://images.pexels.com/photos/1239288/pexels-photo-1239288.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      name: "Genuine Unlocker",
+      time: "Just now",
+      image: "https://yt3.ggpht.com/ytc/AGIKgqP0Aq0XzZc5xL9Qk1Ffd7IExZ7Crw9JHcZn7g=s88-c-k-c0x00ffffff-no-rj",
     },
     content: [
-      {
-        title: "Battery Innovations",
-        text: "New battery designs offer longer range and faster charging.",
-      },
-      {
-        title: "Sustainability Impact",
-        text: "Eco-friendly batteries reduce the carbon footprint of EVs.",
-      },
+      { title: "Device Info", text: "Step-by-step guide for the H155-381 model from BROVI." },
+      { title: "Unlock Benefits", text: "Use your router with any SIM card across multiple countries." },
     ],
-    video: {
-      title: "EV Battery Breakthroughs",
-      url: "https://www.youtube.com/embed/m7atGkba-Z8",
-    },
+    video: { title: "BROVI CPE H155-381 Unlocking Process", url: "https://www.youtube.com/embed/OC_RctGH6Ng" },
   },
   {
     id: 4,
-    tag: "Travel",
-    tagColor: "tag-travel",
-    title: "Exploring National Parks with Electric Vehicles",
-    description:
-      "Experience nature sustainably with the power of electric vehicles.",
-    image:
-      "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    tag: "Technology",
+    tagColor: "tag-teal",
+    title: "Unlock Huawei 5G E6878-370 Router",
+    description: "Complete guide to unlocking Huawei 5G E6878-370 for cross-country carrier use.",
+    image: "https://img.youtube.com/vi/24Dsr9K9W3g/maxresdefault.jpg",
     user: {
-      name: "Temur Avazov",
-      time: "22 September, 2020",
-      image:
-        "https://images.unsplash.com/photo-1565464027194-7957a2295fb7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      name: "Genuine Unlocker",
+      time: "Just now",
+      image: "https://yt3.ggpht.com/ytc/AGIKgqP0Aq0XzZc5xL9Qk1Ffd7IExZ7Crw9JHcZn7g=s88-c-k-c0x00ffffff-no-rj",
     },
     content: [
-      {
-        title: "Eco-Friendly Exploration",
-        text: "Visit national parks without harming the environment.",
-      },
-      {
-        title: "Adventure Ready",
-        text: "EVs like the Cybertruck are built for rugged terrains.",
-      },
+      { title: "Model Covered", text: "Huawei 5G E6878-370 router unlocking process." },
+      { title: "Global Use", text: "Works across Saudi, Bahrain, Kuwait networks." },
     ],
-    video: {
-      title: "EV National Park Adventures",
-      url: "https://www.youtube.com/embed/6zrn4-FfbXw",
-    },
+    video: { title: "Huawei 5G E6878-370 Unlock Guide", url: "https://www.youtube.com/embed/24Dsr9K9W3g" },
   },
   {
     id: 5,
     tag: "Technology",
-    tagColor: "tag-teal",
-    title: "Autonomous Driving: The Next Frontier",
-    description:
-      "How self-driving technology is transforming the automotive industry.",
-    image:
-      "https://images.pexels.com/photos/3861458/pexels-photo-3861458.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    user: {
-      name: "John Doe",
-      time: "1 hour ago",
-      image:
-        "https://images.pexels.com/photos/736716/pexels-photo-736716.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    },
-    content: [
-      {
-        title: "Self-Driving Tech",
-        text: "Autonomous vehicles use AI to navigate roads safely.",
-      },
-      {
-        title: "Future Implications",
-        text: "Self-driving cars could reduce accidents and traffic.",
-      },
-    ],
-    video: {
-      title: "Autonomous Driving Explained",
-      url: "https://www.youtube.com/embed/m7atGkba-Z8",
-    },
+    tagColor: "tag-green",
+    title: "Unlock 5G Router",
+    description: "Step-by-step unlock tutorial for a 5G CPE router.",
+    image: "https://img.youtube.com/vi/xIecRa3ZLTM/maxresdefault.jpg",
+    user: { name: "Genuine Unlocker", time: "Just now", image: "https://yt3.ggpht.com/ytc/AGIKgqP0Aq0XzZc5xL9Qk1Ffd7IExZ7Crw9JHcZn7g=s88-c-k-c0x00ffffff-no-rj" },
+    content: [{ title: "Quick Unlock", text: "Fast unlock process for your 5G router." }],
+    video: { title: "5G Router Unlock Guide", url: "https://www.youtube.com/embed/xIecRa3ZLTM" },
   },
   {
     id: 6,
-    tag: "Travel",
-    tagColor: "tag-travel",
-    title: "Camping with the Tesla Cybertruck",
-    description:
-      "Turn your camping trip into an adventure with the Cybertruck’s features.",
-    image:
-      "https://images.unsplash.com/photo-1530521954074-e64f6810b32d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-    user: {
-      name: "Bobur Rajapov",
-      time: "22 September, 2020",
-      image:
-        "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    },
-    content: [
-      {
-        title: "Camping Made Easy",
-        text: "The Cybertruck’s power supply and space enhance camping.",
-      },
-      {
-        title: "Off-Grid Adventures",
-        text: "Explore remote locations with confidence.",
-      },
-    ],
-    video: {
-      title: "Cybertruck Camping Guide",
-      url: "https://www.youtube.com/embed/6zrn4-FfbXw",
-    },
+    tag: "Technology",
+    tagColor: "tag-blue",
+    title: "Unlock 5G Router",
+    description: "Unlock tutorial for another 5G router model.",
+    image: "https://img.youtube.com/vi/LGxFg8oH8r0/maxresdefault.jpg",
+    user: { name: "Genuine Unlocker", time: "Just now", image: "https://yt3.ggpht.com/ytc/AGIKgqP0Aq0XzZc5xL9Qk1Ffd7IExZ7Crw9JHcZn7g=s88-c-k-c0x00ffffff-no-rj" },
+    content: [{ title: "Model Specific", text: "Designed for a specific 5G CPE model." }],
+    video: { title: "5G Router Unlock Tutorial 2", url: "https://www.youtube.com/embed/LGxFg8oH8r0" },
   },
   {
     id: 7,
     tag: "Technology",
-    tagColor: "tag-teal",
-    title: "The Rise of Electric Pickup Trucks",
-    description:
-      "Why electric pickups like the Cybertruck are gaining popularity.",
-    image:
-      "https://images.pexels.com/photos/3861458/pexels-photo-3861458.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    user: {
-      name: "Alice Smith",
-      time: "4 hours ago",
-      image:
-        "https://images.pexels.com/photos/1239288/pexels-photo-1239288.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    },
-    content: [
-      {
-        title: "Electric Pickup Boom",
-        text: "Electric trucks offer power and sustainability.",
-      },
-      {
-        title: "Market Trends",
-        text: "The shift to electric is reshaping the truck industry.",
-      },
-    ],
-    video: {
-      title: "Electric Trucks Overview",
-      url: "https://www.youtube.com/embed/m7atGkba-Z8",
-    },
+    tagColor: "tag-orange",
+    title: "Unlock 5G Router",
+    description: "Unlock your 5G router quickly and easily.",
+    image: "https://img.youtube.com/vi/atRy1pdg2PQ/maxresdefault.jpg",
+    user: { name: "Genuine Unlocker", time: "Just now", image: "https://yt3.ggpht.com/ytc/AGIKgqP0Aq0XzZc5xL9Qk1Ffd7IExZ7Crw9JHcZn7g=s88-c-k-c0x00ffffff-no-rj" },
+    content: [{ title: "Easy Steps", text: "Simple dashboard unlock walkthrough." }],
+    video: { title: "5G CPE Unlock Video", url: "https://www.youtube.com/embed/atRy1pdg2PQ" },
   },
   {
     id: 8,
-    tag: "Travel",
-    tagColor: "tag-travel",
-    title: "Cross-Country Adventures with EVs",
-    description:
-      "Plan a cross-country trip with the reliability of electric vehicles.",
-    image:
-      "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-    user: {
-      name: "Temur Avazov",
-      time: "22 September, 2020",
-      image:
-        "https://images.unsplash.com/photo-1565464027194-7957a2295fb7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-    },
-    content: [
-      {
-        title: "Cross-Country Planning",
-        text: "Leverage charging networks for seamless travel.",
-      },
-      {
-        title: "Scenic Routes",
-        text: "Explore America’s beauty with an EV.",
-      },
-    ],
-    video: {
-      title: "EV Cross-Country Trip",
-      url: "https://www.youtube.com/embed/6zrn4-FfbXw",
-    },
+    tag: "Technology",
+    tagColor: "tag-teal",
+    title: "Unlock 5G Router",
+    description: "Carrier-friendly unlock tutorial for 5G CPE.",
+    image: "https://img.youtube.com/vi/RVYJIteOq1A/maxresdefault.jpg",
+    user: { name: "Genuine Unlocker", time: "Just now", image: "https://yt3.ggpht.com/ytc/AGIKgqP0Aq0XzZc5xL9Qk1Ffd7IExZ7Crw9JHcZn7g=s88-c-k-c0x00ffffff-no-rj" },
+    content: [{ title: "Carrier Support", text: "Works with multiple Middle Eastern carriers." }],
+    video: { title: "5G CPE Carrier Unlock", url: "https://www.youtube.com/embed/RVYJIteOq1A" },
   },
   {
     id: 9,
     tag: "Technology",
-    tagColor: "tag-teal",
-    title: "How Tesla’s Autopilot Works",
-    description:
-      "A deep dive into the technology behind Tesla’s Autopilot system.",
-    image:
-      "https://images.pexels.com/photos/3861458/pexels-photo-3861458.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    user: {
-      name: "John Doe",
-      time: "2 hours ago",
-      image:
-        "https://images.pexels.com/photos/736716/pexels-photo-736716.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    },
-    content: [
-      {
-        title: "Autopilot Technology",
-        text: "Sensors and AI enable advanced driver assistance.",
-      },
-      {
-        title: "Safety Benefits",
-        text: "Autopilot reduces the risk of accidents.",
-      },
-    ],
-    video: {
-      title: "Tesla Autopilot Explained",
-      url: "https://www.youtube.com/embed/m7atGkba-Z8",
-    },
+    tagColor: "tag-green",
+    title: "Unlock 5G Router",
+    description: "Guide for unlocking another model of 5G expansion router.",
+    image: "https://img.youtube.com/vi/gIo6TAtgIQk/maxresdefault.jpg",
+    user: { name: "Genuine Unlocker", time: "Just now", image: "https://yt3.ggpht.com/ytc/AGIKgqP0Aq0XzZc5xL9Qk1Ffd7IExZ7Crw9JHcZn7g=s88-c-k-c0x00ffffff-no-rj" },
+    content: [{ title: "Unlocking Steps", text: "Dives into firmware configuration and unlock codes." }],
+    video: { title: "5G CPE Unlock Walkthrough", url: "https://www.youtube.com/embed/gIo6TAtgIQk" },
   },
   {
     id: 10,
-    tag: "Travel",
-    tagColor: "tag-travel",
-    title: "Family Road Trips with the Cybertruck",
-    description:
-      "Make family vacations memorable with the Cybertruck’s features.",
-    image:
-      "https://images.unsplash.com/photo-1530521954074-e64f6810b32d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-    user: {
-      name: "Bobur Rajapov",
-      time: "22 September, 2020",
-      image:
-        "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    },
-    content: [
-      {
-        title: "Family-Friendly Design",
-        text: "Spacious interiors ensure comfort for all.",
-      },
-      {
-        title: "Safety First",
-        text: "Advanced safety features protect your loved ones.",
-      },
-    ],
-    video: {
-      title: "Cybertruck Family Adventures",
-      url: "https://www.youtube.com/embed/6zrn4-FfbXw",
-    },
+    tag: "Technology",
+    tagColor: "tag-blue",
+    title: "Unlock 5G Router",
+    description: "Another 5G CPE unlock demonstration with tips.",
+    image: "https://img.youtube.com/vi/KRJXtEQIQgc/maxresdefault.jpg",
+    user: { name: "Genuine Unlocker", time: "Just now", image: "https://yt3.ggpht.com/ytc/AGIKgqP0Aq0XzZc5xL9Qk1Ffd7IExZ7Crw9JHcZn7g=s88-c-k-c0x00ffffff-no-rj" },
+    content: [{ title: "Quick Guide", text: "Fast unlock steps, no software necessary." }],
+    video: { title: "5G CPE Unlock Guide 3", url: "https://www.youtube.com/embed/KRJXtEQIQgc" },
   },
   {
     id: 11,
     tag: "Technology",
-    tagColor: "tag-teal",
-    title: "The Cybertruck’s Armor Glass Explained",
-    description:
-      "Why Tesla’s armor glass is a game-changer for vehicle durability.",
-    image:
-      "https://images.pexels.com/photos/3861458/pexels-photo-3861458.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    user: {
-      name: "Alice Smith",
-      time: "5 hours ago",
-      image:
-        "https://images.pexels.com/photos/1239288/pexels-photo-1239288.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    },
-    content: [
-      {
-        title: "Armor Glass Technology",
-        text: "Ultra-strong glass withstands extreme conditions.",
-      },
-      {
-        title: "Real-World Applications",
-        text: "From construction to off-roading, it’s built to last.",
-      },
-    ],
-    video: {
-      title: "Cybertruck Armor Glass Demo",
-      url: "https://www.youtube.com/embed/m7atGkba-Z8",
-    },
+    tagColor: "tag-oranget", // adjusted color if needed
+    title: "Unlock 5G Router",
+    description: "In-depth guide for unlocking 5G CPE system.",
+    image: "https://img.youtube.com/vi/jj7wxiHNv_4/maxresdefault.jpg",
+    user: { name: "Genuine Unlocker", time: "Just now", image: "https://yt3.ggpht.com/ytc/AGIKgqP0Aq0XzZc5xL9Qk1Ffd7IExZ7Crw9JHcZn7g=s88-c-k-c0x00ffffff-no-rj" },
+    content: [{ title: "Deep Dive", text: "Explores advanced unlock parameters." }],
+    video: { title: "5G CPE Unlock Deep Dive", url: "https://www.youtube.com/embed/jj7wxiHNv_4" },
   },
   {
     id: 12,
-    tag: "Travel",
-    tagColor: "tag-travel",
-    title: "Off-Road Adventures with Tesla Cybertruck",
-    description:
-      "Tackle any terrain with the Cybertruck’s off-road capabilities.",
-    image:
-      "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-    user: {
-      name: "Temur Avazov",
-      time: "22 September, 2020",
-      image:
-        "https://images.unsplash.com/photo-1565464027194-7957a2295fb7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-    },
-    content: [
-      {
-        title: "Off-Road Prowess",
-        text: "High ground clearance and robust tires conquer any path.",
-      },
-      {
-        title: "Adventure Ready",
-        text: "Explore the wilderness with confidence.",
-      },
-    ],
-    video: {
-      title: "Cybertruck Off-Road Experience",
-      url: "https://www.youtube.com/embed/6zrn4-FfbXw",
-    },
+    tag: "Technology",
+    tagColor: "tag-teal",
+    title: "Unlock 5G Router",
+    description: "Unlock tutorial targeting firmware-based locks.",
+    image: "https://img.youtube.com/vi/ixoOb8giatE/maxresdefault.jpg",
+    user: { name: "Genuine Unlocker", time: "Just now", image: "https://yt3.ggpht.com/ytc/AGIKgqP0Aq0XzZc5xL9Qk1Ffd7IExZ7Crw9JHcZn7g=s88-c-k-c0x00ffffff-no-rj" },
+    content: [{ title: "Firmware Focus", text: "Tutorial covers firmware unlock module." }],
+    video: { title: "5G CPE Firmware Unlock", url: "https://www.youtube.com/embed/ixoOb8giatE" },
   },
   {
     id: 13,
     tag: "Technology",
-    tagColor: "tag-teal",
-    title: "Tesla’s Supercharging Network Expansion",
-    description:
-      "How Tesla’s charging infrastructure supports long-distance EV travel.",
-    image:
-      "https://images.pexels.com/photos/3861458/pexels-photo-3861458.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    user: {
-      name: "John Doe",
-      time: "6 hours ago",
-      image:
-        "https://images.pexels.com/photos/736716/pexels-photo-736716.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    },
-    content: [
-      {
-        title: "Supercharger Growth",
-        text: "Tesla’s network now covers thousands of locations.",
-      },
-      {
-        title: "Travel Benefits",
-        text: "Fast charging enables worry-free road trips.",
-      },
-    ],
-    video: {
-      title: "Tesla Supercharger Tour",
-      url: "https://www.youtube.com/embed/m7atGkba-Z8",
-    },
+    tagColor: "tag-green",
+    title: "Unlock 5G Router",
+    description: "Carrier-neutral guide for unlocking 5G routers.",
+    image: "https://img.youtube.com/vi/cDySfiW-5Rc/maxresdefault.jpg",
+    user: { name: "Genuine Unlocker", time: "Just now", image: "https://yt3.ggpht.com/ytc/AGIKgqP0Aq0XzZc5xL9Qk1Ffd7IExZ7Crw9JHcZn7g=s88-c-k-c0x00ffffff-no-rj" },
+    content: [{ title: "Neutral Unlock", text: "Applies to routers in many regions." }],
+    video: { title: "5G Router Universal Unlock", url: "https://www.youtube.com/embed/cDySfiW-5Rc" },
   },
   {
     id: 14,
-    tag: "Travel",
-    tagColor: "tag-travel",
-    title: "Exploring Coastal Routes with EVs",
-    description:
-      "Drive along scenic coastlines with the power of electric vehicles.",
-    image:
-      "https://images.unsplash.com/photo-1530521954074-e64f6810b32d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-    user: {
-      name: "Bobur Rajapov",
-      time: "22 September, 2020",
-      image:
-        "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    },
-    content: [
-      {
-        title: "Coastal Beauty",
-        text: "Enjoy breathtaking views with zero emissions.",
-      },
-      {
-        title: "EV Advantages",
-        text: "Silent motors enhance the peaceful drive.",
-      },
-    ],
-    video: {
-      title: "Coastal EV Road Trip",
-      url: "https://www.youtube.com/embed/6zrn4-FfbXw",
-    },
+    tag: "Technology",
+    tagColor: "tag-blue",
+    title: "Unlock 5G Router",
+    description: "Unlock guide tailored for Middle East carriers.",
+    image: "https://img.youtube.com/vi/74qreSTmv9o/maxresdefault.jpg",
+    user: { name: "Genuine Unlocker", time: "Just now", image: "https://yt3.ggpht.com/ytc/AGIKgqP0Aq0XzZc5xL9Qk1Ffd7IExZ7Crw9JHcZn7g=s88-c-k-c0x00ffffff-no-rj" },
+    content: [{ title: "Regional Focus", text: "Targeted at Saudi, Bahrain, Kuwait unlocks." }],
+    video: { title: "5G Router ME Unlock", url: "https://www.youtube.com/embed/74qreSTmv9o" },
   },
   {
     id: 15,
     tag: "Technology",
-    tagColor: "tag-teal",
-    title: "The Cybertruck’s Electric Motor Efficiency",
-    description:
-      "How Tesla’s motors deliver unmatched performance and efficiency.",
-    image:
-      "https://images.pexels.com/photos/3861458/pexels-photo-3861458.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    user: {
-      name: "Alice Smith",
-      time: "7 hours ago",
-      image:
-        "https://images.pexels.com/photos/1239288/pexels-photo-1239288.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    },
-    content: [
-      {
-        title: "Motor Technology",
-        text: "Tesla’s electric motors optimize power and range.",
-      },
-      {
-        title: "Performance Edge",
-        text: "Instant torque delivers thrilling acceleration.",
-      },
-    ],
-    video: {
-      title: "Cybertruck Motor Breakdown",
-      url: "https://www.youtube.com/embed/m7atGkba-Z8",
-    },
+    tagColor: "tag-orange",
+    title: "Unlock 5G Router",
+    description: "Tutorial for unlocking Next-gen 5G CPE devices.",
+    image: "https://img.youtube.com/vi/VbZHkXZmUEA/maxresdefault.jpg",
+    user: { name: "Genuine Unlocker", time: "Just now", image: "https://yt3.ggpht.com/ytc/AGIKgqP0Aq0XzZc5xL9Qk1Ffd7IExZ7Crw9JHcZn7g=s88-c-k-c0x00ffffff-no-rj" },
+    content: [{ title: "Next-gen Model", text: "Covers unlocking of a newer 5G CPE model." }],
+    video: { title: "5G Next-gen Router Unlock", url: "https://www.youtube.com/embed/VbZHkXZmUEA" },
   },
   {
     id: 16,
-    tag: "Travel",
-    tagColor: "tag-travel",
-    title: "Winter Adventures with the Cybertruck",
-    description:
-      "Navigate snowy terrains with the Cybertruck’s all-wheel drive.",
-    image:
-      "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-    user: {
-      name: "Temur Avazov",
-      time: "22 September, 2020",
-      image:
-        "https://images.unsplash.com/photo-1565464027194-7957a2295fb7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-    },
-    content: [
-      {
-        title: "Winter Performance",
-        text: "All-wheel drive ensures stability in snow.",
-      },
-      {
-        title: "Cold-Weather Tips",
-        text: "Maximize range in freezing conditions.",
-      },
-    ],
-    video: {
-      title: "Cybertruck Winter Driving",
-      url: "https://www.youtube.com/embed/6zrn4-FfbXw",
-    },
-  },
-  {
-    id: 17,
     tag: "Technology",
     tagColor: "tag-teal",
-    title: "Tesla’s Software Updates: What’s New",
-    description:
-      "How over-the-air updates keep Tesla vehicles cutting-edge.",
-    image:
-      "https://images.pexels.com/photos/3861458/pexels-photo-3861458.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    user: {
-      name: "John Doe",
-      time: "8 hours ago",
-      image:
-        "https://images.pexels.com/photos/736716/pexels-photo-736716.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    },
-    content: [
-      {
-        title: "OTA Updates",
-        text: "Software updates enhance performance and features.",
-      },
-      {
-        title: "User Benefits",
-        text: "Get new functionalities without visiting a service center.",
-      },
-    ],
-    video: {
-      title: "Tesla Software Update Guide",
-      url: "https://www.youtube.com/embed/m7atGkba-Z8",
-    },
-  },
-  {
-    id: 18,
-    tag: "Travel",
-    tagColor: "tag-travel",
-    title: "Urban Exploration with Electric Vehicles",
-    description:
-      "Discover city life with the efficiency of EVs like the Cybertruck.",
-    image:
-      "https://images.unsplash.com/photo-1530521954074-e64f6810b32d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-    user: {
-      name: "Bobur Rajapov",
-      time: "22 September, 2020",
-      image:
-        "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    },
-    content: [
-      {
-        title: "City Driving",
-        text: "EVs offer quiet and efficient urban mobility.",
-      },
-      {
-        title: "Parking and Charging",
-        text: "Navigate cities with ease using EV infrastructure.",
-      },
-    ],
-    video: {
-      title: "EV Urban Exploration",
-      url: "https://www.youtube.com/embed/6zrn4-FfbXw",
-    },
-  },
-  {
-    id: 19,
-    tag: "Technology",
-    tagColor: "tag-teal",
-    title: "The Cybertruck’s Towing Capabilities",
-    description:
-      "How the Cybertruck’s towing power rivals traditional trucks.",
-    image:
-      "https://images.pexels.com/photos/3861458/pexels-photo-3861458.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    user: {
-      name: "Alice Smith",
-      time: "9 hours ago",
-      image:
-        "https://images.pexels.com/photos/1239288/pexels-photo-1239288.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    },
-    content: [
-      {
-        title: "Towing Power",
-        text: "The Cybertruck can tow heavy loads with ease.",
-      },
-      {
-        title: "Practical Uses",
-        text: "From trailers to boats, it’s a versatile workhorse.",
-      },
-    ],
-    video: {
-      title: "Cybertruck Towing Demo",
-      url: "https://www.youtube.com/embed/m7atGkba-Z8",
-    },
-  },
-  {
-    id: 20,
-    tag: "Travel",
-    tagColor: "tag-travel",
-    title: "Eco-Friendly Road Trips with EVs",
-    description:
-      "Plan sustainable road trips with electric vehicles like the Cybertruck.",
-    image:
-      "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-    user: {
-      name: "Temur Avazov",
-      time: "22 September, 2020",
-      image:
-        "https://images.unsplash.com/photo-1565464027194-7957a2295fb7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-    },
-    content: [
-      {
-        title: "Sustainable Travel",
-        text: "Reduce your carbon footprint on every journey.",
-      },
-      {
-        title: "Road Trip Tips",
-        text: "Plan your route with EV charging in mind.",
-      },
-    ],
-    video: {
-      title: "Eco-Friendly EV Travel",
-      url: "https://www.youtube.com/embed/6zrn4-FfbXw",
-    },
+    title: "Unlock 5G Router",
+    description: "Final video unlocking a premium 5G CPE router.",
+    image: "https://img.youtube.com/vi/i9o5izDktSQ/maxresdefault.jpg",
+    user: { name: "Genuine Unlocker", time: "Just now", image: "https://yt3.ggpht.com/ytc/AGIKgqP0Aq0XzZc5xL9Qk1Ffd7IExZ7Crw9JHcZn7g=s88-c-k-c0x00ffffff-no-rj" },
+    content: [{ title: "Premium Model", text: "Detailed unlock of a high-end CPE router." }],
+    video: { title: "5G Premium Router Unlock", url: "https://www.youtube.com/embed/i9o5izDktSQ" },
   },
 ];

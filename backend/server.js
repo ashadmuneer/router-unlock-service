@@ -11,7 +11,7 @@ const port = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:5173','https://router-unlock-service-1.onrender.com']// Allow only your frontend's URL
+  origin: ['http://localhost:5173','https://router-unlock-service-1.onrender.com','https://genuineunlocker.net']// Allow only your frontend's URL
 }));
 app.use(bodyParser.json());
 app.use(express.static('public'));

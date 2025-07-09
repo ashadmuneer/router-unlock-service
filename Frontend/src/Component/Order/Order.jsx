@@ -274,7 +274,7 @@ const Order = () => {
           <h2>Order Summary</h2>
           <div className="summary-item"><span>PRODUCT</span><span>TOTAL</span></div>
           <div className="summary-item">
-            <span>{order.model || "Device"} Eligibility Check</span>
+            <span>{order.brand || "Device"} {order.model || "Model"} Unlock Code</span>
             <span>USD {order.amount || "0"}</span>
           </div>
           <div className="logo-container">
