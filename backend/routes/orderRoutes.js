@@ -14,27 +14,23 @@ if (!process.env.PAYPAL_CLIENT_ID || !process.env.PAYPAL_CLIENT_SECRET) {
   process.exit(1);
 }
 
-// PayPal client configuration
-// const environment = new paypal.core.SandboxEnvironment(
-//   process.env.PAYPAL_CLIENT_ID,
-//   process.env.PAYPAL_CLIENT_SECRET
-// );
+// PayPal client configuration (Live Environment)
 const environment = new paypal.core.LiveEnvironment(
   process.env.PAYPAL_CLIENT_ID,
   process.env.PAYPAL_CLIENT_SECRET
 );
 const paypalClient = new paypal.core.PayPalHttpClient(environment);
 
-// Pricing in USD (converted from SAR)
+// Pricing in USD
 const networkPricing = {
   STC: 2,
   ZAIN: 2,
   MOBILY: 2,
   GO: 2,
-  Other:2,
+  Other: 2,
 };
 
-// Create order
+// Create PayPal order
 router.post("/create-order", async (req, res) => {
   const {
     brand,
@@ -50,13 +46,8 @@ router.post("/create-order", async (req, res) => {
   console.log("[Create Order] Payload:", req.body);
 
   if (
-    !brand ||
-    !model ||
-    !network ||
-    !imei ||
-    !serialNumber ||
-    !email ||
-    termsAccepted !== true
+    !brand || !model || !network || !imei ||
+    !serialNumber || !email || termsAccepted !== true
   ) {
     return res
       .status(400)
@@ -76,8 +67,8 @@ router.post("/create-order", async (req, res) => {
     request.requestBody({
       intent: "CAPTURE",
       application_context: {
-        shipping_preference: "NO_SHIPPING", // ✅ This ensures no delivery required
-        user_action: "PAY_NOW", // ✅ Makes PayPal button say "Pay Now"
+        shipping_preference: "NO_SHIPPING",
+        user_action: "PAY_NOW",
       },
       purchase_units: [
         {
@@ -91,21 +82,25 @@ router.post("/create-order", async (req, res) => {
               },
             },
           },
-          description: `Router unlock for ${brand} ${model} (${network}) - IMEI: ${imei}`,
-          soft_descriptor: `Unlock ${brand.slice(0, 12)}`,
+          description: `Instant digital unlock for ${brand} ${model} (${network}) - IMEI: ${imei}`,
+          soft_descriptor: `UNLOCK-${brand.slice(0, 11).toUpperCase()}`,
+          custom_id: `IMEI-${imei}`,
           items: [
             {
               name: `Unlock ${brand} ${model}`,
-              description: `Unlock for ${brand} router on ${network}`,
+              description: `Instant digital unlock service (no shipping)`,
               sku: imei,
               unit_amount: {
                 currency_code: "USD",
                 value: amount.toFixed(2),
               },
               quantity: "1",
-              category: "DIGITAL_GOODS", // ✅ No shipping, no delivery, no holds
+              category: "DIGITAL_GOODS",
             },
           ],
+          payment_instruction: {
+            disbursement_mode: "INSTANT", // ✅ Reduce hold possibility
+          },
         },
       ],
     });
@@ -146,7 +141,7 @@ router.post("/create-order", async (req, res) => {
   }
 });
 
-// Verify payment
+// Verify and capture payment
 router.post("/verify-payment", async (req, res) => {
   const { orderId } = req.body;
 
@@ -178,7 +173,7 @@ router.post("/verify-payment", async (req, res) => {
 
     if (capture.result.status === "COMPLETED") {
       try {
-        // Email to user
+        // Send confirmation email to user
         if (order.email) {
           await sendEmail({
             to: order.email,
@@ -191,7 +186,7 @@ router.post("/verify-payment", async (req, res) => {
           });
         }
 
-        // Email to admin
+        // Send alert to admin
         await sendEmail({
           to: "genuineunlockerinfo@gmail.com",
           subject: "New Router Unlock Order Received",
