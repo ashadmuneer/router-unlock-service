@@ -28,10 +28,10 @@ const paypalClient = new paypal.core.PayPalHttpClient(environment);
 // Pricing in USD (converted from SAR)
 const networkPricing = {
   STC: 2,
-  ZAIN: 0.012,
-  MOBILY: 0.012,
-  GO: 0.012,
-  Other: 0.012,
+  ZAIN: 2,
+  MOBILY: 2,
+  GO: 2,
+  Other:2,
 };
 
 // Create order

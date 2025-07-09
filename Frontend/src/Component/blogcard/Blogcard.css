@@ -117,3 +117,8 @@
   box-shadow: 0 5px 12px rgba(0, 123, 255, 0.3);
   color: #fff;
 }
+@media (max-width: 768px){
+  .blogcard-wrapper {
+  padding: 20px;
+}
+}
