@@ -955,11 +955,13 @@ const UnlockSection = () => {
                 {loading ? "Submitting..." : "Proceed to Checkout 🛒"}
               </button>
               <button
-                className="back-button"
-                onClick={() => setShowSecondPart(false)}
-              >
-                Back
-              </button>
+  className="back-button"
+  onClick={() => setShowSecondPart(false)}
+  disabled={loading}
+  style={loading ? { opacity: 0.6, cursor: "not-allowed" } : {}}
+>
+  Back
+</button>
             </>
           )}
         </div>
