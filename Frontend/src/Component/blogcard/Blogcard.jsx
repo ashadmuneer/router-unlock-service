@@ -32,8 +32,8 @@ const Blogcard = () => {
           Top <span>articles</span> from our <span>Blog</span>
         </h3>
         <p>
-          Covering everything you need to know about unlocking and selling routers,
-          MiFi/s, wingles, modems and phones.
+          Covering everything you need to know about unlocking Routers,
+          Modems And MiFi/s.
         </p>
       </div>
 

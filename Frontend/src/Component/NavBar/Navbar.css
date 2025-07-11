@@ -147,3 +147,61 @@ nav {
     display: flex;
   }
 }
+/* Shared icon styles */
+.contact-icons {
+  display: flex;
+  gap: 0.7rem;
+}
+
+.contact-icons a {
+  color: #702083;
+  transition: color 0.3s ease;
+  font-size: 1.3rem;
+}
+
+.contact-icons a:hover {
+  color: #000;
+}
+
+
+/* Desktop contact section */
+.contact-desktop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  margin-left: auto;
+  color: #702083;
+}
+
+.contact-desktop span {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+/* Mobile contact (inside menu) */
+.mobile-contact {
+  display: none;
+}
+
+/* Show mobile contact, hide desktop contact */
+@media (max-width: 768px) {
+  .contact-desktop {
+    display: none;
+  }
+
+  .mobile-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #ddd;
+    color: #702083;
+  }
+
+  .mobile-contact span {
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+}

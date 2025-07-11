@@ -25,7 +25,7 @@ footer .col-3 {
 
 footer a {
   text-decoration: none;
-  transitioning: 0.5s;
+  transition: 0.5s;
   color: white;
 }
 
@@ -34,7 +34,8 @@ footer a:hover {
 }
 
 footer .fa-whatsapp,
-footer .fa-envelope {
+footer .fa-envelope,
+footer .fa-telegram-plane {
   margin-right: 5px;
 }
 
