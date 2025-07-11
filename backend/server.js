@@ -21,6 +21,8 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(express.static('public'));
 app.get('/ping', (req, res) => {
+  const timestamp = new Date().toISOString();
+  console.log(`[PING] Received at ${timestamp} from ${req.ip}`);
   res.status(200).send('✅ Server is awake');
 });
 
