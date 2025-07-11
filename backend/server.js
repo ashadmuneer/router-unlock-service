@@ -20,9 +20,13 @@ app.use(cors(corsOptions));
 // Middleware
 app.use(bodyParser.json());
 app.use(express.static('public'));
+app.get('/ping', (req, res) => {
+  res.status(200).send('✅ Server is awake');
+});
 
 // Connect to MongoDB
 connectDB();
+
 
 // Routes
 app.use('/api', orderRoutes);
