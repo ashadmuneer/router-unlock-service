@@ -11,7 +11,7 @@ const port = process.env.PORT || 5000;
 
 // ✅ Working CORS setup
 const corsOptions = {
-  origin: 'https://genuineunlocker.net',
+  origin: ['https://genuineunlocker.net', 'http://localhost:5173'],
   credentials: true,
   optionsSuccessStatus: 200
 };

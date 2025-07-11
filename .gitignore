@@ -5,3 +5,4 @@
 /Frontend/.env
 /backend/.env
 *.log
+backend/server.js

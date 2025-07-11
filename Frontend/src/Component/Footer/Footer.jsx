@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
 import Logo from '../../assets/Logo2.png'
+
 const Footer = () => {
   return (
     <footer>
@@ -39,6 +40,11 @@ const Footer = () => {
         <div className="col-3">
           <h6>For Any Inquiries, Contact Us</h6>
           <ul>
+            <li>
+              <a href="https://t.me/GenuineUnlock" target="_blank" rel="noopener noreferrer" className="footer-link">
+                <i className="fa-brands fa-telegram-plane"></i> Telegram
+              </a>
+            </li>
             <li>
               <a href="https://wa.me/919140672714" target="_blank" rel="noopener noreferrer" className="footer-link">
                 <i className="fa-brands fa-whatsapp"></i> WhatsApp
