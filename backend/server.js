@@ -17,8 +17,7 @@ app.use(cors({
   credentials: true
 }));
 
-app.options('*', cors()); // handle preflight
-
+app.options('*', cors());
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
