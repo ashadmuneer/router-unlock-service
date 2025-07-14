@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const orderSchema = new mongoose.Schema({
   brand: { type: String, required: true },
@@ -12,9 +12,11 @@ const orderSchema = new mongoose.Schema({
   termsAccepted: { type: Boolean, required: true },
   orderId: { type: String, required: true },
   paymentId: { type: String },
-  paymentStatus: { type: String, default: 'Pending' },
+  paymentStatus: { type: String, default: "Pending" },
   paymentTime: { type: Date },
+  deliveryTime: { type: String },
+
   createdAt: { type: Date, default: Date.now },
 });
 
-module.exports = mongoose.model('Order', orderSchema);
+module.exports = mongoose.model("Order", orderSchema);

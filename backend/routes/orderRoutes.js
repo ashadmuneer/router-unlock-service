@@ -26,8 +26,17 @@ const networkPricing = {
   STC: 2,
   ZAIN: 2,
   MOBILY: 2,
-  GO: 2,
+  "GO Telecom": 3,
   Other: 2,
+};
+
+// Delivery Time Based on Network
+const networkDeliveryTimes = {
+  STC: "1–9 hours",
+  ZAIN: "1–10 Day",
+  MOBILY: "1–9 hours",
+  GO: "1-9 hours",
+  Other: "1-9 hours",
 };
 
 // Create PayPal order
@@ -59,6 +68,7 @@ router.post("/create-order", async (req, res) => {
   }
 
   const amount = networkPricing[network] || networkPricing.Other;
+  const deliveryTime = networkDeliveryTimes[network] || networkDeliveryTimes.Other;
 
   try {
     const request = new paypal.orders.OrdersCreateRequest();
@@ -99,7 +109,7 @@ router.post("/create-order", async (req, res) => {
             },
           ],
           payment_instruction: {
-            disbursement_mode: "INSTANT", // ✅ Reduce hold possibility
+            disbursement_mode: "INSTANT",
           },
         },
       ],
@@ -121,6 +131,7 @@ router.post("/create-order", async (req, res) => {
       currency: "USD",
       orderId,
       invoiceId: `INV-${orderId}`,
+      deliveryTime, // ✅ Added
     });
 
     await order.save();
@@ -130,6 +141,7 @@ router.post("/create-order", async (req, res) => {
       amount,
       currency: "USD",
       clientId: process.env.PAYPAL_CLIENT_ID,
+      deliveryTime, // ✅ Returned
     });
   } catch (error) {
     console.error("[Create Order] PayPal Error:", {
@@ -173,7 +185,6 @@ router.post("/verify-payment", async (req, res) => {
 
     if (capture.result.status === "COMPLETED") {
       try {
-        // Send confirmation email to user
         if (order.email) {
           await sendEmail({
             to: order.email,
@@ -182,11 +193,11 @@ router.post("/verify-payment", async (req, res) => {
             data: {
               ...order.toObject(),
               paymentTime: order.paymentTime.toISOString(),
+              deliveryTime: order.deliveryTime,
             },
           });
         }
 
-        // Send alert to admin
         await sendEmail({
           to: "genuineunlockerinfo@gmail.com",
           subject: "New Router Unlock Order Received",
@@ -194,6 +205,7 @@ router.post("/verify-payment", async (req, res) => {
           data: {
             ...order.toObject(),
             paymentTime: order.paymentTime.toISOString(),
+            deliveryTime: order.deliveryTime,
           },
         });
 

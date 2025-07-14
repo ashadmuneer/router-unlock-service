@@ -110,7 +110,8 @@ const Order = () => {
 
   const renderPayPalButton = () => {
     const container = document.getElementById("paypal-button-container");
-    if (!window.paypal || !order?.orderId || !order?.amount || !container) return;
+    if (!window.paypal || !order?.orderId || !order?.amount || !container)
+      return;
 
     const rect = container.getBoundingClientRect();
     if (rect.width < 100 || rect.height < 30) return;
@@ -187,8 +188,13 @@ const Order = () => {
   if (error) {
     return (
       <div className="error-container">
-        <p className="error-message" style={{ color: "red" }}>{error}</p>
-        <button className="retry-button" onClick={() => window.location.reload()}>
+        <p className="error-message" style={{ color: "red" }}>
+          {error}
+        </p>
+        <button
+          className="retry-button"
+          onClick={() => window.location.reload()}
+        >
           Retry
         </button>
       </div>
@@ -209,13 +215,16 @@ const Order = () => {
       <div className="order-container">
         <div className="left-section">
           <h1>
-            Order a {order.brand || "Device"} {order.model || "Model"} router unlock for {order.network || "Network"}.
+            Order a {order.brand || "Device"} {order.model || "Model"} router
+            unlock for {order.network || "Network"}.
           </h1>
           <p className="description">
-            Unlock your {order.brand || "Device"} router for seamless use with {order.network || "Network"}.
+            Unlock your {order.brand || "Device"} router for seamless use with{" "}
+            {order.network || "Network"}.
           </p>
 
-          {(order.paymentStatus === "Success" || order.paymentStatus === "Failed") && (
+          {(order.paymentStatus === "Success" ||
+            order.paymentStatus === "Failed") && (
             <>
               <div className="input-group-order">
                 <label>ORDER ID</label>
@@ -228,13 +237,45 @@ const Order = () => {
             </>
           )}
 
-          <div className="input-group-order"><label>Brand</label><input value={order.brand || "N/A"} readOnly /></div>
-          <div className="input-group-order"><label>Model</label><input value={order.model || "N/A"} readOnly /></div>
-          <div className="input-group-order"><label>IMEI Number</label><input value={order.imei || "N/A"} readOnly /></div>
-          <div className="input-group-order"><label>S/N</label><input value={order.serialNumber || "N/A"} readOnly /></div>
-          <div className="input-group-order"><label>Network</label><input value={order.network || "N/A"} readOnly /></div>
-          <div className="input-group-order"><label>WhatsApp Number</label><input value={order.mobileNumber || "Not provided"} readOnly /></div>
-          <div className="input-group-order"><label>Email</label><input value={order.email || "Not provided"} readOnly /></div>
+          <div className="input-group-order">
+            <label>Brand</label>
+            <input value={order.brand || "N/A"} readOnly />
+          </div>
+
+          <div className="input-group-order">
+            <label>Model</label>
+            <input value={order.model || "N/A"} readOnly />
+          </div>
+
+          <div className="input-group-order">
+            <label>IMEI Number</label>
+            <input value={order.imei || "N/A"} readOnly />
+          </div>
+
+          <div className="input-group-order">
+            <label>S/N</label>
+            <input value={order.serialNumber || "N/A"} readOnly />
+          </div>
+
+          <div className="input-group-order">
+            <label>Network</label>
+            <input value={order.network || "N/A"} readOnly />
+          </div>
+
+          <div className="input-group-order">
+            <label>WhatsApp Number</label>
+            <input value={order.mobileNumber || "Not provided"} readOnly />
+          </div>
+
+          <div className="input-group-order">
+            <label>Email</label>
+            <input value={order.email || "Not provided"} readOnly />
+          </div>
+
+          <div className="input-group-order">
+            <label>Estimated Delivery Time</label>
+            <input value={order.deliveryTime || "N/A"} readOnly />
+          </div>
 
           <div className="payment-buttons">
             {order.paymentStatus === "Pending" ? (
@@ -242,13 +283,17 @@ const Order = () => {
                 <div id="paypal-button-container" />
               </div>
             ) : (
-              <p className="payment-status" style={{
-                color: order.paymentStatus === "Success"
-                  ? "#0e9512"
-                  : order.paymentStatus === "Failed"
-                  ? "#d00000"
-                  : "#000"
-              }}>
+              <p
+                className="payment-status"
+                style={{
+                  color:
+                    order.paymentStatus === "Success"
+                      ? "#0e9512"
+                      : order.paymentStatus === "Failed"
+                      ? "#d00000"
+                      : "#000",
+                }}
+              >
                 Payment Status: {order.paymentStatus || "Unknown"}
               </p>
             )}
@@ -262,19 +307,27 @@ const Order = () => {
           )}
 
           <p className="note">
-            Ensure your device prompts for an unlock code with a non-{order.network || "Network"} SIM. Otherwise, a credit note will be issued.
+            Ensure your device prompts for an unlock code with a non-
+            {order.network || "Network"} SIM. Otherwise, a credit note will be
+            issued.
           </p>
 
           <p className="track-link">
-            Want to track another order? <Link to="/track-order">Click here</Link>
+            Want to track another order?{" "}
+            <Link to="/track-order">Click here</Link>
           </p>
         </div>
 
         <div className="right-section">
           <h2>Order Summary</h2>
-          <div className="summary-item"><span>PRODUCT</span><span>TOTAL</span></div>
           <div className="summary-item">
-            <span>{order.brand || "Device"} {order.model || "Model"} Unlock Code</span>
+            <span>PRODUCT</span>
+            <span>TOTAL</span>
+          </div>
+          <div className="summary-item">
+            <span>
+              {order.brand || "Device"} {order.model || "Model"} Unlock Code
+            </span>
             <span>USD {order.amount || "0"}</span>
           </div>
           <div className="logo-container">
