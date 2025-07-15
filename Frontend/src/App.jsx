@@ -9,11 +9,13 @@ import Order from './Component/Order/Order';
 import TermsAndConditions from './Component/Termandconditions/TermsAndConditions';
 import About from './Component/AboutUs/About';
 import HowToUseCodePage from './Component/UnlockCode/HowToUseCode'
+import ScrollToTop from './Component/ScrollToTop';
 
 const App = () => {
   return (
     <>
       <NavBar />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
