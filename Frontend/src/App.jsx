@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'; // ✅ Added BrowserRouter
 import NavBar from './Component/NavBar/NavBar';
 import Footer from './Component/Footer/Footer';
 import Home from './Pages/Home';
@@ -8,12 +8,12 @@ import OrderTracking from './Component/OrderTracking/OrderTracking';
 import Order from './Component/Order/Order';
 import TermsAndConditions from './Component/Termandconditions/TermsAndConditions';
 import About from './Component/AboutUs/About';
-import HowToUseCodePage from './Component/UnlockCode/HowToUseCode'
+import HowToUseCodePage from './Component/UnlockCode/HowToUseCode';
 import ScrollToTop from './Component/ScrollToTop';
 
 const App = () => {
   return (
-    <>
+    <BrowserRouter> {/* ✅ Wrap everything in BrowserRouter */}
       <NavBar />
       <ScrollToTop />
       <Routes>
@@ -25,11 +25,10 @@ const App = () => {
         <Route path="/order-tracking" element={<OrderTracking />} />
         <Route path="/terms" element={<TermsAndConditions />} />
         <Route path="/how-to-use-code" element={<HowToUseCodePage />} />
-
         <Route path="/about" element={<About />} />
       </Routes>
       <Footer />
-    </>
+    </BrowserRouter>
   );
 };
 
