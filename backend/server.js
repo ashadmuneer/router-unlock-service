@@ -4,6 +4,7 @@ const cors = require('cors');
 const connectDB = require('./config/db');
 require('dotenv').config();
 const path = require('path');
+const fs = require('fs'); // Added for file existence check
 
 const orderRoutes = require('./routes/orderRoutes');
 
@@ -20,21 +21,24 @@ app.use(cors(corsOptions));
 
 // Middleware
 app.use(bodyParser.json());
-app.use(express.static('public'));
 
-// Ping endpoint for server health check
+// Serve static frontend files from Vite's dist folder
+const distPath = path.join(__dirname, 'dist');
+app.use(express.static(distPath));
+console.log('Serving static files from:', distPath);
+
+// API Routes
+app.use('/api', orderRoutes);
+console.log('API routes mounted at /api');
+
+// Serve index.html for all unknown routes to support SPA refresh
+
+
+// Ping endpoint for health check
 app.get('/ping', (req, res) => {
   const timestamp = new Date().toISOString();
   console.log(`[PING] Received at ${timestamp} from ${req.ip}`);
   res.status(200).send('✅ Server is awake');
-});
-
-// Routes
-app.use('/api', orderRoutes);
-
-// Serve index.html for SPA routing
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // Connect to MongoDB
@@ -51,7 +55,7 @@ connectToDB();
 
 // Error handling middleware
 app.use((err, req, res, next) => {
-  console.error(err.stack);
+  console.error('Error:', err.stack);
   res.status(500).send('Something went wrong!');
 });
 
