@@ -11,7 +11,6 @@ export default defineConfig(({ mode }) => {
     outDir: 'dist',
   },
     server: {
-      historyApiFallback: true,
       port: 5173,
       proxy: {
         '/api': {
