@@ -20,6 +20,9 @@ app.use(cors(corsOptions));
 // Middleware
 app.use(bodyParser.json());
 app.use(express.static('public'));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 app.get('/ping', (req, res) => {
   const timestamp = new Date().toISOString();
   console.log(`[PING] Received at ${timestamp} from ${req.ip}`);
