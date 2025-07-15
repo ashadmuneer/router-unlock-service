@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'; // ✅ Added BrowserRouter
+import {Routes, Route } from 'react-router-dom'; // ✅ Added BrowserRouter
 import NavBar from './Component/NavBar/NavBar';
 import Footer from './Component/Footer/Footer';
 import Home from './Pages/Home';
@@ -13,7 +13,7 @@ import ScrollToTop from './Component/ScrollToTop';
 
 const App = () => {
   return (
-    <BrowserRouter> {/* ✅ Wrap everything in BrowserRouter */}
+    <>
       <NavBar />
       <ScrollToTop />
       <Routes>
@@ -28,7 +28,7 @@ const App = () => {
         <Route path="/about" element={<About />} />
       </Routes>
       <Footer />
-    </BrowserRouter>
+      </>
   );
 };
 
