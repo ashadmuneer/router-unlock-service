@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import "./Order.css";
 import Logo from "../../assets/Genuine Unlocker Logo.png";
+import { Helmet } from "react-helmet-async";
+
 
 const Order = () => {
   const { orderId } = useParams();
@@ -211,131 +213,142 @@ const Order = () => {
   }
 
   return (
-    <div className="order-page-wrapper">
-      <div className="order-container">
-        <div className="left-section">
-          <h1>
-            Order a {order.brand || "Device"} {order.model || "Model"} router
-            unlock for {order.network || "Network"}.
-          </h1>
-          <p className="description">
-            Unlock your {order.brand || "Device"} router for seamless use with{" "}
-            {order.network || "Network"}.
-          </p>
+    <>
+      <Helmet>
+        <title>Check Your Unlock Order | GenuineUnlocker</title>
+        <meta
+          name="description"
+          content="View your unlock code order details and delivery status. Enter order ID to get tracking information."
+        />
+        <link rel="canonical" href="https://genuineunlocker.net/order" />
+      </Helmet>
 
-          {(order.paymentStatus === "Success" ||
-            order.paymentStatus === "Failed") && (
-            <>
-              <div className="input-group-order">
-                <label>ORDER ID</label>
-                <input value={order.orderId} readOnly />
-              </div>
-              <div className="input-group-order">
-                <label>PAYMENT DATE & TIME</label>
-                <input value={formatDateTime(order.paymentTime)} readOnly />
-              </div>
-            </>
-          )}
+      <div className="order-page-wrapper">
+        <div className="order-container">
+          <div className="left-section">
+            <h1>
+              Order a {order.brand || "Device"} {order.model || "Model"} router
+              unlock for {order.network || "Network"}.
+            </h1>
+            <p className="description">
+              Unlock your {order.brand || "Device"} router for seamless use with{" "}
+              {order.network || "Network"}.
+            </p>
 
-          <div className="input-group-order">
-            <label>Brand</label>
-            <input value={order.brand || "N/A"} readOnly />
-          </div>
-
-          <div className="input-group-order">
-            <label>Model</label>
-            <input value={order.model || "N/A"} readOnly />
-          </div>
-
-          <div className="input-group-order">
-            <label>IMEI Number</label>
-            <input value={order.imei || "N/A"} readOnly />
-          </div>
-
-          <div className="input-group-order">
-            <label>S/N</label>
-            <input value={order.serialNumber || "N/A"} readOnly />
-          </div>
-
-          <div className="input-group-order">
-            <label>Network</label>
-            <input value={order.network || "N/A"} readOnly />
-          </div>
-
-          <div className="input-group-order">
-            <label>WhatsApp Number</label>
-            <input value={order.mobileNumber || "Not provided"} readOnly />
-          </div>
-
-          <div className="input-group-order">
-            <label>Email</label>
-            <input value={order.email || "Not provided"} readOnly />
-          </div>
-
-          <div className="input-group-order">
-            <label>Estimated Delivery Time</label>
-            <input value={order.deliveryTime || "N/A"} readOnly />
-          </div>
-
-          <div className="payment-buttons">
-            {order.paymentStatus === "Pending" ? (
-              <div className="paypal-button-wrapper">
-                <div id="paypal-button-container" />
-              </div>
-            ) : (
-              <p
-                className="payment-status"
-                style={{
-                  color:
-                    order.paymentStatus === "Success"
-                      ? "#0e9512"
-                      : order.paymentStatus === "Failed"
-                      ? "#d00000"
-                      : "#000",
-                }}
-              >
-                Payment Status: {order.paymentStatus || "Unknown"}
-              </p>
+            {(order.paymentStatus === "Success" ||
+              order.paymentStatus === "Failed") && (
+              <>
+                <div className="input-group-order">
+                  <label>ORDER ID</label>
+                  <input value={order.orderId} readOnly />
+                </div>
+                <div className="input-group-order">
+                  <label>PAYMENT DATE & TIME</label>
+                  <input value={formatDateTime(order.paymentTime)} readOnly />
+                </div>
+              </>
             )}
-          </div>
 
-          {paymentLoading && (
-            <div className="loader-overlay">
-              <div className="modern-spinner"></div>
-              <p>Processing Payment...</p>
+            <div className="input-group-order">
+              <label>Brand</label>
+              <input value={order.brand || "N/A"} readOnly />
             </div>
-          )}
 
-          <p className="note">
-            Ensure your device prompts for an unlock code with a non-
-            {order.network || "Network"} SIM. Otherwise, a credit note will be
-            issued.
-          </p>
+            <div className="input-group-order">
+              <label>Model</label>
+              <input value={order.model || "N/A"} readOnly />
+            </div>
 
-          <p className="track-link">
-            Want to track another order?{" "}
-            <Link to="/track-order">Click here</Link>
-          </p>
-        </div>
+            <div className="input-group-order">
+              <label>IMEI Number</label>
+              <input value={order.imei || "N/A"} readOnly />
+            </div>
 
-        <div className="right-section">
-          <h2>Order Summary</h2>
-          <div className="summary-item">
-            <span>PRODUCT</span>
-            <span>TOTAL</span>
+            <div className="input-group-order">
+              <label>S/N</label>
+              <input value={order.serialNumber || "N/A"} readOnly />
+            </div>
+
+            <div className="input-group-order">
+              <label>Network</label>
+              <input value={order.network || "N/A"} readOnly />
+            </div>
+
+            <div className="input-group-order">
+              <label>WhatsApp Number</label>
+              <input value={order.mobileNumber || "Not provided"} readOnly />
+            </div>
+
+            <div className="input-group-order">
+              <label>Email</label>
+              <input value={order.email || "Not provided"} readOnly />
+            </div>
+
+            <div className="input-group-order">
+              <label>Estimated Delivery Time</label>
+              <input value={order.deliveryTime || "N/A"} readOnly />
+            </div>
+
+            <div className="payment-buttons">
+              {order.paymentStatus === "Pending" ? (
+                <div className="paypal-button-wrapper">
+                  <div id="paypal-button-container" />
+                </div>
+              ) : (
+                <p
+                  className="payment-status"
+                  style={{
+                    color:
+                      order.paymentStatus === "Success"
+                        ? "#0e9512"
+                        : order.paymentStatus === "Failed"
+                        ? "#d00000"
+                        : "#000",
+                  }}
+                >
+                  Payment Status: {order.paymentStatus || "Unknown"}
+                </p>
+              )}
+            </div>
+
+            {paymentLoading && (
+              <div className="loader-overlay">
+                <div className="modern-spinner"></div>
+                <p>Processing Payment...</p>
+              </div>
+            )}
+
+            <p className="note">
+              Ensure your device prompts for an unlock code with a non-
+              {order.network || "Network"} SIM. Otherwise, a credit note will be
+              issued.
+            </p>
+
+            <p className="track-link">
+              Want to track another order?{" "}
+              <Link to="/track-order">Click here</Link>
+            </p>
           </div>
-          <div className="summary-item">
-            <span>
-              {order.brand || "Device"} {order.model || "Model"} Unlock Code
-            </span>
-            <span>USD {order.amount || "0"}</span>
-          </div>
-          <div className="logo-container">
-            <img src={Logo} alt="Genuine Unlocker Logo" />
+
+          <div className="right-section">
+            <h2>Order Summary</h2>
+            <div className="summary-item">
+              <span>PRODUCT</span>
+              <span>TOTAL</span>
+            </div>
+            <div className="summary-item">
+              <span>
+                {order.brand || "Device"} {order.model || "Model"} Unlock Code
+              </span>
+              <span>USD {order.amount || "0"}</span>
+            </div>
+            <div className="logo-container">
+              <img src={Logo} alt="Genuine Unlocker Logo" />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
