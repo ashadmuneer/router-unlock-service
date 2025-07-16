@@ -32,11 +32,11 @@ const networkPricing = {
 
 // Delivery Time Based on Network
 const networkDeliveryTimes = {
-  STC: "1–9 hours",
-  ZAIN: "1–10 Day",
-  MOBILY: "1–9 hours",
-  GO: "1-9 hours",
-  Other: "1-9 hours",
+  STC: "1–9 Days",
+  ZAIN: "1–10 Hours",
+  MOBILY: "1–9 Days",
+  GO: "1-9 Days",
+  Other: "1-9 Days",
 };
 
 // Create PayPal order
