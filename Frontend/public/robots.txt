@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Block sensitive/private routes
+Disallow: /admin
+Disallow: /login
+Disallow: /dashboard
+Disallow: /api
+Disallow: /backend
+Disallow: /order
+
+# Point Google to your sitemap
+Sitemap: https://genuineunlocker.net/sitemap.xml
