@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./UnlockSection.css";
 import BrandLogo from "../../assets/Brandlogo.png";
+import { Helmet } from 'react-helmet-async';
+
 
 const routerData = {
   networks: ["STC", "ZAIN", "MOBILY", "GO Telecom", "Other"],
@@ -220,6 +222,16 @@ const UnlockSection = () => {
   };
 
   return (
+    <>
+    
+    <Helmet>
+        <title>Unlock Any Modem or Router | GenuineUnlocker</title>
+        <meta
+          name="description"
+          content="Unlock your modem, router, or MiFi for any SIM or network. Fast and secure online unlock code service. Compatible with Huawei, ZTE, and more."
+        />
+        <link rel="canonical" href="https://genuineunlocker.net/#home" />
+      </Helmet>
     <section className="unlock-section">
       <h1>
         <span className="highlight">Unlock your Wifi router</span> today with{" "}
@@ -1001,6 +1013,7 @@ const UnlockSection = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

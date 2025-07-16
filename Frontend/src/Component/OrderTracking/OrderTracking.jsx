@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./OrderTracking.css";
+import { Helmet } from "react-helmet-async";
 
 const OrderTracking = () => {
   const [imei, setImei] = useState("");
@@ -61,71 +62,84 @@ const OrderTracking = () => {
   };
 
   return (
-    <div className="order-tracking-container">
-      <h2>Track Your Order</h2>
-      <div className="tracking-form">
-        <div className="input-group">
-          <input
-            type="text"
-            value={imei}
-            onChange={(e) => setImei(e.target.value)}
-            placeholder="Enter your IMEI Number *"
-          />
-          <button onClick={handleTrackOrder}>Track Your Order</button>
+    <>
+      <Helmet>
+        <title>Track Your Unlock Code Order | GenuineUnlocker</title>
+        <meta
+          name="description"
+          content="Track the status of your unlock code using your email and order ID. Real-time updates and support."
+        />
+        <link
+          rel="canonical"
+          href="https://genuineunlocker.net/order-tracking"
+        />
+      </Helmet>
+      <div className="order-tracking-container">
+        <h2>Track Your Order</h2>
+        <div className="tracking-form">
+          <div className="input-group">
+            <input
+              type="text"
+              value={imei}
+              onChange={(e) => setImei(e.target.value)}
+              placeholder="Enter your IMEI Number *"
+            />
+            <button onClick={handleTrackOrder}>Track Your Order</button>
+          </div>
         </div>
-      </div>
-      {error && (
-        <p className="error-message" style={{ color: "red" }}>
-          {error}
+        {error && (
+          <p className="error-message" style={{ color: "red" }}>
+            {error}
+          </p>
+        )}
+        <p className="tracking-info">
+          Track the status of your order online with a live progress meter,
+          estimated time of delivery, and regular updates if there are any
+          unusual delays to your order.
         </p>
-      )}
-      <p className="tracking-info">
-        Track the status of your order online with a live progress meter,
-        estimated time of delivery, and regular updates if there are any unusual
-        delays to your order.
-      </p>
 
-      {orderDetails.map((order, index) => (
-        <div key={order.orderId} className="order-details">
-          <h4>Order #{index + 1}</h4>
-          <p>
-            <span>Order ID:</span> {order.orderId}
-          </p>
-          <p>
-            <span>Email:</span> {order.email || "Not provided"}
-          </p>
-          <p>
-            <span>Mobile Number:</span> {order.mobileNumber || "Not provided"}
-          </p>
-          <p>
-            <span>IMEI Number:</span> {order.imei}
-          </p>
-          <p>
-            <span>Brand:</span> {order.brand}
-          </p>
-          <p>
-            <span>Model:</span> {order.model}
-          </p>
-          <p>
-            <span>Network:</span> {order.network}
-          </p>
-          <p>
-            <span>Amount:</span> USD {order.amount}
-          </p>
-          <p>
-            <span>Status:</span> {order.paymentStatus || "Pending"}
-          </p>
-          <p>
-            <span>Terms Accepted:</span> {order.termsAccepted ? "Yes" : "No"}
-          </p>
-          {order.paymentTime && (
+        {orderDetails.map((order, index) => (
+          <div key={order.orderId} className="order-details">
+            <h4>Order #{index + 1}</h4>
             <p>
-              <span>Payment Time:</span> {order.paymentTime}
+              <span>Order ID:</span> {order.orderId}
             </p>
-          )}
-        </div>
-      ))}
-    </div>
+            <p>
+              <span>Email:</span> {order.email || "Not provided"}
+            </p>
+            <p>
+              <span>Mobile Number:</span> {order.mobileNumber || "Not provided"}
+            </p>
+            <p>
+              <span>IMEI Number:</span> {order.imei}
+            </p>
+            <p>
+              <span>Brand:</span> {order.brand}
+            </p>
+            <p>
+              <span>Model:</span> {order.model}
+            </p>
+            <p>
+              <span>Network:</span> {order.network}
+            </p>
+            <p>
+              <span>Amount:</span> USD {order.amount}
+            </p>
+            <p>
+              <span>Status:</span> {order.paymentStatus || "Pending"}
+            </p>
+            <p>
+              <span>Terms Accepted:</span> {order.termsAccepted ? "Yes" : "No"}
+            </p>
+            {order.paymentTime && (
+              <p>
+                <span>Payment Time:</span> {order.paymentTime}
+              </p>
+            )}
+          </div>
+        ))}
+      </div>
+    </>
   );
 };
 

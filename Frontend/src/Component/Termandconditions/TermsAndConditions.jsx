@@ -1,9 +1,20 @@
 import React from "react";
 import "./TermsAndConditions.css";
+import { Helmet } from 'react-helmet-async';
+
 
 const TermsAndConditions = () => {
   return (
     <div className="terms-container">
+      <Helmet>
+        <title>Terms and Conditions | GenuineUnlocker</title>
+        <meta
+          name="description"
+          content="Read our service terms, refund policy, and code delivery conditions. Stay informed before unlocking your modem or router."
+        />
+        <link rel="canonical" href="https://genuineunlocker.net/terms" />
+      </Helmet>
+
       <div className="terms-content">
         <h1>Terms and Conditions</h1>
 
