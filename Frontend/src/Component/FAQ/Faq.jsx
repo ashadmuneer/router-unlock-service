@@ -35,7 +35,7 @@ const faqData = [
   {
     question: "What is the process after payment is done?",
     answare:
-      "After payment is completed, the unlocking process is as follows: Provide your device’s IMEI number, model, and current network provider details. The service provider (carrier or third-party service) will process your request and send an unlock code or instructions via email or on-screen prompts. For iOS devices, unlocking is typically done over-the-air. For Android devices, you may need to enter the provided code. The process may take 6 to 24 hours, depending on the carrier and device. Once unlocked, insert a new SIM card to activate the device.",
+      "After payment is completed, the unlocking process begins: You’ll need to provide your device’s IMEI number, model, and current network provider. The service provider or unlock team will then process your request and send you the unlock code or step-by-step instructions via email or on-screen prompts.",
   },
   {
     question: "How can I contact support for any queries?",

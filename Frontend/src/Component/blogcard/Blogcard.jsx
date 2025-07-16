@@ -34,7 +34,7 @@ const Blogcard = () => {
           name="description"
           content="Explore in-depth tutorials, tips, and updates on unlocking routers, modems, and MiFi devices. Learn how to use unlock codes effectively."
         />
-        <link rel="canonical" href="https://genuineunlocker.net/blog" />
+        <link rel="canonical" href="https://genuineunlocker.net/#howtounlock" />
       </Helmet>
       <div className="blogcard-wrapper">
         <div ref={blogSectionRef} className="blogcard-heading">
