@@ -28,7 +28,7 @@ const Home = () => {
           name="description"
           content="Unlock your modem, router, or MiFi for any SIM or network. Fast and secure online unlock code service. Compatible with Huawei, ZTE, and more."
         />
-        <link rel="canonical" href="https://genuineunlocker.net/" />
+        <link rel="canonical" href="https://genuineunlocker.net" />
       </Helmet>
       <div id="home">
         <UnlockSection />
