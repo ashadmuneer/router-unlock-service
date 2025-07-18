@@ -7,7 +7,6 @@ const TermsAndConditions = () => {
   return (
     <div className="terms-container">
       <Helmet>
-        <title>Terms and Conditions | GenuineUnlocker</title>
         <meta
           name="description"
           content="Read our service terms, refund policy, and code delivery conditions. Stay informed before unlocking your modem or router."
