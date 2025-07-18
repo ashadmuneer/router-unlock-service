@@ -34,7 +34,6 @@ Bypass SIM restrictions, switch carriers freely, and enjoy true network freedom 
 Supported networks: STC, Zain, Go Telecom, Mobily, Etisalat, and more.
 Unlock your modem now and use it with any SIM worldwide."
         />
-        <link rel="canonical" href="https://genuineunlocker.net" />
       </Helmet>
       <div id="home">
         <UnlockSection />
