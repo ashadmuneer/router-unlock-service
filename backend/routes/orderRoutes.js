@@ -1,10 +1,11 @@
+// orderRoutes.js
 const express = require("express");
 const paypal = require("@paypal/checkout-server-sdk");
 const Order = require("../models/Order");
 const sendEmail = require("../utils/sendEmail");
 const dotenv = require("dotenv");
 
-dotenv.config(); // Load .env
+dotenv.config();
 
 const router = express.Router();
 
@@ -14,21 +15,279 @@ if (!process.env.PAYPAL_CLIENT_ID || !process.env.PAYPAL_CLIENT_SECRET) {
   process.exit(1);
 }
 
-// PayPal client configuration (Live Environment)
+// PayPal client configuration
 const environment = new paypal.core.LiveEnvironment(
   process.env.PAYPAL_CLIENT_ID,
   process.env.PAYPAL_CLIENT_SECRET
 );
 const paypalClient = new paypal.core.PayPalHttpClient(environment);
 
-// Pricing in USD
-const networkPricing = {
-  STC: 2,
-  ZAIN: 2,
-  MOBILY: 2,
-  "GO Telecom": 3,
-  Other: 2,
+// TAC-based pricing rules
+const tacPricing = {
+  "86720604": { // Huawei H112-370
+    STC: 2,
+    ZAIN: 35,
+    MOBILY: 60,
+    "GO Telecom": 60,
+    Other: 60,
+  },
+  "86073004": { // Huawei H112-372
+    STC: 60,
+    ZAIN: 60,
+    MOBILY: 60,
+    "GO Telecom": 60,
+    Other: 60,
+  },
+  "86193505": { // Huawei H122-373A
+    STC: 60,
+    ZAIN: 60,
+    MOBILY: 60,
+    "GO Telecom": 60,
+    Other: 60,
+  },
+  "86688704": { // Huawei H122-373
+    STC: 60,
+    ZAIN: 35,
+    MOBILY: 60,
+    "GO Telecom": 60,
+    Other: 60,
+  },
+  "86406705": { // Huawei N5368X
+    STC: 60,
+    ZAIN: 60,
+    MOBILY: 60,
+    "GO Telecom": 60,
+    Other: 60,
+  },
+  "86597804": { // Huawei E6878-370
+    STC: 60,
+    ZAIN: 35,
+    MOBILY: 60,
+    "GO Telecom": 60,
+    Other: 60,
+  },
+  "86037604": { // Huawei E6878-870
+    STC: 60,
+    ZAIN: 60,
+    MOBILY: 60,
+    "GO Telecom": 60,
+    Other: 60,
+  },
+  "86584007": { // Brovi H153-381
+    STC: 60,
+    ZAIN: 60,
+    MOBILY: 60,
+    "GO Telecom": 60,
+    Other: 60,
+  },
+  "86124107": { // Brovi H151-370
+    STC: 60,
+    ZAIN: 60,
+    MOBILY: 60,
+    "GO Telecom": 60,
+    Other: 60,
+  },
+  "86075606": { // Brovi H155-381
+    STC: 60,
+    ZAIN: 35,
+    MOBILY: 60,
+    "GO Telecom": 60,
+    Other: 60,
+  },
+  "86681507": { // Brovi H155-381 (TAC2)
+    STC: 60,
+    ZAIN: 35,
+    MOBILY: 60,
+    "GO Telecom": 60,
+    Other: 60,
+  },
+  "86688806": { // Brovi H155-382
+    STC: 60,
+    ZAIN: 35,
+    MOBILY: 60,
+    "GO Telecom": 60,
+    Other: 60,
+  },
+  "86241607": { // Brovi H155-383
+    STC: 60,
+    ZAIN: 35,
+    MOBILY: 60,
+    "GO Telecom": 60,
+    Other: 60,
+  },
+  "86717306": { // Brovi H158-381
+    STC: 60,
+    ZAIN: 60,
+    MOBILY: 60,
+    "GO Telecom": 60,
+    Other: 60,
+  },
+  "86120006": { // Brovi H352-381
+    STC: 60,
+    ZAIN: 60,
+    MOBILY: 60,
+    "GO Telecom": 60,
+    Other: 60,
+  },
+  "86968607": { // Brovi E6888-982
+    STC: 60,
+    ZAIN: 60,
+    MOBILY: 60,
+    "GO Telecom": 60,
+    Other: 60,
+  },
+  "86119206": { // Brovi Plus H155-380
+    STC: 60,
+    ZAIN: 60,
+    MOBILY: 60,
+    "GO Telecom": 60,
+    Other: 60,
+  },
+  "86015506": { // ZTE MU5120
+    STC: 35,
+    ZAIN: 35,
+    MOBILY: 35,
+    "GO Telecom": 35,
+    Other: 35,
+  },
+  "86581106": { // ZTE MC888
+    STC: 35,
+    ZAIN: 35,
+    MOBILY: 35,
+    "GO Telecom": 35,
+    Other: 35,
+  },
+  "86367104": { // ZTE MC801A
+    STC: 30,
+    ZAIN: 30,
+    MOBILY: 30,
+    "GO Telecom": 30,
+    Other: 30,
+  },
+  "86556005": { // ZTE MC801A (TAC2)
+    STC: 30,
+    ZAIN: 30,
+    MOBILY: 30,
+    "GO Telecom": 30,
+    Other: 30,
+  },
+  "86896605": { // ZTE MC801A (TAC3)
+    STC: 30,
+    ZAIN: 30,
+    MOBILY: 30,
+    "GO Telecom": 30,
+    Other: 30,
+  },
+  "86156906": { // ZTE MC888A ULTRA
+    STC: 35,
+    ZAIN: 35,
+    MOBILY: 35,
+    "GO Telecom": 35,
+    Other: 35,
+  },
+  "86992605": { // ZTE MU5001M
+    STC: 35,
+    ZAIN: 35,
+    MOBILY: 35,
+    "GO Telecom": 35,
+    Other: 35,
+  },
+  "86637807": { // ZTE G5C
+    STC: 35,
+    ZAIN: 35,
+    MOBILY: 35,
+    "GO Telecom": 35,
+    Other: 35,
+  },
+  "86062806": { // ZTE MC801A1
+    STC: 30,
+    ZAIN: 30,
+    MOBILY: 30,
+    "GO Telecom": 30,
+    Other: 30,
+  },
+  "86160006": { // ZTE MC801A1 (TAC2)
+    STC: 30,
+    ZAIN: 30,
+    MOBILY: 30,
+    "GO Telecom": 30,
+    Other: 30,
+  },
+  "86583105": { // Oppo T1A (CTC03)
+    STC: 60,
+    ZAIN: 35,
+    MOBILY: 60,
+    "GO Telecom": 60,
+    Other: 60,
+  },
+  "86264406": { // Oppo T1A (CTC03) (TAC2)
+    STC: 60,
+    ZAIN: 35,
+    MOBILY: 60,
+    "GO Telecom": 60,
+    Other: 60,
+  },
+  "86782206": { // Oppo T2 (CTD05)
+    STC: 60,
+    ZAIN: 35,
+    MOBILY: 60,
+    "GO Telecom": 60,
+    Other: 60,
+  },
+ 
+ "86481205": { // GHTelcom H138-380
+    STC: 60,
+    ZAIN: 35,
+    MOBILY: 60,
+    "GO Telecom": 60,
+    Other: 60,
+  },
+  "86588106": { // Soyealink SRT873
+    STC: 60,
+    ZAIN: 35,
+    MOBILY: 60,
+    "GO Telecom": 60,
+    Other: 60,
+  },
+  "86399806": { // Soyealink SRT875
+    STC: 60,
+    ZAIN: 35,
+    MOBILY: 60,
+    "GO Telecom": 60,
+    Other: 60,
+  },
+  "35840799": { // GreenPacket D5H-250MK
+    STC: 60,
+    ZAIN: 35,
+    MOBILY: 60,
+    "GO Telecom": 60,
+    Other: 60,
+  },
+  "35162435": { // GreenPacket D5H-EA20
+    STC: 60,
+    ZAIN: 35,
+    MOBILY: 60,
+    "GO Telecom": 60,
+    Other: 60,
+  },
+  "35759615": { // GreenPacket Y5-210MU
+    STC: 60,
+    ZAIN: 60,
+    MOBILY: 60,
+    "GO Telecom": 60,
+    Other: 60,
+  },
+  "35181075": { // AVXAV WQRTM-838A
+    STC: 60,
+    ZAIN: 60,
+    MOBILY: 60,
+    "GO Telecom": 60,
+    Other: 60,
+  },
 };
+
+
+const DEFAULT_PRICE = 60;
 
 // Delivery Time Based on Network
 const networkDeliveryTimes = {
@@ -67,7 +326,21 @@ router.post("/create-order", async (req, res) => {
     return res.status(400).json({ error: "Invalid email format" });
   }
 
-  const amount = networkPricing[network] || networkPricing.Other;
+  if (!/^\d{15}$/.test(imei)) {
+    return res.status(400).json({ error: "IMEI must be exactly 15 digits" });
+  }
+
+  // Extract TAC (first 8 digits of IMEI)
+  const tac = imei.substring(0, 8);
+
+  // Determine price: Check TAC-based pricing, fall back to DEFAULT_PRICE
+  let amount = DEFAULT_PRICE;
+  if (tacPricing[tac] && tacPricing[tac][network]) {
+    amount = tacPricing[tac][network];
+  } else {
+    console.warn(`[Create Order] No price found for TAC ${tac} and network ${network}. Using default price: ${DEFAULT_PRICE}`);
+  }
+
   const deliveryTime = networkDeliveryTimes[network] || networkDeliveryTimes.Other;
 
   try {
@@ -131,7 +404,7 @@ router.post("/create-order", async (req, res) => {
       currency: "USD",
       orderId,
       invoiceId: `INV-${orderId}`,
-      deliveryTime, // ✅ Added
+      deliveryTime,
     });
 
     await order.save();
@@ -141,7 +414,7 @@ router.post("/create-order", async (req, res) => {
       amount,
       currency: "USD",
       clientId: process.env.PAYPAL_CLIENT_ID,
-      deliveryTime, // ✅ Returned
+      deliveryTime,
     });
   } catch (error) {
     console.error("[Create Order] PayPal Error:", {
