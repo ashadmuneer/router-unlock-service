@@ -458,6 +458,16 @@ router.post("/verify-payment", async (req, res) => {
 
     if (capture.result.status === "COMPLETED") {
       try {
+        // Format paymentTime for email
+        const formattedPaymentTime = order.paymentTime.toLocaleString('en-US', {
+          month: 'long',
+          day: 'numeric',
+          year: 'numeric',
+          hour: 'numeric',
+          minute: '2-digit',
+          hour12: true
+        });
+
         if (order.email) {
           await sendEmail({
             to: order.email,
@@ -465,7 +475,7 @@ router.post("/verify-payment", async (req, res) => {
             template: "invoice",
             data: {
               ...order.toObject(),
-              paymentTime: order.paymentTime.toISOString(),
+              paymentTime: formattedPaymentTime,
               deliveryTime: order.deliveryTime,
             },
           });
@@ -477,7 +487,7 @@ router.post("/verify-payment", async (req, res) => {
           template: "newOrder",
           data: {
             ...order.toObject(),
-            paymentTime: order.paymentTime.toISOString(),
+            paymentTime: formattedPaymentTime,
             deliveryTime: order.deliveryTime,
           },
         });
@@ -520,9 +530,21 @@ router.get("/order-details/:orderId", async (req, res) => {
     const order = await Order.findOne({ orderId: req.params.orderId });
     if (!order) return res.status(404).json({ error: "Order not found" });
 
+    // Format paymentTime for response
+    const formattedPaymentTime = order.paymentTime
+      ? order.paymentTime.toLocaleString('en-US', {
+          month: 'long',
+          day: 'numeric',
+          year: 'numeric',
+          hour: 'numeric',
+          minute: '2-digit',
+          hour12: true
+        })
+      : null;
+
     res.json({
       ...order.toObject(),
-      paymentTime: order.paymentTime?.toISOString() || null,
+      paymentTime: formattedPaymentTime,
     });
   } catch (error) {
     console.error("Fetch Order Error:", error.message);
@@ -543,7 +565,16 @@ router.get("/track-order/:imei", async (req, res) => {
     res.json(
       orders.map((order) => ({
         ...order.toObject(),
-        paymentTime: order.paymentTime?.toISOString() || null,
+        paymentTime: order.paymentTime
+          ? order.paymentTime.toLocaleString('en-US', {
+              month: 'long',
+              day: 'numeric',
+              year: 'numeric',
+              hour: 'numeric',
+              minute: '2-digit',
+              hour12: true
+            })
+          : null,
       }))
     );
   } catch (error) {
