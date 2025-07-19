@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./Blogcard.css";
 import { cardData } from "../../cardData.js"; // Replace with your actual path
 import { Helmet } from "react-helmet-async";
+import { useEffect } from "react";
 
 const Blogcard = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -14,13 +15,27 @@ const Blogcard = () => {
   const indexOfFirstCard = indexOfLastCard - cardsPerPage;
   const currentCards = cardData.slice(indexOfFirstCard, indexOfLastCard);
   const totalPages = Math.ceil(cardData.length / cardsPerPage);
+const scrollOnPageChange = useRef(false);
+const isFirstRender = useRef(true);
 
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
-    if (blogSectionRef.current) {
-      blogSectionRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+// Call this on Next/Prev click
+const handlePageChange = (newPage) => {
+  scrollOnPageChange.current = true;
+  setCurrentPage(newPage);
+};
+
+useEffect(() => {
+  if (isFirstRender.current) {
+    isFirstRender.current = false;
+    return; // skip on initial load
+  }
+
+  if (scrollOnPageChange.current && blogSectionRef.current) {
+    blogSectionRef.current.scrollIntoView({ behavior: "smooth" });
+    scrollOnPageChange.current = false;
+  }
+}, [currentPage]);
+
 
   const handleCardClick = (id) => {
     navigate(`/blog/${id}`);
@@ -40,10 +55,9 @@ Bypass SIM restrictions, switch carriers freely, and enjoy true network freedom 
 Supported networks: STC, Zain, Go Telecom, Mobily, Etisalat, and more.
 Unlock your modem now and use it with any SIM worldwide."
         />
-        <link rel="canonical" href="https://genuineunlocker.net/#howtounlock" />
       </Helmet>
-      <div className="blogcard-wrapper">
-        <div ref={blogSectionRef} className="blogcard-heading">
+      <div ref={blogSectionRef} className="blogcard-wrapper">
+        <div  className="blogcard-heading">
           <h3>
             Top <span>articles</span> from our <span>Blog</span>
           </h3>
@@ -71,19 +85,39 @@ Unlock your modem now and use it with any SIM worldwide."
             </div>
           ))}
         </div>
-
         {totalPages > 1 && (
           <div className="pagination">
-            {Array.from({ length: totalPages }, (_, index) => (
+            <div className="page-numbers">
+              {Array.from({ length: totalPages }, (_, index) => (
+                <span
+                  key={index}
+                  onClick={() => handlePageChange(index + 1)}
+                  className={currentPage === index + 1 ? "page-number active" : "page-number"}
+                >
+                  {index + 1}
+                </span>
+              ))}
+            </div>
+            <div className="pagination-buttons">
               <button
-                key={index}
                 type="button"
-                onClick={() => handlePageChange(index + 1)}
-                className={currentPage === index + 1 ? "active" : ""}
+                onClick={() => handlePageChange(currentPage - 1)}
+                className={currentPage === 1 ? "disabled" : ""}
+                disabled={currentPage === 1}
+                aria-label="Previous page"
               >
-                {index + 1}
+                Prev
               </button>
-            ))}
+              <button
+                type="button"
+                onClick={() => handlePageChange(currentPage + 1)}
+                className={currentPage === totalPages ? "disabled" : ""}
+                disabled={currentPage === totalPages}
+                aria-label="Next page"
+              >
+                Next
+              </button>
+            </div>
           </div>
         )}
       </div>
