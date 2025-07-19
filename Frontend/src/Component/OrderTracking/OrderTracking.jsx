@@ -38,18 +38,24 @@ const OrderTracking = () => {
       const data = await response.json();
 
       // Handle API response format (array or object)
+      let orders = [];
       if (Array.isArray(data)) {
-        setOrderDetails(data);
-        if (data.length === 0) {
-          setError("No orders found for this IMEI");
-        }
+        orders = data;
       } else if (data && typeof data === "object") {
-        setOrderDetails([data]); // Wrap single object in array
-        if (Object.keys(data).length === 0) {
-          setError("No orders found for this IMEI");
-        }
+        orders = [data]; // Wrap single object in array
       } else {
         throw new Error("Invalid response format from server");
+      }
+
+      // Filter orders to only include those with paymentStatus "Success"
+      const successfulOrders = orders.filter(
+        (order) => order.paymentStatus === "Success"
+      );
+
+      setOrderDetails(successfulOrders);
+
+      if (successfulOrders.length === 0) {
+        setError("No successful orders found for this IMEI");
       }
     } catch (error) {
       console.error("Error tracking order:", error.message);
@@ -132,7 +138,7 @@ Unlock your modem now and use it with any SIM worldwide."
               <span>Amount:</span> USD {order.amount}
             </p>
             <p>
-              <span>Status:</span> {order.paymentStatus || "Pending"}
+              <span>Payment Status:</span> {order.paymentStatus}
             </p>
             <p>
               <span>Terms Accepted:</span> {order.termsAccepted ? "Yes" : "No"}
