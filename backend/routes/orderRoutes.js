@@ -465,7 +465,8 @@ router.post("/verify-payment", async (req, res) => {
           year: 'numeric',
           hour: 'numeric',
           minute: '2-digit',
-          hour12: true
+          hour12: true,
+          timeZone: 'Asia/Riyadh'
         });
 
         if (order.email) {
@@ -538,7 +539,8 @@ router.get("/order-details/:orderId", async (req, res) => {
           year: 'numeric',
           hour: 'numeric',
           minute: '2-digit',
-          hour12: true
+          hour12: true,
+          timeZone: 'Asia/Riyadh'
         })
       : null;
 
@@ -572,7 +574,8 @@ router.get("/track-order/:imei", async (req, res) => {
               year: 'numeric',
               hour: 'numeric',
               minute: '2-digit',
-              hour12: true
+              hour12: true,
+             timeZone: 'Asia/Riyadh'
             })
           : null,
       }))
