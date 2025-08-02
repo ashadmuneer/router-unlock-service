@@ -132,6 +132,10 @@ Unlock your modem now and use it with any SIM worldwide."
               <span>Model:</span> {order.model}
             </p>
             <p>
+              <span>Country:</span> {order.country || "Not provided"}
+            </p>
+            <p></p>
+            <p>
               <span>Network:</span> {order.network}
             </p>
             <p>

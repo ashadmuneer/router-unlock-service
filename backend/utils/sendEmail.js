@@ -2,6 +2,7 @@ const nodemailer = require('nodemailer');
 
 const sendEmail = async ({ to, subject, template, data }) => {
   const {
+    country,
     brand,
     model,
     network,
@@ -38,6 +39,7 @@ const sendEmail = async ({ to, subject, template, data }) => {
         <li><strong>Order ID:</strong> ${orderId}</li>
         <li><strong>Brand:</strong> ${brand}</li>
         <li><strong>Model:</strong> ${model}</li>
+        <li><strong>Country:</strong> ${country}</li>
         <li><strong>Network:</strong> ${network}</li>
         <li><strong>IMEI:</strong> ${imei}</li>
         <li><strong>Serial Number:</strong> ${serialNumber}</li>
@@ -58,6 +60,7 @@ const sendEmail = async ({ to, subject, template, data }) => {
         <li><strong>Order ID:</strong> ${orderId}</li>
         <li><strong>Brand:</strong> ${brand}</li>
         <li><strong>Model:</strong> ${model}</li>
+         <li><strong>Country:</strong> ${country}</li>
         <li><strong>Network:</strong> ${network}</li>
         <li><strong>IMEI:</strong> ${imei}</li>
         <li><strong>Serial Number:</strong> ${serialNumber}</li>

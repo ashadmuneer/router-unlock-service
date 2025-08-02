@@ -274,6 +274,10 @@ Unlock your modem now and use it with any SIM worldwide."
               <label>S/N</label>
               <input value={order.serialNumber || "N/A"} readOnly />
             </div>
+            <div className="input-group-order">
+              <label>Country</label>
+              <input value={order.country || "N/A"} readOnly />
+            </div>
 
             <div className="input-group-order">
               <label>Network</label>
