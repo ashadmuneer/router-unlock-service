@@ -135,6 +135,8 @@
 .imei-input {
   display: flex;
   flex-direction: column;
+  margin-bottom: 0.5rem;
+
 }
 
 .imei-input label {

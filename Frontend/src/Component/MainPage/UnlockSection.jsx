@@ -8,25 +8,25 @@ import Select from "react-select";
 // Placeholder brand logos
 
 const brandLogos = {
-  "HUAWEI": "https://logo.clearbit.com/huawei.com",
-  "BROVI": "https://i.ibb.co/t9nxNQq/logo.png",
+  HUAWEI: "https://logo.clearbit.com/huawei.com",
+  BROVI: "https://i.ibb.co/t9nxNQq/logo.png",
   "BROVI Plus": "https://i.ibb.co/t9nxNQq/logo.png",
-  "ZTE": "https://logo.clearbit.com/zte.com.cn",
-  "Oppo": "https://logo.clearbit.com/oppo.com",
-  "GHTelcom": "https://i.ibb.co/XZHBxKHP/GH.png",
-  "Soyealink": "https://i.ibb.co/mrfZTNRX/Soyelink-1.png",
-  "GreenPacket": "https://logo.clearbit.com/greenpacket.com",
-  "AVXAV": "https://logo.clearbit.com/avxav.com",
-  "AURORA": "https://logo.clearbit.com/aurora.com",
+  ZTE: "https://logo.clearbit.com/zte.com.cn",
+  Oppo: "https://logo.clearbit.com/oppo.com",
+  GHTelcom: "https://i.ibb.co/XZHBxKHP/GH.png",
+  Soyealink: "https://i.ibb.co/mrfZTNRX/Soyelink-1.png",
+  GreenPacket: "https://logo.clearbit.com/greenpacket.com",
+  AVXAV: "https://logo.clearbit.com/avxav.com",
+  AURORA: "https://logo.clearbit.com/aurora.com",
   "D-Link": "https://logo.clearbit.com/dlink.com",
-  "FIBOCOM": "https://logo.clearbit.com/fibocom.com",
+  FIBOCOM: "https://logo.clearbit.com/fibocom.com",
   "TD TECH": "https://logo.clearbit.com/td-tech.com",
-  "NOKIA": "https://logo.clearbit.com/nokia.com",
-  "QUECTEL": "https://logo.clearbit.com/quectel.com",
-  "MEIGLINK": "https://logo.clearbit.com/meiglink.com",
-  "ZLT": "https://logo.clearbit.com/zlt.com",
-  "TELSTRA": "https://logo.clearbit.com/telstra.com.au",
-  "FLYBOX": "https://logo.clearbit.com/flybox.com"
+  NOKIA: "https://logo.clearbit.com/nokia.com",
+  QUECTEL: "https://logo.clearbit.com/quectel.com",
+  MEIGLINK: "https://logo.clearbit.com/meiglink.com",
+  ZLT: "https://logo.clearbit.com/zlt.com",
+  TELSTRA: "https://logo.clearbit.com/telstra.com.au",
+  FLYBOX: "https://logo.clearbit.com/flybox.com",
 };
 // Country and network data with flags and logos
 const countryNetworkData = [
@@ -37,7 +37,10 @@ const countryNetworkData = [
       { name: "AT&T", logo_url: "https://logo.clearbit.com/att.com" },
       { name: "Verizon", logo_url: "https://logo.clearbit.com/verizon.com" },
       { name: "T-Mobile", logo_url: "https://logo.clearbit.com/t-mobile.com" },
-      { name: "US Cellular", logo_url: "https://logo.clearbit.com/uscellular.com" },
+      {
+        name: "US Cellular",
+        logo_url: "https://logo.clearbit.com/uscellular.com",
+      },
       {
         name: "Cricket Wireless",
         logo_url: "https://logo.clearbit.com/cricketwireless.com",
@@ -913,23 +916,47 @@ const UnlockSection = () => {
                       display: "flex",
                       alignItems: "center",
                       gap: "1rem",
-                      marginTop: "1rem",
+                      marginTop: "0.1rem",
+                      fontSize: "0.05rem",
+                      fontWeight: "600",
                     }}
                   >
-                    <img
-                      src={
-                        brandLogos[selectedBrand] ||
-                        "https://example.com/brand-logos/default.svg"
-                      }
-                      alt={`${selectedBrand} logo`}
-                      style={{ width: "50px", height: "50px" }}
-                    />
+                    <div
+                      style={{
+                        background: "rgba(255, 255, 255, 0.05)",
+                        padding: "0.5rem",
+                        borderRadius: "10px",
+                      }}
+                    >
+                      <img
+                        src={
+                          brandLogos[selectedBrand] ||
+                          "https://example.com/brand-logos/default.svg"
+                        }
+                        alt={`${selectedBrand} logo`}
+                        style={{ width: "50px", height: "auto" }}
+                      />
+                    </div>
                     <div>
                       <p>
-                        <strong>Brand:</strong> {selectedBrand}
+                        <strong
+                          style={{
+                            fontWeight: "700",
+                          }}
+                        >
+                          Brand:
+                        </strong>{" "}
+                        {selectedBrand}
                       </p>
                       <p>
-                        <strong>Model:</strong> {selectedModel}
+                        <strong
+                          style={{
+                            fontWeight: "700",
+                          }}
+                        >
+                          Model:
+                        </strong>{" "}
+                        {selectedModel}
                       </p>
                     </div>
                   </div>
@@ -940,7 +967,7 @@ const UnlockSection = () => {
                   onClick={handleNext}
                   disabled={loading}
                 >
-                  {loading ? "Processing..." : "Buy Router Unlock Code"}
+                  {loading ? "Processing..." : "🔓 Buy Router Unlock Code"}
                 </button>
               </>
             ) : (
