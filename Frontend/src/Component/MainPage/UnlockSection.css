@@ -65,7 +65,7 @@
 #unlock-area {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   padding: 3rem;
   gap: 5rem;
   flex-wrap: wrap;
@@ -137,10 +137,10 @@
   flex-direction: column;
 }
 
-.imei-label {
+.imei-input label {
   font-size: 1rem;
   font-weight: 600;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.8rem;
   color: #ffffff;
 }
 
@@ -652,4 +652,28 @@
 .brand-info p {
   margin: 0;
   font-size: 1rem;
+}
+.dropdown input[type="text"],
+.dropdown input[type="email"],
+.dropdown input[type="tel"],
+.dropdown input[type="number"],
+.dropdown input[type="password"] {
+  /* padding: 0.8rem; */
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.dropdown input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.dropdown input:focus {
+  outline: none;
+  box-shadow: none;
+  border: none;
+  background: transparent;
 }

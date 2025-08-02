@@ -481,6 +481,7 @@ const networkDeliveryTimes = {
 // Create PayPal order
 router.post("/create-order", async (req, res) => {
   const {
+    country,
     brand,
     model,
     network,
@@ -494,6 +495,7 @@ router.post("/create-order", async (req, res) => {
   console.log("[Create Order] Payload:", req.body);
 
   if (
+    !country ||
     !brand ||
     !model ||
     !network ||
@@ -580,6 +582,7 @@ router.post("/create-order", async (req, res) => {
     const orderId = paypalOrder.result.id;
 
     const order = new Order({
+      country,
       brand,
       model,
       network,
