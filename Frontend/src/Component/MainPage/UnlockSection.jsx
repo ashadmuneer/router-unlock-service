@@ -699,7 +699,7 @@ const UnlockSection = () => {
     setError("");
 
     if (!selectedCountry || !selectedNetwork || !imei) {
-      setError("Please select a country, network, and enter a valid IMEI");
+      setError("*Note: Please select a country, network and enter a valid IMEI Number");
       return;
     }
 
@@ -815,7 +815,7 @@ const UnlockSection = () => {
           models, we ensure your device is unlocked safely and efficiently.
         </p>
 
-        {error && <p className="error-message">{error}</p>}
+        {error && <p style={{ color: "#ff0000ff", marginTop: "0.5rem",fontWeight:700 }}>{error}</p>}
 
         <div id="unlock-area">
           <div className="unlock-form">
@@ -995,7 +995,7 @@ const UnlockSection = () => {
                   </div>
                 </div> */}
 
-                <label htmlFor="serialNumber">Enter S/N</label>
+                <label htmlFor="serialNumber">*Enter Serial Number (S/N)</label>
                 <input
                   type="text"
                   id="serialNumber"
@@ -1005,7 +1005,7 @@ const UnlockSection = () => {
                   maxLength={20}
                 />
 
-                <label htmlFor="email">Enter Email</label>
+                <label htmlFor="email">*Enter Email</label>
                 <input
                   type="email"
                   id="email"
