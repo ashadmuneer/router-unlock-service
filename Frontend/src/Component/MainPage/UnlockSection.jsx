@@ -967,7 +967,7 @@ const UnlockSection = () => {
                   onClick={handleNext}
                   disabled={loading}
                 >
-                  {loading ? "Processing..." : "Buy Router Unlock Code"}
+                  {loading ? "Processing..." : "🔓 Buy Router Unlock Code"}
                 </button>
               </>
             ) : (
