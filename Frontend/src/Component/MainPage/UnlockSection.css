@@ -455,8 +455,10 @@
   }
 
   #unlock-area {
-    padding: 1.5rem;
-    gap: 3rem;
+        flex-direction: column;
+        align-items: center;
+        padding: 4rem;
+        gap: 2rem;
   }
 
   .unlock-form {
@@ -563,7 +565,7 @@
   }
 
   .image-glow-wrapper {
-    max-width: 250px;
+    max-width: 264px;
   }
 }
 
