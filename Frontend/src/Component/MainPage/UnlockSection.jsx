@@ -704,30 +704,30 @@ const UnlockSection = () => {
     setError("");
 
     if (!selectedCountry ) {
-      setError("*Please select a country");
+      setError("Please select a country. *");
       return;
     }
     if (!selectedNetwork) {
-      setError("*Please select a valid network");
+      setError("Please select a valid network. *");
       return;
     }
     if (!imei) {
-      setError("*Please enter a valid IMEI Number");
+      setError("Please enter a valid IMEI Number. *");
       return;
     }
 
     if (!/^\d{15}$/.test(imei)) {
-      setError("*IMEI must be exactly 15 digits");
+      setError("IMEI must be exactly 15 digits. *");
       return;
     }
 
     if (selectedNetwork === "Other" && !customNetwork) {
-      setError("*Please enter a custom network name");
+      setError("Please enter a custom network name. *");
       return;
     }
 
     if (!selectedBrand || !selectedModel) {
-      setError("*Could not detect brand and model. Please check IMEI.");
+      setError("Could not detect brand and model. Please check IMEI. *");
       return;
     }
 
@@ -741,7 +741,7 @@ const UnlockSection = () => {
     setLoading(true);
     if (!serialNumber && !email) {
       setError(
-        "*Please fill in all fields and agree to the terms and conditions"
+        "Please fill in all fields and agree to the terms and conditions *"
       );
       setLoading(false);
       return;
@@ -749,21 +749,21 @@ const UnlockSection = () => {
 
     if (!serialNumber) {
       setError(
-        "*Please enter a valid Serial Number."
+        "Please enter a valid Serial Number. *"
       );
       setLoading(false);
       return;
     }
     if (!email) {
       setError(
-        "*Please enter a valid Email address."
+        "Please enter a valid Email address. *"
       );
       setLoading(false);
       return;
     }
     if (!termsAccepted) {
       setError(
-        "*Please agree to the Terms and Conditions."
+        "Please agree to the Terms and Conditions. *"
       );
       setLoading(false);
       return;
@@ -772,7 +772,7 @@ const UnlockSection = () => {
 
     if (!/^[A-Z0-9]{1,20}$/.test(serialNumber)) {
       setError(
-        "*Serial number must be alphanumeric (capital letters and numbers) and up to 20 characters"
+        "Serial number must be alphanumeric (capital letters and numbers) and up to 20 characters *"
       );
       setLoading(false);
       return;
@@ -1031,7 +1031,7 @@ const UnlockSection = () => {
                   </div>
                 </div> */}
 
-                <label htmlFor="serialNumber">*Enter Serial Number (S/N)</label>
+                <label htmlFor="serialNumber">Enter Serial Number (S/N) <span style={{color: "#ff0000ff"}}>*</span></label>
                 <input
                   type="text"
                   id="serialNumber"
@@ -1041,7 +1041,7 @@ const UnlockSection = () => {
                   maxLength={20}
                 />
 
-                <label htmlFor="email">*Enter Email</label>
+                <label htmlFor="email">Enter Email <span style={{color: "#ff0000ff"}}>*</span></label>
                 <input
                   type="email"
                   id="email"
