@@ -547,6 +547,9 @@ const tacRouterDB = {
   86529706: { brand: "ZTE", model: "MU5001A/B/M/U/MU5002" },
   86911905: { brand: "TELSTRA", model: "AW1000" },
   86237606: { brand: "FLYBOX", model: "CP52" },
+  86237606: { brand: "FLYBOX", model: "CP52" },
+  90909090: { brand: "TestBrand", model: "TestModel" },
+
 };
 const UnlockSection = () => {
   const [selectedCountry, setSelectedCountry] = useState("");
@@ -967,7 +970,7 @@ const UnlockSection = () => {
                       <img
                         src={
                           brandLogos[selectedBrand] ||
-                          "https://example.com/brand-logos/default.svg"
+                          "https://iili.io/FPVcUzX.md.png"
                         }
                         alt={`${selectedBrand} logo`}
                         style={{ width: "50px", height: "auto" }}
