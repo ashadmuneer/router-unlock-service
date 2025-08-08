@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const orderSchema = new mongoose.Schema({
-  country:{ type: String, required: true },
+  country: { type: String, required: true },
   brand: { type: String, required: true },
   model: { type: String, required: true },
   network: { type: String, required: true },
@@ -15,8 +15,8 @@ const orderSchema = new mongoose.Schema({
   paymentId: { type: String },
   paymentStatus: { type: String, default: "Pending" },
   paymentTime: { type: Date },
+  paymentType: { type: String, enum: ["PayPal"], default: "PayPal" },
   deliveryTime: { type: String },
-
   createdAt: { type: Date, default: Date.now },
 });
 

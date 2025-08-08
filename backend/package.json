@@ -15,11 +15,14 @@
     "@paypal/checkout-server-sdk": "^1.0.3",
     "body-parser": "^2.2.0",
     "cors": "^2.8.5",
-    "dotenv": "^16.5.0",
+    "dotenv": "^16.6.1",
+    "ethers": "^6.15.0",
     "express": "^5.1.0",
-    "mongoose": "^8.15.2",
+    "mongoose": "^8.17.0",
+    "node-fetch": "^2.6.7",
     "nodemailer": "^7.0.3",
     "path-to-regexp": "^8.2.0",
+    "pdfkit": "^0.17.1",
     "razorpay": "^2.9.6"
   },
   "devDependencies": {
