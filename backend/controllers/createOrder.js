@@ -453,10 +453,10 @@ const tacPricing = {
   },
   90909090: {
     // Test
-    STC: 0.1,
-    ZAIN: 0.1,
-    MOBILY: 0.1,
-    "GO Telecom": 0.1,
+    STC: 2,
+    ZAIN: 2,
+    MOBILY: 2,
+    "GO Telecom": 2,
     Other: 1,
   },
 };
