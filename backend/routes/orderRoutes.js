@@ -4,6 +4,7 @@ const createOrder = require("../controllers/createOrder");
 const verifyPaypalPayment = require("../controllers/verifyPaypalPayment");
 const getOrderDetails = require("../controllers/getOrderDetails");
 const trackOrderByIMEI = require("../controllers/trackOrderByIMEI");
+const paypalWebhook = require("../controllers/paypalWebhook"); // ✅ import webhook
 
 dotenv.config();
 
@@ -21,6 +22,9 @@ if (!process.env.PAYPAL_CLIENT_ID || !process.env.PAYPAL_CLIENT_SECRET) {
 // JSON-handled POST routes
 router.post("/create-order", jsonParser, createOrder);
 router.post("/verify-payment", jsonParser, verifyPaypalPayment);
+
+// ✅ Webhook (must accept raw JSON, not strict content-type)
+router.post("/paypal/webhook", express.json({ type: "*/*" }), paypalWebhook);
 
 // GET routes
 router.get("/order-details/:orderId", getOrderDetails);

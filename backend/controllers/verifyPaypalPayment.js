@@ -22,13 +22,20 @@ async function verifyPaypalPayment(req, res) {
     request.requestBody({});
 
     const capture = await paypalClient.execute(request);
-    const captureId = capture.result.purchase_units[0].payments.captures[0].id;
+    const captureData = capture.result.purchase_units[0].payments.captures[0];
+    const captureId = captureData.id;
+    const paymentStatus = captureData.status; // COMPLETED, PENDING, DENIED, etc.
 
     const order = await Order.findOneAndUpdate(
       { orderId },
       {
         paymentId: captureId,
-        paymentStatus: capture.result.status === "COMPLETED" ? "Success" : "Failed",
+        paymentStatus:
+          paymentStatus === "COMPLETED"
+            ? "Success"
+            : paymentStatus === "PENDING"
+            ? "Pending"
+            : "Failed",
         paymentTime: new Date(),
         paymentType: "PayPal",
       },
@@ -39,7 +46,8 @@ async function verifyPaypalPayment(req, res) {
       return res.status(404).json({ error: "Order not found" });
     }
 
-    if (capture.result.status === "COMPLETED") {
+    if (paymentStatus === "COMPLETED") {
+      // ✅ Immediate success → send invoice
       try {
         const formattedPaymentTime = order.paymentTime.toLocaleString("en-US", {
           month: "long",
@@ -82,7 +90,7 @@ async function verifyPaypalPayment(req, res) {
 
         await sendEmail({
           to: "genuineunlockerinfo@gmail.com",
-          subject: "New Router Unlock Order Received",
+          subject: "New Digital Service Order Received",
           template: "newOrder",
           data: {
             ...order.toObject(),
@@ -104,7 +112,37 @@ async function verifyPaypalPayment(req, res) {
           message: "PayPal payment verified, but email failed",
         });
       }
+    } else if (paymentStatus === "PENDING") {
+      // ⚠️ Mark as pending, no invoice yet
+      if (order.email) {
+        await sendEmail({
+          to: order.email,
+          subject: "Your PayPal Payment is Pending",
+          template: "pendingPayment", // 👉 you should create this template
+          data: {
+            ...order.toObject(),
+            paymentType: "PayPal",
+          },
+        });
+      }
+
+      await sendEmail({
+        to: "genuineunlockerinfo@gmail.com",
+        subject: "New PayPal Payment Pending",
+        template: "newOrder",
+        data: {
+          ...order.toObject(),
+          paymentType: "PayPal",
+        },
+      });
+
+      res.json({
+        status: "pending",
+        message:
+          "PayPal payment is pending. Invoice will be sent automatically when cleared (via webhook).",
+      });
     } else {
+      // ❌ Failed or Denied
       res.status(400).json({ error: "PayPal payment not completed" });
     }
   } catch (error) {
