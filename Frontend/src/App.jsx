@@ -10,6 +10,7 @@ import TermsAndConditions from './Component/Termandconditions/TermsAndConditions
 import About from './Component/AboutUs/About';
 import HowToUseCodePage from './Component/UnlockCode/HowToUseCode';
 import ScrollToTop from './Component/ScrollToTop';
+import LogoSlider from './Component/logoslider/LogoSlider';
 
 const App = () => {
   return (
