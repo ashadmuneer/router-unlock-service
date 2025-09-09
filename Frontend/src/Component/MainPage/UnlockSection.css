@@ -571,7 +571,7 @@
 .logo-track {
   display: flex;
   width: max-content; /* auto width */
-  animation: scroll 20s linear infinite;
+  animation: scroll 60s linear infinite; /* slower speed */
 }
 
 .logo-track img {
