@@ -118,11 +118,11 @@
 }
 
 .page-number:hover:not(.active) {
-  color: #007bff;
+  color: rgb(133, 2, 172);;
 }
 
 .page-number.active {
-  color: #007bff;
+  color: rgb(133, 2, 172);;
   font-weight: bold;
 }
 
@@ -133,7 +133,7 @@
 
 .pagination-buttons button {
     padding: 8px 16px;
-    background-color: #007BFF;
+    background-color:  rgb(133, 2, 172);
     color: white;
     border: none;
     cursor: pointer;
@@ -141,7 +141,7 @@
 }
 
 .pagination-buttons button:hover:not(.disabled) {
-  background-color: #0056b3;
+  background-color: rgb(71, 7, 90);;
 }
 
 .pagination-buttons button.disabled {
