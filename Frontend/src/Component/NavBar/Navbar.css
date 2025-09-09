@@ -170,6 +170,7 @@ nav {
   flex-direction: column;
   align-items: center;
   gap: 0.4rem;
+  margin-right: 50px;
   margin-left: auto;
   color: #702083;
 }
