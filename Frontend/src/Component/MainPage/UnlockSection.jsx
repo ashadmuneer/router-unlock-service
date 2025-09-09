@@ -863,7 +863,7 @@ const UnlockSection = () => {
               )}
               {!showSecondPart ? (
                 <>
-                  <label htmlFor="network">Select Country</label>
+                  <label htmlFor="country">Select Country</label>
                   <Select
                     inputId="country"
                     className="dropdown"
@@ -1670,6 +1670,30 @@ const UnlockSection = () => {
         </div>
         <div className="logo-slider">
           <div className="logo-track">
+            <img src="https://i.ibb.co/ksvHjjmR/Frame-3.png" alt="Logo 1" />
+            <img src="https://i.ibb.co/fdrYXkHh/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-11.png" alt="Logo 2" />
+            <img src="https://i.ibb.co/LdRKh34W/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-12.png" alt="Logo 3" />
+            <img src="https://i.ibb.co/YBFb8Z95/Frame-2.png" alt="Logo 4" />
+            <img src="https://i.ibb.co/Y45T7tXh/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-1.png" alt="Logo 5" />
+            <img src="https://i.ibb.co/TMcyKnx4/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-3.png" alt="Logo 6" />
+            <img src="https://i.ibb.co/TxGf8DxS/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-4.png" alt="Logo 7" />
+            <img src="https://i.ibb.co/CK1Frqpz/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-5.png" alt="Logo 8" />
+            <img src="https://i.ibb.co/TMSNscj7/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-6.png" alt="Logo 9" />
+            <img src="https://i.ibb.co/9mHfQJSc/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-7.png" alt="Logo 10" />
+            <img src="https://i.ibb.co/kVQBkD29/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-9.png" alt="Logo 11" />
+            <img src="https://i.ibb.co/TBy1VSPC/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-10.png" alt="Logo 12" />
+            <img src="https://i.ibb.co/ksvHjjmR/Frame-3.png" alt="Logo 1" />
+            <img src="https://i.ibb.co/fdrYXkHh/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-11.png" alt="Logo 2" />
+            <img src="https://i.ibb.co/LdRKh34W/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-12.png" alt="Logo 3" />
+            <img src="https://i.ibb.co/YBFb8Z95/Frame-2.png" alt="Logo 4" />
+            <img src="https://i.ibb.co/Y45T7tXh/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-1.png" alt="Logo 5" />
+            <img src="https://i.ibb.co/TMcyKnx4/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-3.png" alt="Logo 6" />
+            <img src="https://i.ibb.co/TxGf8DxS/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-4.png" alt="Logo 7" />
+            <img src="https://i.ibb.co/CK1Frqpz/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-5.png" alt="Logo 8" />
+            <img src="https://i.ibb.co/TMSNscj7/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-6.png" alt="Logo 9" />
+            <img src="https://i.ibb.co/9mHfQJSc/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-7.png" alt="Logo 10" />
+            <img src="https://i.ibb.co/kVQBkD29/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-9.png" alt="Logo 11" />
+            <img src="https://i.ibb.co/TBy1VSPC/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-10.png" alt="Logo 12" />
             <img src="https://i.ibb.co/ksvHjjmR/Frame-3.png" alt="Logo 1" />
             <img src="https://i.ibb.co/fdrYXkHh/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-11.png" alt="Logo 2" />
             <img src="https://i.ibb.co/LdRKh34W/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-12.png" alt="Logo 3" />

@@ -52,7 +52,7 @@ input:focus {
 }
 
 button {
-  background: linear-gradient(90deg, #007bff, #0056b3);
+  background: rgb(133, 2, 172);
   color: #fff;
   border: none;
   padding: 12px 30px;
@@ -65,7 +65,7 @@ button {
 }
 
 button:hover {
-  background: linear-gradient(90deg, #0056b3, #003d82);
+  background: rgb(67, 1, 87);
   transform: translateY(-2px);
   box-shadow: 0 5px 12px rgba(0, 123, 255, 0.3);
 }

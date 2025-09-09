@@ -88,7 +88,6 @@
   background: rgba(255, 255, 255, 0.05);
   padding: 2rem;
   border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 .form-part-title {
@@ -281,15 +280,15 @@
 }
 
 .unlock-button {
-  background: linear-gradient(90deg, #007bff, #0056b3);
+  background:rgb(133, 2, 172);
   color: #ffffff;
   padding: 0.9rem 2rem;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+  border: solid 1px #ffffff;
   transition: all 0.3s ease;
   width: 100%;
 }
@@ -301,9 +300,9 @@
 }
 
 .unlock-button:hover:not(:disabled) {
-  background: linear-gradient(90deg, #0056b3, #003d82);
+  background: rgb(87, 12, 121);
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+  /* box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3); */
 }
 
 .back-button {
@@ -565,13 +564,13 @@
   overflow: hidden;
   position: relative;
   width: 100%;
-  background: transparent; /* change if you want a bg */
+  background: transparent;
   padding: 50px 0px 10px 0px;
 }
 
 .logo-track {
   display: flex;
-  width: calc(200px * 12); /* logo width * number of logos */
+  width: max-content; /* auto width */
   animation: scroll 20s linear infinite;
 }
 
@@ -589,3 +588,5 @@
     transform: translateX(-50%);
   }
 }
+
+
