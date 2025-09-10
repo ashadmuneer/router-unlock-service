@@ -265,5 +265,29 @@ export const cardData = [
     },
     content: [{ title: "AirBox 5G EMTEL H155-381", text: "Detailed unlock of a high-end CPE router." }],
     video: { title: "AirBox 5G  EMTEL H155-381 Router Unlock", url: "https://www.youtube.com/embed/6pweg6d09bI" },
-  }
+  },
+  {
+  id: 18,
+  tag: "Technology",
+  tagColor: "tag-teal",
+  title: "How To Unlock STC 5G Brovi CPE Pro 5 H158-381.",
+  description: "Step-by-step video unlocking STC 5G Brovi CPE Pro 5 H158-381.",
+  image: "https://img.youtube.com/vi/6pZKZ5auFTA/maxresdefault.jpg",
+  user: {
+    name: "Genuine Unlocker",
+    time: "Just now",
+    image: "https://yt3.ggpht.com/ytc/AGIKgqP0Aq0XzZc5xL9Qk1Ffd7IExZ7Crw9JHcZn7g=s88-c-k-c0x00ffffff-no-rj",
+  },
+  content: [
+    { 
+      title: "STC 5G Brovi CPE Pro 5 H158-381", 
+      text: "Detailed unlock guide for STC 5G Brovi CPE Pro 5 router." 
+    }
+  ],
+  video: { 
+    title: "STC 5G Brovi CPE Pro 5 H158-381 Unlocking", 
+    url: "https://www.youtube.com/embed/6pZKZ5auFTA" 
+  },
+}
+
 ];

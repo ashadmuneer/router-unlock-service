@@ -138,6 +138,51 @@ const countryNetworkData = [
     ],
   },
   {
+    "country": "Kazakhstan",
+    "code": "KZ",
+    "networks": [
+      { "name": "Kcell", "logo_url": "https://logo.clearbit.com/kcell.kz" },
+      { "name": "Beeline", "logo_url": "https://logo.clearbit.com/beeline.kz" },
+      { "name": "Tele2", "logo_url": "https://logo.clearbit.com/tele2.kz" },
+      { "name": "Altel", "logo_url": "https://logo.clearbit.com/altel.kz" },
+      { "name": "Izi", "logo_url": "https://logo.clearbit.com/izi.kz" }
+    ]
+  },
+
+  {
+    "country": "Israel",
+    "code": "IL",
+    "networks": [
+      { "name": "Pelephone", "logo_url": "https://logo.clearbit.com/pelephone.co.il" },
+      { "name": "Cellcom", "logo_url": "https://logo.clearbit.com/cellcom.co.il" },
+      { "name": "Partner Mobile", "logo_url": "https://logo.clearbit.com/partner.co.il" },
+      { "name": "HOT Mobile", "logo_url": "https://logo.clearbit.com/hotmobile.co.il" },
+      { "name": "Golan Telecom", "logo_url": "https://logo.clearbit.com/golantelecom.co.il" },
+      { "name": "We4G", "logo_url": "https://logo.clearbit.com/we4g.co.il" },
+      { "name": "Rami Levy", "logo_url": "https://logo.clearbit.com/ramilevy.co.il" },
+      { "name": "012 Mobile", "logo_url": "https://logo.clearbit.com/012.net.il" },
+      { "name": "Home Cellular", "logo_url": "https://logo.clearbit.com/homecellular.co.il" },
+      { "name": "Youphone", "logo_url": "https://logo.clearbit.com/youphone.co.il" },
+      { "name": "019 Telzar", "logo_url": "https://logo.clearbit.com/019.net.il" }
+    ]
+  },
+  {
+    "country": "Malaysia",
+    "code": "MY",
+    "networks": [
+      { "name": "CelcomDigi", "logo_url": "https://logo.clearbit.com/celcomdigi.com.my" },
+      { "name": "Maxis", "logo_url": "https://logo.clearbit.com/maxis.com.my" },
+      { "name": "U Mobile", "logo_url": "https://logo.clearbit.com/u.com.my" },
+      { "name": "Telekom Malaysia (Unifi Mobile)", "logo_url": "https://logo.clearbit.com/unifi.com.my" },
+      { "name": "Tune Talk", "logo_url": "https://logo.clearbit.com/tunetalk.com" },
+      { "name": "redONE", "logo_url": "https://logo.clearbit.com/redone.com.my" },
+      { "name": "XOX Mobile", "logo_url": "https://logo.clearbit.com/xox.com.my" },
+      { "name": "Yoodo", "logo_url": "https://logo.clearbit.com/yoodo.com.my" },
+      { "name": "Merchantrade Mobile", "logo_url": "https://logo.clearbit.com/merchantrademobile.com" },
+      { "name": "SpeakOUT", "logo_url": "https://logo.clearbit.com/speakout.com.my" }
+    ]
+  },
+  {
     country: "Nigeria",
     code: "NG",
     networks: [
@@ -161,6 +206,8 @@ const countryNetworkData = [
       { name: "Zong", logo_url: "https://logo.clearbit.com/zong.com.pk" },
       { name: "Telenor", logo_url: "https://logo.clearbit.com/telenor.com" },
       { name: "Ufone", logo_url: "https://logo.clearbit.com/ufone.com" },
+      { "name": "SCO", "logo_url": "https://logo.clearbit.com/sco.gov.pk" }
+
     ],
   },
   {
@@ -196,6 +243,23 @@ const countryNetworkData = [
     ],
   },
   {
+    "country": "Mauritius",
+    "code": "MU",
+    "networks": [
+      { "name": "my.t", "logo_url": "https://logo.clearbit.com/myt.mu" },
+      { "name": "Emtel", "logo_url": "https://logo.clearbit.com/emtel.com" }
+    ]
+  },
+  {
+    "country": "Sudan",
+    "code": "SD",
+    "networks": [
+      { "name": "Zain Sudan", "logo_url": "https://logo.clearbit.com/sd.zain.com" },
+      { "name": "Sudani", "logo_url": "https://logo.clearbit.com/sudani.sd" },
+      { "name": "MTN Sudan", "logo_url": "https://logo.clearbit.com/mtn.sd" }
+    ]
+  },
+  {
     country: "Germany",
     code: "DE",
     networks: [
@@ -215,26 +279,23 @@ const countryNetworkData = [
     ],
   },
   {
-    country: "United Kingdom",
-    code: "GB",
-    networks: [
-      { name: "EE", logo_url: "https://logo.clearbit.com/ee.co.uk" },
-      { name: "O2", logo_url: "https://logo.clearbit.com/o2.co.uk" },
-      {
-        name: "Vodafone UK",
-        logo_url: "https://logo.clearbit.com/vodafone.co.uk",
-      },
-      { name: "Three", logo_url: "https://logo.clearbit.com/three.co.uk" },
-      { name: "Giffgaff", logo_url: "https://logo.clearbit.com/giffgaff.com" },
-      {
-        name: "Sky Mobile",
-        logo_url: "https://logo.clearbit.com/skymobile.co.uk",
-      },
-      {
-        name: "Tesco Mobile",
-        logo_url: "https://logo.clearbit.com/tescomobile.com",
-      },
-    ],
+    "country": "UK",
+    "code": "GB",
+    "networks": [
+      { "name": "EE", "logo_url": "https://logo.clearbit.com/ee.co.uk" },
+      { "name": "O2", "logo_url": "https://logo.clearbit.com/o2.co.uk" },
+      { "name": "Vodafone", "logo_url": "https://logo.clearbit.com/vodafone.co.uk" },
+      { "name": "Three", "logo_url": "https://logo.clearbit.com/three.co.uk" },
+      { "name": "Giffgaff", "logo_url": "https://logo.clearbit.com/giffgaff.com" },
+      { "name": "Tesco Mobile", "logo_url": "https://logo.clearbit.com/tescomobile.com" },
+      { "name": "Sky Mobile", "logo_url": "https://logo.clearbit.com/sky.com" },
+      { "name": "iD Mobile", "logo_url": "https://logo.clearbit.com/idmobile.co.uk" },
+      { "name": "SMARTY", "logo_url": "https://logo.clearbit.com/smarty.co.uk" },
+      { "name": "BT Mobile", "logo_url": "https://logo.clearbit.com/bt.com" },
+      { "name": "Lyca Mobile", "logo_url": "https://logo.clearbit.com/lycamobile.co.uk" },
+      { "name": "VOXI", "logo_url": "https://logo.clearbit.com/voxi.co.uk" },
+      { "name": "Talkmobile", "logo_url": "https://logo.clearbit.com/talkmobile.co.uk" }
+    ]
   },
   {
     country: "France",
@@ -265,23 +326,24 @@ const countryNetworkData = [
       },
     ],
   },
+ {
+    "country": "Philippines",
+    "code": "PH",
+    "networks": [
+      { "name": "Globe Telecom", "logo_url": "https://logo.clearbit.com/globe.com.ph" },
+      { "name": "Smart Communications", "logo_url": "https://logo.clearbit.com/smart.com.ph" },
+      { "name": "DITO Telecommunity", "logo_url": "https://logo.clearbit.com/dito.ph" }
+    ]
+  },
   {
-    country: "Philippines",
-    code: "PH",
-    networks: [
-      {
-        name: "Globe Telecom",
-        logo_url: "https://logo.clearbit.com/globe.com.ph",
-      },
-      {
-        name: "Smart Communications",
-        logo_url: "https://logo.clearbit.com/smart.com.ph",
-      },
-      {
-        name: "DITO Telecommunity",
-        logo_url: "https://logo.clearbit.com/dito.ph",
-      },
-    ],
+    "country": "Sri Lanka",
+    "code": "LK",
+    "networks": [
+      { "name": "Dialog Axiata", "logo_url": "https://logo.clearbit.com/dialog.lk" },
+      { "name": "SLT-Mobitel", "logo_url": "https://logo.clearbit.com/mobitel.lk" },
+      { "name": "Hutch", "logo_url": "https://logo.clearbit.com/hutch.lk" },
+      { "name": "Airtel", "logo_url": "https://logo.clearbit.com/airtel.lk" }
+    ]
   },
   {
     country: "Vietnam",
@@ -380,6 +442,9 @@ const countryNetworkData = [
         name: "GO Telecom",
         logo_url: "https://logo.clearbit.com/go.com.sa",
       },
+      { "name": "SALAM", "logo_url": "https://logo.clearbit.com/salam.sa" },
+      { "name": "Virgin Mobile Saudi", "logo_url": "https://logo.clearbit.com/virginmobile.sa" },
+      { "name": "Lebara Mobile KSA", "logo_url": "https://logo.clearbit.com/lebara.sa" }
     ],
   },
   {
@@ -424,6 +489,8 @@ const countryNetworkData = [
         name: "Vodafone Oman",
         logo_url: "https://logo.clearbit.com/vodafone.om",
       },
+      { "name": "FRiENDi Mobile", "logo_url": "https://logo.clearbit.com/friendimobile.om" },
+      { "name": "Renna Mobile", "logo_url": "https://logo.clearbit.com/rennamobile.com" }
     ],
   },
   {
