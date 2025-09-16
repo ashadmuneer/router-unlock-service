@@ -613,6 +613,11 @@ const tacRouterDB = {
   86237606: { brand: "FLYBOX", model: "CP52" },
   86237606: { brand: "FLYBOX", model: "CP52" },
   90909090: { brand: "TestBrand", model: "TestModel" },
+  "35041894": { brand: "TP-Link", model: "Archer NX200" },
+  "86500606": { brand: "Deco", model: "Deco X50-5G" }, 
+  "86920106": { brand: "Soyealink", model: "SRT873HS" },
+  "35041746": { brand: "Flybox", model: "5G19-01W-A" },
+  "86181505": { brand: "Soyealink", model: "SLT869-A51" },
 
 };
 
