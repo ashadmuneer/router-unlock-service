@@ -4,7 +4,6 @@ import UnlockSection from "../Component/MainPage/UnlockSection";
 import Blogcard from "../Component/blogcard/Blogcard";
 import Faq from "../Component/FAQ/Faq";
 import { Helmet } from "react-helmet-async";
-import LogoSlider from "../Component/logoslider/LogoSlider";
 
 const Home = () => {
   const location = useLocation();

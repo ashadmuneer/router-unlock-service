@@ -1,22 +1,41 @@
-import {Routes, Route } from 'react-router-dom'; // ✅ Added BrowserRouter
-import NavBar from './Component/NavBar/NavBar';
-import Footer from './Component/Footer/Footer';
-import Home from './Pages/Home';
-import './App.css';
-import BlogDetailPage from './Component/Blogdetailpage/BlogDetailPage';
-import OrderTracking from './Component/OrderTracking/OrderTracking';
-import Order from './Component/Order/Order';
-import TermsAndConditions from './Component/Termandconditions/TermsAndConditions';
-import About from './Component/AboutUs/About';
-import HowToUseCodePage from './Component/UnlockCode/HowToUseCode';
-import ScrollToTop from './Component/ScrollToTop';
-import LogoSlider from './Component/logoslider/LogoSlider';
+import React, { lazy, Suspense, useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
+import Loader from "./Component/loader/Loader.jsx"; // ✅ custom loader
+
+// ✅ Lazy load all components
+const NavBar = lazy(() => import("./Component/NavBar/NavBar"));
+const Footer = lazy(() => import("./Component/Footer/Footer"));
+const ScrollToTop = lazy(() => import("./Component/ScrollToTop"));
+const Home = lazy(() => import("./Pages/Home"));
+const BlogDetailPage = lazy(() => import("./Component/Blogdetailpage/BlogDetailPage"));
+const OrderTracking = lazy(() => import("./Component/OrderTracking/OrderTracking"));
+const Order = lazy(() => import("./Component/Order/Order"));
+const TermsAndConditions = lazy(() => import("./Component/Termandconditions/TermsAndConditions"));
+const About = lazy(() => import("./Component/AboutUs/About"));
+const HowToUseCodePage = lazy(() => import("./Component/UnlockCode/HowToUseCode"));
 
 const App = () => {
+  const [loading, setLoading] = useState(true);
+  const [fadeOut, setFadeOut] = useState(false);
+
+  useEffect(() => {
+    const fadeTimer = setTimeout(() => setFadeOut(true), 1600); // start fade at 1.6s
+    const hideTimer = setTimeout(() => setLoading(false), 2000); // remove loader at 2s
+    return () => {
+      clearTimeout(fadeTimer);
+      clearTimeout(hideTimer);
+    };
+  }, []);
+
+  if (loading) {
+    return <Loader fadeOut={fadeOut} />; // pass fadeOut prop to loader
+  }
+
   return (
-    <>
+    <Suspense fallback={<Loader />}>
       <NavBar />
       <ScrollToTop />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
@@ -29,7 +48,7 @@ const App = () => {
         <Route path="/about" element={<About />} />
       </Routes>
       <Footer />
-      </>
+    </Suspense>
   );
 };
 
