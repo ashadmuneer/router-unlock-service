@@ -8,28 +8,28 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- Optional Duplicate Home Route -->
+  <!-- Home Section -->
   <url>
     <loc>https://genuineunlocker.net/#home</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Blog Detail Page (template) -->
+  <!-- How To Unlock / Blog Section -->
   <url>
     <loc>https://genuineunlocker.net/#howtounlock</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
-  <!-- Order Detail Page (template) -->
+  <!-- Order Detail Page (example template) -->
   <url>
     <loc>https://genuineunlocker.net/order/17014664VT883100J</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
-  <!-- Order Tracking -->
+  <!-- Order Tracking Pages -->
   <url>
     <loc>https://genuineunlocker.net/track-order</loc>
     <changefreq>weekly</changefreq>
@@ -61,10 +61,70 @@
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
-   <url>
+
+  <!-- FAQ Section -->
+  <url>
     <loc>https://genuineunlocker.net/#faq</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
+
+  <!-- All Device Pages -->
+  <url><loc>https://genuineunlocker.net/device/HUAWEI/H112-370</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/HUAWEI/H112-372</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/HUAWEI/H122-373A</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/HUAWEI/H122-373</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/HUAWEI/N5368X</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/HUAWEI/E6878-370</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/HUAWEI/E6878-870</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/BROVI/H153-381</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/BROVI/H151-370</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/BROVI/H155-381</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/BROVI/H155-382</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/BROVI/H155-383</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/BROVI/H158-381</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/BROVI/H352-381</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/BROVI/E6888-982</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/BROVI Plus/H155-380</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/ZTE/MU5120</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/ZTE/MC888</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/ZTE/MC801A</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/ZTE/MC888A ULTRA</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/ZTE/MU5001M</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/ZTE/G5C</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/ZTE/MC801A1</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/OPPO/T1A-CTC03</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/OPPO/T2-CTD05</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/GHTelcom/H138-380</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/Soyealink/SRT873</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/Soyealink/SRT875</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/GreenPacket/D5H-250MK</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/GreenPacket/D5H-EA20/EA60/EA62</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/GreenPacket/Y5-210MU</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/AVXAV/WQRTM-838A</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/AURORA/C082 PRO</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/D-Link/DWR-2000M</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/FIBOCOM/AX3600</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/TD TECH/IC5989</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/OPPO/T1A-CTC02</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/NOKIA/AOD311NK</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/QUECTEL/RM500Q-AE</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/BROVI/H165-383</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/OPPO/T1A-CTB06</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/OPPO/T1A-CTB03</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/MEIGLINK/A50E</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/NOKIA/FASTMILE 5G GATEWAY 3.2</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/NOKIA/FASTMILE 5G GATEWAY 3.1</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/QUECTEL/RG50OL-EU</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/ZLT/X21</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/ZTE/MU5001A/B/M/U/MU5002</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/TELSTRA/AW1000</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/FLYBOX/CP52</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/TestBrand/TestModel</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/TP-Link/Archer NX200</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/Deco/Deco X50-5G</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/Soyealink/SRT873HS</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/Flybox/5G19-01W-A</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://genuineunlocker.net/device/Soyealink/SLT869-A51</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
 </urlset>

@@ -32,6 +32,9 @@ const Footer = () => {
               <Link to="/about" className="footer-link">About Us</Link>
             </li>
             <li>
+              <Link to="/all-devices" className="footer-link">All Devices</Link>
+            </li>
+            <li>
               <Link to="/terms" className="footer-link">Terms and Conditions</Link>
             </li>
           </ul>

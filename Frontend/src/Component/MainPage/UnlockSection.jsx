@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./UnlockSection.css";
 import { Helmet } from "react-helmet-async";
+import unlockIcon from "../../assets/password.png"; // adjust path
 import Select from "react-select";
 
 const brandLogos = {
@@ -138,49 +139,82 @@ const countryNetworkData = [
     ],
   },
   {
-    "country": "Kazakhstan",
-    "code": "KZ",
-    "networks": [
-      { "name": "Kcell", "logo_url": "https://logo.clearbit.com/kcell.kz" },
-      { "name": "Beeline", "logo_url": "https://logo.clearbit.com/beeline.kz" },
-      { "name": "Tele2", "logo_url": "https://logo.clearbit.com/tele2.kz" },
-      { "name": "Altel", "logo_url": "https://logo.clearbit.com/altel.kz" },
-      { "name": "Izi", "logo_url": "https://logo.clearbit.com/izi.kz" }
-    ]
+    country: "Kazakhstan",
+    code: "KZ",
+    networks: [
+      { name: "Kcell", logo_url: "https://logo.clearbit.com/kcell.kz" },
+      { name: "Beeline", logo_url: "https://logo.clearbit.com/beeline.kz" },
+      { name: "Tele2", logo_url: "https://logo.clearbit.com/tele2.kz" },
+      { name: "Altel", logo_url: "https://logo.clearbit.com/altel.kz" },
+      { name: "Izi", logo_url: "https://logo.clearbit.com/izi.kz" },
+    ],
   },
 
   {
-    "country": "Israel",
-    "code": "IL",
-    "networks": [
-      { "name": "Pelephone", "logo_url": "https://logo.clearbit.com/pelephone.co.il" },
-      { "name": "Cellcom", "logo_url": "https://logo.clearbit.com/cellcom.co.il" },
-      { "name": "Partner Mobile", "logo_url": "https://logo.clearbit.com/partner.co.il" },
-      { "name": "HOT Mobile", "logo_url": "https://logo.clearbit.com/hotmobile.co.il" },
-      { "name": "Golan Telecom", "logo_url": "https://logo.clearbit.com/golantelecom.co.il" },
-      { "name": "We4G", "logo_url": "https://logo.clearbit.com/we4g.co.il" },
-      { "name": "Rami Levy", "logo_url": "https://logo.clearbit.com/ramilevy.co.il" },
-      { "name": "012 Mobile", "logo_url": "https://logo.clearbit.com/012.net.il" },
-      { "name": "Home Cellular", "logo_url": "https://logo.clearbit.com/homecellular.co.il" },
-      { "name": "Youphone", "logo_url": "https://logo.clearbit.com/youphone.co.il" },
-      { "name": "019 Telzar", "logo_url": "https://logo.clearbit.com/019.net.il" }
-    ]
+    country: "Israel",
+    code: "IL",
+    networks: [
+      {
+        name: "Pelephone",
+        logo_url: "https://logo.clearbit.com/pelephone.co.il",
+      },
+      { name: "Cellcom", logo_url: "https://logo.clearbit.com/cellcom.co.il" },
+      {
+        name: "Partner Mobile",
+        logo_url: "https://logo.clearbit.com/partner.co.il",
+      },
+      {
+        name: "HOT Mobile",
+        logo_url: "https://logo.clearbit.com/hotmobile.co.il",
+      },
+      {
+        name: "Golan Telecom",
+        logo_url: "https://logo.clearbit.com/golantelecom.co.il",
+      },
+      { name: "We4G", logo_url: "https://logo.clearbit.com/we4g.co.il" },
+      {
+        name: "Rami Levy",
+        logo_url: "https://logo.clearbit.com/ramilevy.co.il",
+      },
+      { name: "012 Mobile", logo_url: "https://logo.clearbit.com/012.net.il" },
+      {
+        name: "Home Cellular",
+        logo_url: "https://logo.clearbit.com/homecellular.co.il",
+      },
+      {
+        name: "Youphone",
+        logo_url: "https://logo.clearbit.com/youphone.co.il",
+      },
+      { name: "019 Telzar", logo_url: "https://logo.clearbit.com/019.net.il" },
+    ],
   },
   {
-    "country": "Malaysia",
-    "code": "MY",
-    "networks": [
-      { "name": "CelcomDigi", "logo_url": "https://logo.clearbit.com/celcomdigi.com.my" },
-      { "name": "Maxis", "logo_url": "https://logo.clearbit.com/maxis.com.my" },
-      { "name": "U Mobile", "logo_url": "https://logo.clearbit.com/u.com.my" },
-      { "name": "Telekom Malaysia (Unifi Mobile)", "logo_url": "https://logo.clearbit.com/unifi.com.my" },
-      { "name": "Tune Talk", "logo_url": "https://logo.clearbit.com/tunetalk.com" },
-      { "name": "redONE", "logo_url": "https://logo.clearbit.com/redone.com.my" },
-      { "name": "XOX Mobile", "logo_url": "https://logo.clearbit.com/xox.com.my" },
-      { "name": "Yoodo", "logo_url": "https://logo.clearbit.com/yoodo.com.my" },
-      { "name": "Merchantrade Mobile", "logo_url": "https://logo.clearbit.com/merchantrademobile.com" },
-      { "name": "SpeakOUT", "logo_url": "https://logo.clearbit.com/speakout.com.my" }
-    ]
+    country: "Malaysia",
+    code: "MY",
+    networks: [
+      {
+        name: "CelcomDigi",
+        logo_url: "https://logo.clearbit.com/celcomdigi.com.my",
+      },
+      { name: "Maxis", logo_url: "https://logo.clearbit.com/maxis.com.my" },
+      { name: "U Mobile", logo_url: "https://logo.clearbit.com/u.com.my" },
+      {
+        name: "Telekom Malaysia (Unifi Mobile)",
+        logo_url: "https://logo.clearbit.com/unifi.com.my",
+      },
+      { name: "Tune Talk", logo_url: "https://logo.clearbit.com/tunetalk.com" },
+      { name: "redONE", logo_url: "https://logo.clearbit.com/redone.com.my" },
+      { name: "XOX Mobile", logo_url: "https://logo.clearbit.com/xox.com.my" },
+      { name: "Yoodo", logo_url: "https://logo.clearbit.com/yoodo.com.my" },
+      {
+        name: "Merchantrade Mobile",
+        logo_url: "https://logo.clearbit.com/merchantrademobile.com",
+      },
+      {
+        name: "SpeakOUT",
+        logo_url: "https://logo.clearbit.com/speakout.com.my",
+      },
+    ],
   },
   {
     country: "Nigeria",
@@ -206,8 +240,7 @@ const countryNetworkData = [
       { name: "Zong", logo_url: "https://logo.clearbit.com/zong.com.pk" },
       { name: "Telenor", logo_url: "https://logo.clearbit.com/telenor.com" },
       { name: "Ufone", logo_url: "https://logo.clearbit.com/ufone.com" },
-      { "name": "SCO", "logo_url": "https://logo.clearbit.com/sco.gov.pk" }
-
+      { name: "SCO", logo_url: "https://logo.clearbit.com/sco.gov.pk" },
     ],
   },
   {
@@ -243,21 +276,21 @@ const countryNetworkData = [
     ],
   },
   {
-    "country": "Mauritius",
-    "code": "MU",
-    "networks": [
-      { "name": "my.t", "logo_url": "https://logo.clearbit.com/myt.mu" },
-      { "name": "Emtel", "logo_url": "https://logo.clearbit.com/emtel.com" }
-    ]
+    country: "Mauritius",
+    code: "MU",
+    networks: [
+      { name: "my.t", logo_url: "https://logo.clearbit.com/myt.mu" },
+      { name: "Emtel", logo_url: "https://logo.clearbit.com/emtel.com" },
+    ],
   },
   {
-    "country": "Sudan",
-    "code": "SD",
-    "networks": [
-      { "name": "Zain Sudan", "logo_url": "https://logo.clearbit.com/sd.zain.com" },
-      { "name": "Sudani", "logo_url": "https://logo.clearbit.com/sudani.sd" },
-      { "name": "MTN Sudan", "logo_url": "https://logo.clearbit.com/mtn.sd" }
-    ]
+    country: "Sudan",
+    code: "SD",
+    networks: [
+      { name: "Zain Sudan", logo_url: "https://logo.clearbit.com/sd.zain.com" },
+      { name: "Sudani", logo_url: "https://logo.clearbit.com/sudani.sd" },
+      { name: "MTN Sudan", logo_url: "https://logo.clearbit.com/mtn.sd" },
+    ],
   },
   {
     country: "Germany",
@@ -279,23 +312,38 @@ const countryNetworkData = [
     ],
   },
   {
-    "country": "UK",
-    "code": "GB",
-    "networks": [
-      { "name": "EE", "logo_url": "https://logo.clearbit.com/ee.co.uk" },
-      { "name": "O2", "logo_url": "https://logo.clearbit.com/o2.co.uk" },
-      { "name": "Vodafone", "logo_url": "https://logo.clearbit.com/vodafone.co.uk" },
-      { "name": "Three", "logo_url": "https://logo.clearbit.com/three.co.uk" },
-      { "name": "Giffgaff", "logo_url": "https://logo.clearbit.com/giffgaff.com" },
-      { "name": "Tesco Mobile", "logo_url": "https://logo.clearbit.com/tescomobile.com" },
-      { "name": "Sky Mobile", "logo_url": "https://logo.clearbit.com/sky.com" },
-      { "name": "iD Mobile", "logo_url": "https://logo.clearbit.com/idmobile.co.uk" },
-      { "name": "SMARTY", "logo_url": "https://logo.clearbit.com/smarty.co.uk" },
-      { "name": "BT Mobile", "logo_url": "https://logo.clearbit.com/bt.com" },
-      { "name": "Lyca Mobile", "logo_url": "https://logo.clearbit.com/lycamobile.co.uk" },
-      { "name": "VOXI", "logo_url": "https://logo.clearbit.com/voxi.co.uk" },
-      { "name": "Talkmobile", "logo_url": "https://logo.clearbit.com/talkmobile.co.uk" }
-    ]
+    country: "UK",
+    code: "GB",
+    networks: [
+      { name: "EE", logo_url: "https://logo.clearbit.com/ee.co.uk" },
+      { name: "O2", logo_url: "https://logo.clearbit.com/o2.co.uk" },
+      {
+        name: "Vodafone",
+        logo_url: "https://logo.clearbit.com/vodafone.co.uk",
+      },
+      { name: "Three", logo_url: "https://logo.clearbit.com/three.co.uk" },
+      { name: "Giffgaff", logo_url: "https://logo.clearbit.com/giffgaff.com" },
+      {
+        name: "Tesco Mobile",
+        logo_url: "https://logo.clearbit.com/tescomobile.com",
+      },
+      { name: "Sky Mobile", logo_url: "https://logo.clearbit.com/sky.com" },
+      {
+        name: "iD Mobile",
+        logo_url: "https://logo.clearbit.com/idmobile.co.uk",
+      },
+      { name: "SMARTY", logo_url: "https://logo.clearbit.com/smarty.co.uk" },
+      { name: "BT Mobile", logo_url: "https://logo.clearbit.com/bt.com" },
+      {
+        name: "Lyca Mobile",
+        logo_url: "https://logo.clearbit.com/lycamobile.co.uk",
+      },
+      { name: "VOXI", logo_url: "https://logo.clearbit.com/voxi.co.uk" },
+      {
+        name: "Talkmobile",
+        logo_url: "https://logo.clearbit.com/talkmobile.co.uk",
+      },
+    ],
   },
   {
     country: "France",
@@ -326,24 +374,36 @@ const countryNetworkData = [
       },
     ],
   },
- {
-    "country": "Philippines",
-    "code": "PH",
-    "networks": [
-      { "name": "Globe Telecom", "logo_url": "https://logo.clearbit.com/globe.com.ph" },
-      { "name": "Smart Communications", "logo_url": "https://logo.clearbit.com/smart.com.ph" },
-      { "name": "DITO Telecommunity", "logo_url": "https://logo.clearbit.com/dito.ph" }
-    ]
+  {
+    country: "Philippines",
+    code: "PH",
+    networks: [
+      {
+        name: "Globe Telecom",
+        logo_url: "https://logo.clearbit.com/globe.com.ph",
+      },
+      {
+        name: "Smart Communications",
+        logo_url: "https://logo.clearbit.com/smart.com.ph",
+      },
+      {
+        name: "DITO Telecommunity",
+        logo_url: "https://logo.clearbit.com/dito.ph",
+      },
+    ],
   },
   {
-    "country": "Sri Lanka",
-    "code": "LK",
-    "networks": [
-      { "name": "Dialog Axiata", "logo_url": "https://logo.clearbit.com/dialog.lk" },
-      { "name": "SLT-Mobitel", "logo_url": "https://logo.clearbit.com/mobitel.lk" },
-      { "name": "Hutch", "logo_url": "https://logo.clearbit.com/hutch.lk" },
-      { "name": "Airtel", "logo_url": "https://logo.clearbit.com/airtel.lk" }
-    ]
+    country: "Sri Lanka",
+    code: "LK",
+    networks: [
+      {
+        name: "Dialog Axiata",
+        logo_url: "https://logo.clearbit.com/dialog.lk",
+      },
+      { name: "SLT-Mobitel", logo_url: "https://logo.clearbit.com/mobitel.lk" },
+      { name: "Hutch", logo_url: "https://logo.clearbit.com/hutch.lk" },
+      { name: "Airtel", logo_url: "https://logo.clearbit.com/airtel.lk" },
+    ],
   },
   {
     country: "Vietnam",
@@ -442,9 +502,15 @@ const countryNetworkData = [
         name: "GO Telecom",
         logo_url: "https://logo.clearbit.com/go.com.sa",
       },
-      { "name": "SALAM", "logo_url": "https://logo.clearbit.com/salam.sa" },
-      { "name": "Virgin Mobile Saudi", "logo_url": "https://logo.clearbit.com/virginmobile.sa" },
-      { "name": "Lebara Mobile KSA", "logo_url": "https://logo.clearbit.com/lebara.sa" }
+      { name: "SALAM", logo_url: "https://logo.clearbit.com/salam.sa" },
+      {
+        name: "Virgin Mobile Saudi",
+        logo_url: "https://logo.clearbit.com/virginmobile.sa",
+      },
+      {
+        name: "Lebara Mobile KSA",
+        logo_url: "https://logo.clearbit.com/lebara.sa",
+      },
     ],
   },
   {
@@ -489,8 +555,14 @@ const countryNetworkData = [
         name: "Vodafone Oman",
         logo_url: "https://logo.clearbit.com/vodafone.om",
       },
-      { "name": "FRiENDi Mobile", "logo_url": "https://logo.clearbit.com/friendimobile.om" },
-      { "name": "Renna Mobile", "logo_url": "https://logo.clearbit.com/rennamobile.com" }
+      {
+        name: "FRiENDi Mobile",
+        logo_url: "https://logo.clearbit.com/friendimobile.om",
+      },
+      {
+        name: "Renna Mobile",
+        logo_url: "https://logo.clearbit.com/rennamobile.com",
+      },
     ],
   },
   {
@@ -613,14 +685,12 @@ const tacRouterDB = {
   86237606: { brand: "FLYBOX", model: "CP52" },
   86237606: { brand: "FLYBOX", model: "CP52" },
   90909090: { brand: "TestBrand", model: "TestModel" },
-  "35041894": { brand: "TP-Link", model: "Archer NX200" },
-  "86500606": { brand: "Deco", model: "Deco X50-5G" }, 
-  "86920106": { brand: "Soyealink", model: "SRT873HS" },
-  "35041746": { brand: "Flybox", model: "5G19-01W-A" },
-  "86181505": { brand: "Soyealink", model: "SLT869-A51" },
-
+  35041894: { brand: "TP-Link", model: "Archer NX200" },
+  86500606: { brand: "Deco", model: "Deco X50-5G" },
+  86920106: { brand: "Soyealink", model: "SRT873HS" },
+  35041746: { brand: "Flybox", model: "5G19-01W-A" },
+  86181505: { brand: "Soyealink", model: "SLT869-A51" },
 };
-
 
 const UnlockSection = () => {
   const [selectedCountry, setSelectedCountry] = useState("");
@@ -905,7 +975,10 @@ const UnlockSection = () => {
           <div className="unlock-content">
             <h1>
               <span className="highlight">Unlock your Wifi router</span> today
-              with <span style={{ color: "#FFD700" }} className="highlight">Genuine Unlocker</span>
+              with{" "}
+              <span style={{ color: "#FFD700" }} className="highlight">
+                Genuine Unlocker
+              </span>
             </h1>
             <h2>
               Unlocking <span className="via">via IMEI</span>
@@ -1083,7 +1156,18 @@ const UnlockSection = () => {
                     onClick={handleNext}
                     disabled={loading}
                   >
-                    {loading ? "Processing..." : "🔓 Buy Router Unlock Code"}
+                    {loading ? (
+                      "Processing..."
+                    ) : (
+                      <>
+                        <img
+                          src={unlockIcon} // or "/images/unlock.png" if in public folder
+                          alt="Unlock Icon"
+                          className="btn-icon"
+                        />
+                        Buy Router Unlock Code
+                      </>
+                    )}
                   </button>
                 </>
               ) : (
@@ -1120,270 +1204,274 @@ const UnlockSection = () => {
                       onChange={(e) => setCountryCode(e.target.value)}
                       className="country-code-select"
                     >
-                    <option value="">Country Code</option>
-                    <option value="+966">🇸🇦 +966 (KSA)</option>
-                    <option value="+91">🇮🇳 +91 (India)</option>
-                    <option value="+971">🇦🇪 +971 (United Arab Emirates)</option>
-                    <option value="+44">🇬🇧 +44 (United Kingdom)</option>
-                    <option value="+1">🇺🇸 +1 (United States)</option>
-                    <option value="+93">🇦🇫 +93 (Afghanistan)</option>
-                    <option value="+355">🇦🇱 +355 (Albania)</option>
-                    <option value="+213">🇩🇿 +213 (Algeria)</option>
-                    <option value="+376">🇦🇩 +376 (Andorra)</option>
-                    <option value="+244">🇦🇴 +244 (Angola)</option>
-                    <option value="+1264">🇦🇮 +1264 (Anguilla)</option>
-                    <option value="+672">🇦🇶 +672 (Antarctica)</option>
-                    <option value="+1268">
-                      🇦🇬 +1268 (Antigua and Barbuda)
-                    </option>
-                    <option value="+54">🇦🇷 +54 (Argentina)</option>
-                    <option value="+374">🇦🇲 +374 (Armenia)</option>
-                    <option value="+297">🇦🇼 +297 (Aruba)</option>
-                    <option value="+61">🇦🇺 +61 (Australia)</option>
-                    <option value="+43">🇦🇹 +43 (Austria)</option>
-                    <option value="+994">🇦🇿 +994 (Azerbaijan)</option>
-                    <option value="+1242">🇧🇸 +1242 (Bahamas)</option>
-                    <option value="+973">🇧🇭 +973 (Bahrain)</option>
-                    <option value="+880">🇧🇩 +880 (Bangladesh)</option>
-                    <option value="+1246">🇧🇧 +1246 (Barbados)</option>
-                    <option value="+375">🇧🇾 +375 (Belarus)</option>
-                    <option value="+32">🇧🇪 +32 (Belgium)</option>
-                    <option value="+501">🇧🇿 +501 (Belize)</option>
-                    <option value="+229">🇧🇯 +229 (Benin)</option>
-                    <option value="+1441">🇧🇲 +1441 (Bermuda)</option>
-                    <option value="+975">🇧🇹 +975 (Bhutan)</option>
-                    <option value="+591">🇧🇴 +591 (Bolivia)</option>
-                    <option value="+387">
-                      🇧🇦 +387 (Bosnia and Herzegovina)
-                    </option>
-                    <option value="+267">🇧🇼 +267 (Botswana)</option>
-                    <option value="+55">🇧🇷 +55 (Brazil)</option>
-                    <option value="+246">
-                      🇮🇴 +246 (British Indian Ocean Territory)
-                    </option>
-                    <option value="+1284">
-                      🇻🇬 +1284 (British Virgin Islands)
-                    </option>
-                    <option value="+673">🇧🇳 +673 (Brunei)</option>
-                    <option value="+359">🇧🇬 +359 (Bulgaria)</option>
-                    <option value="+226">🇧🇫 +226 (Burkina Faso)</option>
-                    <option value="+257">🇧🇮 +257 (Burundi)</option>
-                    <option value="+855">🇰🇭 +855 (Cambodia)</option>
-                    <option value="+237">🇨🇲 +237 (Cameroon)</option>
-                    <option value="+1">🇨🇦 +1 (Canada)</option>
-                    <option value="+238">🇨🇻 +238 (Cape Verde)</option>
-                    <option value="+1345">🇰🇾 +1345 (Cayman Islands)</option>
-                    <option value="+236">
-                      🇨🇫 +236 (Central African Republic)
-                    </option>
-                    <option value="+235">🇹🇩 +235 (Chad)</option>
-                    <option value="+56">🇨🇱 +56 (Chile)</option>
-                    <option value="+86">🇨🇳 +86 (China)</option>
-                    <option value="+57">🇨🇴 +57 (Colombia)</option>
-                    <option value="+269">🇰🇲 +269 (Comoros)</option>
-                    <option value="+242">🇨🇬 +242 (Congo)</option>
-                    <option value="+243">
-                      🇨🇩 +243 (Congo, Democratic Republic)
-                    </option>
-                    <option value="+682">🇨🇰 +682 (Cook Islands)</option>
-                    <option value="+506">🇨🇷 +506 (Costa Rica)</option>
-                    <option value="+385">🇭🇷 +385 (Croatia)</option>
-                    <option value="+53">🇨🇺 +53 (Cuba)</option>
-                    <option value="+599">🇨🇼 +599 (Curaçao)</option>
-                    <option value="+357">🇨🇾 +357 (Cyprus)</option>
-                    <option value="+420">🇨🇿 +420 (Czech Republic)</option>
-                    <option value="+45">🇩🇰 +45 (Denmark)</option>
-                    <option value="+253">🇩🇯 +253 (Djibouti)</option>
-                    <option value="+1767">🇩🇲 +1767 (Dominica)</option>
-                    <option value="+1809">🇩🇴 +1809 (Dominican Republic)</option>
-                    <option value="+593">🇪🇨 +593 (Ecuador)</option>
-                    <option value="+20">🇪🇬 +20 (Egypt)</option>
-                    <option value="+503">🇸🇻 +503 (El Salvador)</option>
-                    <option value="+240">🇬🇶 +240 (Equatorial Guinea)</option>
-                    <option value="+291">🇪🇷 +291 (Eritrea)</option>
-                    <option value="+372">🇪🇪 +372 (Estonia)</option>
-                    <option value="+251">🇪🇹 +251 (Ethiopia)</option>
-                    <option value="+500">🇫🇰 +500 (Falkland Islands)</option>
-                    <option value="+298">🇫🇴 +298 (Faroe Islands)</option>
-                    <option value="+679">🇫🇯 +679 (Fiji)</option>
-                    <option value="+358">🇫🇮 +358 (Finland)</option>
-                    <option value="+33">🇫🇷 +33 (France)</option>
-                    <option value="+594">🇬🇫 +594 (French Guiana)</option>
-                    <option value="+689">🇵🇫 +689 (French Polynesia)</option>
-                    <option value="+241">🇬🇦 +241 (Gabon)</option>
-                    <option value="+220">🇬🇲 +220 (Gambia)</option>
-                    <option value="+995">🇬🇪 +995 (Georgia)</option>
-                    <option value="+49">🇩🇪 +49 (Germany)</option>
-                    <option value="+233">🇬🇭 +233 (Ghana)</option>
-                    <option value="+350">🇬🇮 +350 (Gibraltar)</option>
-                    <option value="+30">🇬🇷 +30 (Greece)</option>
-                    <option value="+299">🇬🇱 +299 (Greenland)</option>
-                    <option value="+1473">🇬🇩 +1473 (Grenada)</option>
-                    <option value="+590">🇬🇵 +590 (Guadeloupe)</option>
-                    <option value="+1671">🇬🇺 +1671 (Guam)</option>
-                    <option value="+502">🇬🇹 +502 (Guatemala)</option>
-                    <option value="+44">🇬🇬 +44 (Guernsey)</option>
-                    <option value="+224">🇬🇳 +224 (Guinea)</option>
-                    <option value="+245">🇬🇼 +245 (Guinea-Bissau)</option>
-                    <option value="+592">🇬🇾 +592 (Guyana)</option>
-                    <option value="+509">🇭🇹 +509 (Haiti)</option>
-                    <option value="+504">🇭🇳 +504 (Honduras)</option>
-                    <option value="+852">🇭🇰 +852 (Hong Kong)</option>
-                    <option value="+36">🇭🇺 +36 (Hungary)</option>
-                    <option value="+354">🇮🇸 +354 (Iceland)</option>
-                    <option value="+62">🇮🇩 +62 (Indonesia)</option>
-                    <option value="+98">🇮🇷 +98 (Iran)</option>
-                    <option value="+964">🇮🇶 +964 (Iraq)</option>
-                    <option value="+353">🇮🇪 +353 (Ireland)</option>
-                    <option value="+44">🇮🇲 +44 (Isle of Man)</option>
-                    <option value="+972">🇮🇱 +972 (Israel)</option>
-                    <option value="+39">🇮🇹 +39 (Italy)</option>
-                    <option value="+1876">🇯🇲 +1876 (Jamaica)</option>
-                    <option value="+81">🇯🇵 +81 (Japan)</option>
-                    <option value="+44">🇯🇪 +44 (Jersey)</option>
-                    <option value="+962">🇯🇴 +962 (Jordan)</option>
-                    <option value="+7">🇰🇿 +7 (Kazakhstan)</option>
-                    <option value="+254">🇰🇪 +254 (Kenya)</option>
-                    <option value="+686">🇰🇮 +686 (Kiribati)</option>
-                    <option value="+383">🇽🇰 +383 (Kosovo)</option>
-                    <option value="+965">🇰🇼 +965 (Kuwait)</option>
-                    <option value="+996">🇰🇬 +996 (Kyrgyzstan)</option>
-                    <option value="+856">🇱🇦 +856 (Laos)</option>
-                    <option value="+371">🇱🇻 +371 (Latvia)</option>
-                    <option value="+961">🇱🇧 +961 (Lebanon)</option>
-                    <option value="+266">🇱🇸 +266 (Lesotho)</option>
-                    <option value="+231">🇱🇷 +231 (Liberia)</option>
-                    <option value="+218">🇱🇾 +218 (Libya)</option>
-                    <option value="+423">🇱🇮 +423 (Liechtenstein)</option>
-                    <option value="+370">🇱🇹 +370 (Lithuania)</option>
-                    <option value="+352">🇱🇺 +352 (Luxembourg)</option>
-                    <option value="+853">🇲🇴 +853 (Macau)</option>
-                    <option value="+389">🇲🇰 +389 (North Macedonia)</option>
-                    <option value="+261">🇲🇬 +261 (Madagascar)</option>
-                    <option value="+265">🇲🇼 +265 (Malawi)</option>
-                    <option value="+60">🇲🇾 +60 (Malaysia)</option>
-                    <option value="+960">🇲🇻 +960 (Maldives)</option>
-                    <option value="+223">🇲🇱 +223 (Mali)</option>
-                    <option value="+356">🇲🇹 +356 (Malta)</option>
-                    <option value="+692">🇲🇭 +692 (Marshall Islands)</option>
-                    <option value="+596">🇲🇶 +596 (Martinique)</option>
-                    <option value="+222">🇲🇷 +222 (Mauritania)</option>
-                    <option value="+230">🇲🇺 +230 (Mauritius)</option>
-                    <option value="+262">🇾🇹 +262 (Mayotte)</option>
-                    <option value="+52">🇲🇽 +52 (Mexico)</option>
-                    <option value="+691">🇫🇲 +691 (Micronesia)</option>
-                    <option value="+373">🇲🇩 +373 (Moldova)</option>
-                    <option value="+377">🇲🇨 +377 (Monaco)</option>
-                    <option value="+976">🇲🇳 +976 (Mongolia)</option>
-                    <option value="+382">🇲🇪 +382 (Montenegro)</option>
-                    <option value="+1664">🇲🇸 +1664 (Montserrat)</option>
-                    <option value="+212">🇲🇦 +212 (Morocco)</option>
-                    <option value="+258">🇲🇿 +258 (Mozambique)</option>
-                    <option value="+95">🇲🇲 +95 (Myanmar)</option>
-                    <option value="+264">🇳🇦 +264 (Namibia)</option>
-                    <option value="+674">🇳🇷 +674 (Nauru)</option>
-                    <option value="+977">🇳🇵 +977 (Nepal)</option>
-                    <option value="+31">🇳🇱 +31 (Netherlands)</option>
-                    <option value="+687">🇳🇨 +687 (New Caledonia)</option>
-                    <option value="+64">🇳🇿 +64 (New Zealand)</option>
-                    <option value="+505">🇳🇮 +505 (Nicaragua)</option>
-                    <option value="+227">🇳🇪 +227 (Niger)</option>
-                    <option value="+234">🇳🇬 +234 (Nigeria)</option>
-                    <option value="+683">🇳🇺 +683 (Niue)</option>
-                    <option value="+672">🇳🇫 +672 (Norfolk Island)</option>
-                    <option value="+850">🇰🇵 +850 (North Korea)</option>
-                    <option value="+1670">
-                      🇲🇵 +1670 (Northern Mariana Islands)
-                    </option>
-                    <option value="+47">🇳🇴 +47 (Norway)</option>
-                    <option value="+968">🇴🇲 +968 (Oman)</option>
-                    <option value="+92">🇵🇰 +92 (Pakistan)</option>
-                    <option value="+680">🇵🇼 +680 (Palau)</option>
-                    <option value="+970">🇵🇸 +970 (Palestine)</option>
-                    <option value="+507">🇵🇦 +507 (Panama)</option>
-                    <option value="+675">🇵🇬 +675 (Papua New Guinea)</option>
-                    <option value="+595">🇵🇾 +595 (Paraguay)</option>
-                    <option value="+51">🇵🇪 +51 (Peru)</option>
-                    <option value="+63">🇵🇭 +63 (Philippines)</option>
-                    <option value="+48">🇵🇱 +48 (Poland)</option>
-                    <option value="+351">🇵🇹 +351 (Portugal)</option>
-                    <option value="+1787">🇵🇷 +1787 (Puerto Rico)</option>
-                    <option value="+974">🇶🇦 +974 (Qatar)</option>
-                    <option value="+262">🇷🇪 +262 (Réunion)</option>
-                    <option value="+40">🇷🇴 +40 (Romania)</option>
-                    <option value="+7">🇷🇺 +7 (Russia)</option>
-                    <option value="+250">🇷🇼 +250 (Rwanda)</option>
-                    <option value="+590">🇧🇱 +590 (Saint Barthélemy)</option>
-                    <option value="+290">🇸🇭 +290 (Saint Helena)</option>
-                    <option value="+1869">
-                      🇰🇳 +1869 (Saint Kitts and Nevis)
-                    </option>
-                    <option value="+1758">🇱🇨 +1758 (Saint Lucia)</option>
-                    <option value="+590">🇲🇫 +590 (Saint Martin)</option>
-                    <option value="+508">
-                      🇵🇲 +508 (Saint Pierre and Miquelon)
-                    </option>
-                    <option value="+1784">
-                      🇻🇨 +1784 (Saint Vincent and the Grenadines)
-                    </option>
-                    <option value="+685">🇼🇸 +685 (Samoa)</option>
-                    <option value="+378">🇸🇲 +378 (San Marino)</option>
-                    <option value="+239">
-                      🇸🇹 +239 (São Tomé and Príncipe)
-                    </option>
-                    <option value="+966">🇸🇦 +966 (Saudi Arabia)</option>
-                    <option value="+221">🇸🇳 +221 (Senegal)</option>
-                    <option value="+381">🇷🇸 +381 (Serbia)</option>
-                    <option value="+248">🇸🇨 +248 (Seychelles)</option>
-                    <option value="+232">🇸🇱 +232 (Sierra Leone)</option>
-                    <option value="+65">🇸🇬 +65 (Singapore)</option>
-                    <option value="+421">🇸🇰 +421 (Slovakia)</option>
-                    <option value="+386">🇸🇮 +386 (Slovenia)</option>
-                    <option value="+677">🇸🇧 +677 (Solomon Islands)</option>
-                    <option value="+252">🇸🇴 +252 (Somalia)</option>
-                    <option value="+27">🇿🇦 +27 (South Africa)</option>
-                    <option value="+82">🇰🇷 +82 (South Korea)</option>
-                    <option value="+211">🇸🇸 +211 (South Sudan)</option>
-                    <option value="+34">🇪🇸 +34 (Spain)</option>
-                    <option value="+94">🇱🇰 +94 (Sri Lanka)</option>
-                    <option value="+249">🇸🇩 +249 (Sudan)</option>
-                    <option value="+597">🇸🇷 +597 (Suriname)</option>
-                    <option value="+268">🇸🇿 +268 (Eswatini)</option>
-                    <option value="+46">🇸🇪 +46 (Sweden)</option>
-                    <option value="+41">🇨🇭 +41 (Switzerland)</option>
-                    <option value="+963">🇸🇾 +963 (Syria)</option>
-                    <option value="+886">🇹🇼 +886 (Taiwan)</option>
-                    <option value="+992">🇹🇯 +992 (Tajikistan)</option>
-                    <option value="+255">🇹🇿 +255 (Tanzania)</option>
-                    <option value="+66">🇹🇭 +66 (Thailand)</option>
-                    <option value="+670">🇹🇱 +670 (Timor-Leste)</option>
-                    <option value="+228">🇹🇬 +228 (Togo)</option>
-                    <option value="+690">🇹🇰 +690 (Tokelau)</option>
-                    <option value="+676">🇹🇴 +676 (Tonga)</option>
-                    <option value="+1868">
-                      🇹🇹 +1868 (Trinidad and Tobago)
-                    </option>
-                    <option value="+216">🇹🇳 +216 (Tunisia)</option>
-                    <option value="+90">🇹🇷 +90 (Turkey)</option>
-                    <option value="+993">🇹🇲 +993 (Turkmenistan)</option>
-                    <option value="+1649">
-                      🇹🇨 +1649 (Turks and Caicos Islands)
-                    </option>
-                    <option value="+688">🇹🇻 +688 (Tuvalu)</option>
-                    <option value="+256">🇺🇬 +256 (Uganda)</option>
-                    <option value="+380">🇺🇦 +380 (Ukraine)</option>
-                    <option value="+1340">
-                      🇻🇮 +1340 (U.S. Virgin Islands)
-                    </option>
-                    <option value="+598">🇺🇾 +598 (Uruguay)</option>
-                    <option value="+998">🇺🇿 +998 (Uzbekistan)</option>
-                    <option value="+678">🇻🇺 +678 (Vanuatu)</option>
-                    <option value="+58">🇻🇪 +58 (Venezuela)</option>
-                    <option value="+84">🇻🇳 +84 (Vietnam)</option>
-                    <option value="+681">🇼🇫 +681 (Wallis and Futuna)</option>
-                    <option value="+967">🇾🇪 +967 (Yemen)</option>
-                    <option value="+260">🇿🇲 +260 (Zambia)</option>
-                    <option value="+263">🇿🇼 +263 (Zimbabwe)</option>
+                      <option value="">Country Code</option>
+                      <option value="+966">🇸🇦 +966 (KSA)</option>
+                      <option value="+91">🇮🇳 +91 (India)</option>
+                      <option value="+971">
+                        🇦🇪 +971 (United Arab Emirates)
+                      </option>
+                      <option value="+44">🇬🇧 +44 (United Kingdom)</option>
+                      <option value="+1">🇺🇸 +1 (United States)</option>
+                      <option value="+93">🇦🇫 +93 (Afghanistan)</option>
+                      <option value="+355">🇦🇱 +355 (Albania)</option>
+                      <option value="+213">🇩🇿 +213 (Algeria)</option>
+                      <option value="+376">🇦🇩 +376 (Andorra)</option>
+                      <option value="+244">🇦🇴 +244 (Angola)</option>
+                      <option value="+1264">🇦🇮 +1264 (Anguilla)</option>
+                      <option value="+672">🇦🇶 +672 (Antarctica)</option>
+                      <option value="+1268">
+                        🇦🇬 +1268 (Antigua and Barbuda)
+                      </option>
+                      <option value="+54">🇦🇷 +54 (Argentina)</option>
+                      <option value="+374">🇦🇲 +374 (Armenia)</option>
+                      <option value="+297">🇦🇼 +297 (Aruba)</option>
+                      <option value="+61">🇦🇺 +61 (Australia)</option>
+                      <option value="+43">🇦🇹 +43 (Austria)</option>
+                      <option value="+994">🇦🇿 +994 (Azerbaijan)</option>
+                      <option value="+1242">🇧🇸 +1242 (Bahamas)</option>
+                      <option value="+973">🇧🇭 +973 (Bahrain)</option>
+                      <option value="+880">🇧🇩 +880 (Bangladesh)</option>
+                      <option value="+1246">🇧🇧 +1246 (Barbados)</option>
+                      <option value="+375">🇧🇾 +375 (Belarus)</option>
+                      <option value="+32">🇧🇪 +32 (Belgium)</option>
+                      <option value="+501">🇧🇿 +501 (Belize)</option>
+                      <option value="+229">🇧🇯 +229 (Benin)</option>
+                      <option value="+1441">🇧🇲 +1441 (Bermuda)</option>
+                      <option value="+975">🇧🇹 +975 (Bhutan)</option>
+                      <option value="+591">🇧🇴 +591 (Bolivia)</option>
+                      <option value="+387">
+                        🇧🇦 +387 (Bosnia and Herzegovina)
+                      </option>
+                      <option value="+267">🇧🇼 +267 (Botswana)</option>
+                      <option value="+55">🇧🇷 +55 (Brazil)</option>
+                      <option value="+246">
+                        🇮🇴 +246 (British Indian Ocean Territory)
+                      </option>
+                      <option value="+1284">
+                        🇻🇬 +1284 (British Virgin Islands)
+                      </option>
+                      <option value="+673">🇧🇳 +673 (Brunei)</option>
+                      <option value="+359">🇧🇬 +359 (Bulgaria)</option>
+                      <option value="+226">🇧🇫 +226 (Burkina Faso)</option>
+                      <option value="+257">🇧🇮 +257 (Burundi)</option>
+                      <option value="+855">🇰🇭 +855 (Cambodia)</option>
+                      <option value="+237">🇨🇲 +237 (Cameroon)</option>
+                      <option value="+1">🇨🇦 +1 (Canada)</option>
+                      <option value="+238">🇨🇻 +238 (Cape Verde)</option>
+                      <option value="+1345">🇰🇾 +1345 (Cayman Islands)</option>
+                      <option value="+236">
+                        🇨🇫 +236 (Central African Republic)
+                      </option>
+                      <option value="+235">🇹🇩 +235 (Chad)</option>
+                      <option value="+56">🇨🇱 +56 (Chile)</option>
+                      <option value="+86">🇨🇳 +86 (China)</option>
+                      <option value="+57">🇨🇴 +57 (Colombia)</option>
+                      <option value="+269">🇰🇲 +269 (Comoros)</option>
+                      <option value="+242">🇨🇬 +242 (Congo)</option>
+                      <option value="+243">
+                        🇨🇩 +243 (Congo, Democratic Republic)
+                      </option>
+                      <option value="+682">🇨🇰 +682 (Cook Islands)</option>
+                      <option value="+506">🇨🇷 +506 (Costa Rica)</option>
+                      <option value="+385">🇭🇷 +385 (Croatia)</option>
+                      <option value="+53">🇨🇺 +53 (Cuba)</option>
+                      <option value="+599">🇨🇼 +599 (Curaçao)</option>
+                      <option value="+357">🇨🇾 +357 (Cyprus)</option>
+                      <option value="+420">🇨🇿 +420 (Czech Republic)</option>
+                      <option value="+45">🇩🇰 +45 (Denmark)</option>
+                      <option value="+253">🇩🇯 +253 (Djibouti)</option>
+                      <option value="+1767">🇩🇲 +1767 (Dominica)</option>
+                      <option value="+1809">
+                        🇩🇴 +1809 (Dominican Republic)
+                      </option>
+                      <option value="+593">🇪🇨 +593 (Ecuador)</option>
+                      <option value="+20">🇪🇬 +20 (Egypt)</option>
+                      <option value="+503">🇸🇻 +503 (El Salvador)</option>
+                      <option value="+240">🇬🇶 +240 (Equatorial Guinea)</option>
+                      <option value="+291">🇪🇷 +291 (Eritrea)</option>
+                      <option value="+372">🇪🇪 +372 (Estonia)</option>
+                      <option value="+251">🇪🇹 +251 (Ethiopia)</option>
+                      <option value="+500">🇫🇰 +500 (Falkland Islands)</option>
+                      <option value="+298">🇫🇴 +298 (Faroe Islands)</option>
+                      <option value="+679">🇫🇯 +679 (Fiji)</option>
+                      <option value="+358">🇫🇮 +358 (Finland)</option>
+                      <option value="+33">🇫🇷 +33 (France)</option>
+                      <option value="+594">🇬🇫 +594 (French Guiana)</option>
+                      <option value="+689">🇵🇫 +689 (French Polynesia)</option>
+                      <option value="+241">🇬🇦 +241 (Gabon)</option>
+                      <option value="+220">🇬🇲 +220 (Gambia)</option>
+                      <option value="+995">🇬🇪 +995 (Georgia)</option>
+                      <option value="+49">🇩🇪 +49 (Germany)</option>
+                      <option value="+233">🇬🇭 +233 (Ghana)</option>
+                      <option value="+350">🇬🇮 +350 (Gibraltar)</option>
+                      <option value="+30">🇬🇷 +30 (Greece)</option>
+                      <option value="+299">🇬🇱 +299 (Greenland)</option>
+                      <option value="+1473">🇬🇩 +1473 (Grenada)</option>
+                      <option value="+590">🇬🇵 +590 (Guadeloupe)</option>
+                      <option value="+1671">🇬🇺 +1671 (Guam)</option>
+                      <option value="+502">🇬🇹 +502 (Guatemala)</option>
+                      <option value="+44">🇬🇬 +44 (Guernsey)</option>
+                      <option value="+224">🇬🇳 +224 (Guinea)</option>
+                      <option value="+245">🇬🇼 +245 (Guinea-Bissau)</option>
+                      <option value="+592">🇬🇾 +592 (Guyana)</option>
+                      <option value="+509">🇭🇹 +509 (Haiti)</option>
+                      <option value="+504">🇭🇳 +504 (Honduras)</option>
+                      <option value="+852">🇭🇰 +852 (Hong Kong)</option>
+                      <option value="+36">🇭🇺 +36 (Hungary)</option>
+                      <option value="+354">🇮🇸 +354 (Iceland)</option>
+                      <option value="+62">🇮🇩 +62 (Indonesia)</option>
+                      <option value="+98">🇮🇷 +98 (Iran)</option>
+                      <option value="+964">🇮🇶 +964 (Iraq)</option>
+                      <option value="+353">🇮🇪 +353 (Ireland)</option>
+                      <option value="+44">🇮🇲 +44 (Isle of Man)</option>
+                      <option value="+972">🇮🇱 +972 (Israel)</option>
+                      <option value="+39">🇮🇹 +39 (Italy)</option>
+                      <option value="+1876">🇯🇲 +1876 (Jamaica)</option>
+                      <option value="+81">🇯🇵 +81 (Japan)</option>
+                      <option value="+44">🇯🇪 +44 (Jersey)</option>
+                      <option value="+962">🇯🇴 +962 (Jordan)</option>
+                      <option value="+7">🇰🇿 +7 (Kazakhstan)</option>
+                      <option value="+254">🇰🇪 +254 (Kenya)</option>
+                      <option value="+686">🇰🇮 +686 (Kiribati)</option>
+                      <option value="+383">🇽🇰 +383 (Kosovo)</option>
+                      <option value="+965">🇰🇼 +965 (Kuwait)</option>
+                      <option value="+996">🇰🇬 +996 (Kyrgyzstan)</option>
+                      <option value="+856">🇱🇦 +856 (Laos)</option>
+                      <option value="+371">🇱🇻 +371 (Latvia)</option>
+                      <option value="+961">🇱🇧 +961 (Lebanon)</option>
+                      <option value="+266">🇱🇸 +266 (Lesotho)</option>
+                      <option value="+231">🇱🇷 +231 (Liberia)</option>
+                      <option value="+218">🇱🇾 +218 (Libya)</option>
+                      <option value="+423">🇱🇮 +423 (Liechtenstein)</option>
+                      <option value="+370">🇱🇹 +370 (Lithuania)</option>
+                      <option value="+352">🇱🇺 +352 (Luxembourg)</option>
+                      <option value="+853">🇲🇴 +853 (Macau)</option>
+                      <option value="+389">🇲🇰 +389 (North Macedonia)</option>
+                      <option value="+261">🇲🇬 +261 (Madagascar)</option>
+                      <option value="+265">🇲🇼 +265 (Malawi)</option>
+                      <option value="+60">🇲🇾 +60 (Malaysia)</option>
+                      <option value="+960">🇲🇻 +960 (Maldives)</option>
+                      <option value="+223">🇲🇱 +223 (Mali)</option>
+                      <option value="+356">🇲🇹 +356 (Malta)</option>
+                      <option value="+692">🇲🇭 +692 (Marshall Islands)</option>
+                      <option value="+596">🇲🇶 +596 (Martinique)</option>
+                      <option value="+222">🇲🇷 +222 (Mauritania)</option>
+                      <option value="+230">🇲🇺 +230 (Mauritius)</option>
+                      <option value="+262">🇾🇹 +262 (Mayotte)</option>
+                      <option value="+52">🇲🇽 +52 (Mexico)</option>
+                      <option value="+691">🇫🇲 +691 (Micronesia)</option>
+                      <option value="+373">🇲🇩 +373 (Moldova)</option>
+                      <option value="+377">🇲🇨 +377 (Monaco)</option>
+                      <option value="+976">🇲🇳 +976 (Mongolia)</option>
+                      <option value="+382">🇲🇪 +382 (Montenegro)</option>
+                      <option value="+1664">🇲🇸 +1664 (Montserrat)</option>
+                      <option value="+212">🇲🇦 +212 (Morocco)</option>
+                      <option value="+258">🇲🇿 +258 (Mozambique)</option>
+                      <option value="+95">🇲🇲 +95 (Myanmar)</option>
+                      <option value="+264">🇳🇦 +264 (Namibia)</option>
+                      <option value="+674">🇳🇷 +674 (Nauru)</option>
+                      <option value="+977">🇳🇵 +977 (Nepal)</option>
+                      <option value="+31">🇳🇱 +31 (Netherlands)</option>
+                      <option value="+687">🇳🇨 +687 (New Caledonia)</option>
+                      <option value="+64">🇳🇿 +64 (New Zealand)</option>
+                      <option value="+505">🇳🇮 +505 (Nicaragua)</option>
+                      <option value="+227">🇳🇪 +227 (Niger)</option>
+                      <option value="+234">🇳🇬 +234 (Nigeria)</option>
+                      <option value="+683">🇳🇺 +683 (Niue)</option>
+                      <option value="+672">🇳🇫 +672 (Norfolk Island)</option>
+                      <option value="+850">🇰🇵 +850 (North Korea)</option>
+                      <option value="+1670">
+                        🇲🇵 +1670 (Northern Mariana Islands)
+                      </option>
+                      <option value="+47">🇳🇴 +47 (Norway)</option>
+                      <option value="+968">🇴🇲 +968 (Oman)</option>
+                      <option value="+92">🇵🇰 +92 (Pakistan)</option>
+                      <option value="+680">🇵🇼 +680 (Palau)</option>
+                      <option value="+970">🇵🇸 +970 (Palestine)</option>
+                      <option value="+507">🇵🇦 +507 (Panama)</option>
+                      <option value="+675">🇵🇬 +675 (Papua New Guinea)</option>
+                      <option value="+595">🇵🇾 +595 (Paraguay)</option>
+                      <option value="+51">🇵🇪 +51 (Peru)</option>
+                      <option value="+63">🇵🇭 +63 (Philippines)</option>
+                      <option value="+48">🇵🇱 +48 (Poland)</option>
+                      <option value="+351">🇵🇹 +351 (Portugal)</option>
+                      <option value="+1787">🇵🇷 +1787 (Puerto Rico)</option>
+                      <option value="+974">🇶🇦 +974 (Qatar)</option>
+                      <option value="+262">🇷🇪 +262 (Réunion)</option>
+                      <option value="+40">🇷🇴 +40 (Romania)</option>
+                      <option value="+7">🇷🇺 +7 (Russia)</option>
+                      <option value="+250">🇷🇼 +250 (Rwanda)</option>
+                      <option value="+590">🇧🇱 +590 (Saint Barthélemy)</option>
+                      <option value="+290">🇸🇭 +290 (Saint Helena)</option>
+                      <option value="+1869">
+                        🇰🇳 +1869 (Saint Kitts and Nevis)
+                      </option>
+                      <option value="+1758">🇱🇨 +1758 (Saint Lucia)</option>
+                      <option value="+590">🇲🇫 +590 (Saint Martin)</option>
+                      <option value="+508">
+                        🇵🇲 +508 (Saint Pierre and Miquelon)
+                      </option>
+                      <option value="+1784">
+                        🇻🇨 +1784 (Saint Vincent and the Grenadines)
+                      </option>
+                      <option value="+685">🇼🇸 +685 (Samoa)</option>
+                      <option value="+378">🇸🇲 +378 (San Marino)</option>
+                      <option value="+239">
+                        🇸🇹 +239 (São Tomé and Príncipe)
+                      </option>
+                      <option value="+966">🇸🇦 +966 (Saudi Arabia)</option>
+                      <option value="+221">🇸🇳 +221 (Senegal)</option>
+                      <option value="+381">🇷🇸 +381 (Serbia)</option>
+                      <option value="+248">🇸🇨 +248 (Seychelles)</option>
+                      <option value="+232">🇸🇱 +232 (Sierra Leone)</option>
+                      <option value="+65">🇸🇬 +65 (Singapore)</option>
+                      <option value="+421">🇸🇰 +421 (Slovakia)</option>
+                      <option value="+386">🇸🇮 +386 (Slovenia)</option>
+                      <option value="+677">🇸🇧 +677 (Solomon Islands)</option>
+                      <option value="+252">🇸🇴 +252 (Somalia)</option>
+                      <option value="+27">🇿🇦 +27 (South Africa)</option>
+                      <option value="+82">🇰🇷 +82 (South Korea)</option>
+                      <option value="+211">🇸🇸 +211 (South Sudan)</option>
+                      <option value="+34">🇪🇸 +34 (Spain)</option>
+                      <option value="+94">🇱🇰 +94 (Sri Lanka)</option>
+                      <option value="+249">🇸🇩 +249 (Sudan)</option>
+                      <option value="+597">🇸🇷 +597 (Suriname)</option>
+                      <option value="+268">🇸🇿 +268 (Eswatini)</option>
+                      <option value="+46">🇸🇪 +46 (Sweden)</option>
+                      <option value="+41">🇨🇭 +41 (Switzerland)</option>
+                      <option value="+963">🇸🇾 +963 (Syria)</option>
+                      <option value="+886">🇹🇼 +886 (Taiwan)</option>
+                      <option value="+992">🇹🇯 +992 (Tajikistan)</option>
+                      <option value="+255">🇹🇿 +255 (Tanzania)</option>
+                      <option value="+66">🇹🇭 +66 (Thailand)</option>
+                      <option value="+670">🇹🇱 +670 (Timor-Leste)</option>
+                      <option value="+228">🇹🇬 +228 (Togo)</option>
+                      <option value="+690">🇹🇰 +690 (Tokelau)</option>
+                      <option value="+676">🇹🇴 +676 (Tonga)</option>
+                      <option value="+1868">
+                        🇹🇹 +1868 (Trinidad and Tobago)
+                      </option>
+                      <option value="+216">🇹🇳 +216 (Tunisia)</option>
+                      <option value="+90">🇹🇷 +90 (Turkey)</option>
+                      <option value="+993">🇹🇲 +993 (Turkmenistan)</option>
+                      <option value="+1649">
+                        🇹🇨 +1649 (Turks and Caicos Islands)
+                      </option>
+                      <option value="+688">🇹🇻 +688 (Tuvalu)</option>
+                      <option value="+256">🇺🇬 +256 (Uganda)</option>
+                      <option value="+380">🇺🇦 +380 (Ukraine)</option>
+                      <option value="+1340">
+                        🇻🇮 +1340 (U.S. Virgin Islands)
+                      </option>
+                      <option value="+598">🇺🇾 +598 (Uruguay)</option>
+                      <option value="+998">🇺🇿 +998 (Uzbekistan)</option>
+                      <option value="+678">🇻🇺 +678 (Vanuatu)</option>
+                      <option value="+58">🇻🇪 +58 (Venezuela)</option>
+                      <option value="+84">🇻🇳 +84 (Vietnam)</option>
+                      <option value="+681">🇼🇫 +681 (Wallis and Futuna)</option>
+                      <option value="+967">🇾🇪 +967 (Yemen)</option>
+                      <option value="+260">🇿🇲 +260 (Zambia)</option>
+                      <option value="+263">🇿🇼 +263 (Zimbabwe)</option>
                     </select>
                     <input
                       type="tel"
@@ -1433,14 +1521,14 @@ const UnlockSection = () => {
                             <a href="https://genuineunlocker.net">
                               https://genuineunlocker.net
                             </a>{" "}
-                            or any of our services. Your access to and use of the
-                            service is conditioned upon your acceptance and
+                            or any of our services. Your access to and use of
+                            the service is conditioned upon your acceptance and
                             compliance with these Terms.
                           </p>
                           <p>
                             By accessing or using the Service, you agree to be
-                            bound by these Terms. If you disagree with any part of
-                            the Terms, you should not access the Service.
+                            bound by these Terms. If you disagree with any part
+                            of the Terms, you should not access the Service.
                           </p>
                           <p>
                             Your purchase will appear on your card statements as{" "}
@@ -1452,11 +1540,11 @@ const UnlockSection = () => {
                             <h2>1. Description of Service</h2>
                             <p>
                               1.1 <strong>GenuineUnlocker.net</strong> provides
-                              professional WiFi router unlocking services using a
-                              16-digit unlock code to remove network restrictions,
-                              allowing your router to work with any compatible SIM
-                              card or network provider. The service begins upon
-                              receipt of payment.
+                              professional WiFi router unlocking services using
+                              a 16-digit unlock code to remove network
+                              restrictions, allowing your router to work with
+                              any compatible SIM card or network provider. The
+                              service begins upon receipt of payment.
                             </p>
                             <p>
                               1.2 Delivery times are guidelines provided by
@@ -1467,10 +1555,10 @@ const UnlockSection = () => {
                           <section>
                             <h2>2. Cancellation</h2>
                             <p>
-                              2.1 Orders cannot be canceled once payment is made,
-                              as unlocking costs are incurred immediately. By
-                              selecting Credit/Debit Payment, you authorize the
-                              order to commence immediately.
+                              2.1 Orders cannot be canceled once payment is
+                              made, as unlocking costs are incurred immediately.
+                              By selecting Credit/Debit Payment, you authorize
+                              the order to commence immediately.
                             </p>
                           </section>
 
@@ -1478,11 +1566,11 @@ const UnlockSection = () => {
                             <h2>3. Legality of Service</h2>
                             <p>
                               3.1 All services are legal in Europe and North
-                              America. If ordering from outside these regions, you
-                              are responsible for verifying compliance with local
-                              laws before placing an order. You are solely
-                              responsible for any legal problems arising from the
-                              use of our service.
+                              America. If ordering from outside these regions,
+                              you are responsible for verifying compliance with
+                              local laws before placing an order. You are solely
+                              responsible for any legal problems arising from
+                              the use of our service.
                             </p>
                           </section>
 
@@ -1491,15 +1579,16 @@ const UnlockSection = () => {
                             <p>4.1 You are responsible for:</p>
                             <ul>
                               <li>
-                                Reviewing all information on the website prior to
-                                ordering.
+                                Reviewing all information on the website prior
+                                to ordering.
                               </li>
                               <li>
                                 Verifying your router's compatibility with the
                                 intended network post-unlock.
                               </li>
                               <li>
-                                Ensuring the router is in good working condition.
+                                Ensuring the router is in good working
+                                condition.
                               </li>
                               <li>
                                 Providing accurate router details (e.g., IMEI,
@@ -1517,22 +1606,25 @@ const UnlockSection = () => {
                             <h2>5. Service Delivery Times</h2>
                             <p>
                               5.1 Prices and delivery times are as quoted on the
-                              website. Delivery times are subject to change based
-                              on network provider processes.
+                              website. Delivery times are subject to change
+                              based on network provider processes.
                             </p>
                           </section>
 
                           <section>
-                            <h2>6. 100% Money Back Guarantee / Refund Policy</h2>
+                            <h2>
+                              6. 100% Money Back Guarantee / Refund Policy
+                            </h2>
                             <p>
-                              6.1 All services are covered by our 100% Money Back
-                              Guarantee, subject to the following conditions:
+                              6.1 All services are covered by our 100% Money
+                              Back Guarantee, subject to the following
+                              conditions:
                             </p>
                             <ul>
                               <li>
                                 No refund is provided if the router is
-                                blacklisted, reported lost, stolen, or blocked by
-                                the manufacturer or network.
+                                blacklisted, reported lost, stolen, or blocked
+                                by the manufacturer or network.
                               </li>
                               <li>
                                 Refund is granted only if our unlock attempt
@@ -1553,8 +1645,8 @@ const UnlockSection = () => {
                                 attempted), the order is non-refundable.
                               </li>
                               <li>
-                                In cases of modified unlock errors, no refund will
-                                be provided.
+                                In cases of modified unlock errors, no refund
+                                will be provided.
                               </li>
                               <li>
                                 If the unlock succeeds but the router is later
@@ -1601,8 +1693,8 @@ const UnlockSection = () => {
                                 problems for others or breaks the law.
                               </li>
                               <li>
-                                Do not try to collect data from the website using
-                                bots or software tools.
+                                Do not try to collect data from the website
+                                using bots or software tools.
                               </li>
                               <li>
                                 Do not use this website to send spam or
@@ -1642,9 +1734,9 @@ const UnlockSection = () => {
                           <section>
                             <h2>11. Indemnification</h2>
                             <p>
-                              11.1 You agree to indemnify GenuineUnlocker against
-                              any claims or damages resulting from your breach of
-                              these Terms.
+                              11.1 You agree to indemnify GenuineUnlocker
+                              against any claims or damages resulting from your
+                              breach of these Terms.
                             </p>
                           </section>
 
@@ -1660,8 +1752,8 @@ const UnlockSection = () => {
                             <h2>13. Variation of Terms</h2>
                             <p>
                               13.1 We may update or change these Terms at any
-                              time. If there are important changes, we will try to
-                              inform you in advance whenever possible.
+                              time. If there are important changes, we will try
+                              to inform you in advance whenever possible.
                             </p>
                           </section>
 
@@ -1688,16 +1780,17 @@ const UnlockSection = () => {
                           <section>
                             <h2>16. Privacy</h2>
                             <p>
-                              16.1 We do not store your card details. Your data is
-                              kept secure and used only to process your order.
+                              16.1 We do not store your card details. Your data
+                              is kept secure and used only to process your
+                              order.
                             </p>
                           </section>
 
                           <section>
                             <h2>17. Termination of Orders</h2>
                             <p>
-                              17.1 We may terminate orders if users are abusive or
-                              aggressive. Refunds will not be issued in such
+                              17.1 We may terminate orders if users are abusive
+                              or aggressive. Refunds will not be issued in such
                               cases.
                             </p>
                           </section>
@@ -1743,53 +1836,173 @@ const UnlockSection = () => {
         <div className="logo-slider">
           <div className="logo-track">
             <img src="https://i.ibb.co/ksvHjjmR/Frame-3.png" alt="Logo 1" />
-            <img src="https://i.ibb.co/fdrYXkHh/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-11.png" alt="Logo 2" />
-            <img src="https://i.ibb.co/LdRKh34W/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-12.png" alt="Logo 3" />
+            <img
+              src="https://i.ibb.co/fdrYXkHh/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-11.png"
+              alt="Logo 2"
+            />
+            <img
+              src="https://i.ibb.co/LdRKh34W/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-12.png"
+              alt="Logo 3"
+            />
             <img src="https://i.ibb.co/YBFb8Z95/Frame-2.png" alt="Logo 4" />
-            <img src="https://i.ibb.co/Y45T7tXh/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-1.png" alt="Logo 5" />
-            <img src="https://i.ibb.co/TMcyKnx4/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-3.png" alt="Logo 6" />
-            <img src="https://i.ibb.co/TxGf8DxS/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-4.png" alt="Logo 7" />
-            <img src="https://i.ibb.co/CK1Frqpz/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-5.png" alt="Logo 8" />
-            <img src="https://i.ibb.co/TMSNscj7/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-6.png" alt="Logo 9" />
-            <img src="https://i.ibb.co/9mHfQJSc/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-7.png" alt="Logo 10" />
-            <img src="https://i.ibb.co/kVQBkD29/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-9.png" alt="Logo 11" />
-            <img src="https://i.ibb.co/TBy1VSPC/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-10.png" alt="Logo 12" />
+            <img
+              src="https://i.ibb.co/Y45T7tXh/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-1.png"
+              alt="Logo 5"
+            />
+            <img
+              src="https://i.ibb.co/TMcyKnx4/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-3.png"
+              alt="Logo 6"
+            />
+            <img
+              src="https://i.ibb.co/TxGf8DxS/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-4.png"
+              alt="Logo 7"
+            />
+            <img
+              src="https://i.ibb.co/CK1Frqpz/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-5.png"
+              alt="Logo 8"
+            />
+            <img
+              src="https://i.ibb.co/TMSNscj7/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-6.png"
+              alt="Logo 9"
+            />
+            <img
+              src="https://i.ibb.co/9mHfQJSc/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-7.png"
+              alt="Logo 10"
+            />
+            <img
+              src="https://i.ibb.co/kVQBkD29/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-9.png"
+              alt="Logo 11"
+            />
+            <img
+              src="https://i.ibb.co/TBy1VSPC/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-10.png"
+              alt="Logo 12"
+            />
             <img src="https://i.ibb.co/ksvHjjmR/Frame-3.png" alt="Logo 1" />
-            <img src="https://i.ibb.co/fdrYXkHh/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-11.png" alt="Logo 2" />
-            <img src="https://i.ibb.co/LdRKh34W/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-12.png" alt="Logo 3" />
+            <img
+              src="https://i.ibb.co/fdrYXkHh/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-11.png"
+              alt="Logo 2"
+            />
+            <img
+              src="https://i.ibb.co/LdRKh34W/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-12.png"
+              alt="Logo 3"
+            />
             <img src="https://i.ibb.co/YBFb8Z95/Frame-2.png" alt="Logo 4" />
-            <img src="https://i.ibb.co/Y45T7tXh/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-1.png" alt="Logo 5" />
-            <img src="https://i.ibb.co/TMcyKnx4/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-3.png" alt="Logo 6" />
-            <img src="https://i.ibb.co/TxGf8DxS/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-4.png" alt="Logo 7" />
-            <img src="https://i.ibb.co/CK1Frqpz/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-5.png" alt="Logo 8" />
-            <img src="https://i.ibb.co/TMSNscj7/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-6.png" alt="Logo 9" />
-            <img src="https://i.ibb.co/9mHfQJSc/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-7.png" alt="Logo 10" />
-            <img src="https://i.ibb.co/kVQBkD29/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-9.png" alt="Logo 11" />
-            <img src="https://i.ibb.co/TBy1VSPC/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-10.png" alt="Logo 12" />
+            <img
+              src="https://i.ibb.co/Y45T7tXh/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-1.png"
+              alt="Logo 5"
+            />
+            <img
+              src="https://i.ibb.co/TMcyKnx4/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-3.png"
+              alt="Logo 6"
+            />
+            <img
+              src="https://i.ibb.co/TxGf8DxS/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-4.png"
+              alt="Logo 7"
+            />
+            <img
+              src="https://i.ibb.co/CK1Frqpz/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-5.png"
+              alt="Logo 8"
+            />
+            <img
+              src="https://i.ibb.co/TMSNscj7/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-6.png"
+              alt="Logo 9"
+            />
+            <img
+              src="https://i.ibb.co/9mHfQJSc/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-7.png"
+              alt="Logo 10"
+            />
+            <img
+              src="https://i.ibb.co/kVQBkD29/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-9.png"
+              alt="Logo 11"
+            />
+            <img
+              src="https://i.ibb.co/TBy1VSPC/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-10.png"
+              alt="Logo 12"
+            />
             <img src="https://i.ibb.co/ksvHjjmR/Frame-3.png" alt="Logo 1" />
-            <img src="https://i.ibb.co/fdrYXkHh/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-11.png" alt="Logo 2" />
-            <img src="https://i.ibb.co/LdRKh34W/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-12.png" alt="Logo 3" />
+            <img
+              src="https://i.ibb.co/fdrYXkHh/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-11.png"
+              alt="Logo 2"
+            />
+            <img
+              src="https://i.ibb.co/LdRKh34W/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-12.png"
+              alt="Logo 3"
+            />
             <img src="https://i.ibb.co/YBFb8Z95/Frame-2.png" alt="Logo 4" />
-            <img src="https://i.ibb.co/Y45T7tXh/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-1.png" alt="Logo 5" />
-            <img src="https://i.ibb.co/TMcyKnx4/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-3.png" alt="Logo 6" />
-            <img src="https://i.ibb.co/TxGf8DxS/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-4.png" alt="Logo 7" />
-            <img src="https://i.ibb.co/CK1Frqpz/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-5.png" alt="Logo 8" />
-            <img src="https://i.ibb.co/TMSNscj7/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-6.png" alt="Logo 9" />
-            <img src="https://i.ibb.co/9mHfQJSc/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-7.png" alt="Logo 10" />
-            <img src="https://i.ibb.co/kVQBkD29/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-9.png" alt="Logo 11" />
-            <img src="https://i.ibb.co/TBy1VSPC/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-10.png" alt="Logo 12" />
+            <img
+              src="https://i.ibb.co/Y45T7tXh/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-1.png"
+              alt="Logo 5"
+            />
+            <img
+              src="https://i.ibb.co/TMcyKnx4/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-3.png"
+              alt="Logo 6"
+            />
+            <img
+              src="https://i.ibb.co/TxGf8DxS/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-4.png"
+              alt="Logo 7"
+            />
+            <img
+              src="https://i.ibb.co/CK1Frqpz/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-5.png"
+              alt="Logo 8"
+            />
+            <img
+              src="https://i.ibb.co/TMSNscj7/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-6.png"
+              alt="Logo 9"
+            />
+            <img
+              src="https://i.ibb.co/9mHfQJSc/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-7.png"
+              alt="Logo 10"
+            />
+            <img
+              src="https://i.ibb.co/kVQBkD29/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-9.png"
+              alt="Logo 11"
+            />
+            <img
+              src="https://i.ibb.co/TBy1VSPC/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-10.png"
+              alt="Logo 12"
+            />
             <img src="https://i.ibb.co/ksvHjjmR/Frame-3.png" alt="Logo 1" />
-            <img src="https://i.ibb.co/fdrYXkHh/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-11.png" alt="Logo 2" />
-            <img src="https://i.ibb.co/LdRKh34W/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-12.png" alt="Logo 3" />
+            <img
+              src="https://i.ibb.co/fdrYXkHh/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-11.png"
+              alt="Logo 2"
+            />
+            <img
+              src="https://i.ibb.co/LdRKh34W/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-12.png"
+              alt="Logo 3"
+            />
             <img src="https://i.ibb.co/YBFb8Z95/Frame-2.png" alt="Logo 4" />
-            <img src="https://i.ibb.co/Y45T7tXh/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-1.png" alt="Logo 5" />
-            <img src="https://i.ibb.co/TMcyKnx4/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-3.png" alt="Logo 6" />
-            <img src="https://i.ibb.co/TxGf8DxS/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-4.png" alt="Logo 7" />
-            <img src="https://i.ibb.co/CK1Frqpz/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-5.png" alt="Logo 8" />
-            <img src="https://i.ibb.co/TMSNscj7/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-6.png" alt="Logo 9" />
-            <img src="https://i.ibb.co/9mHfQJSc/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-7.png" alt="Logo 10" />
-            <img src="https://i.ibb.co/kVQBkD29/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-9.png" alt="Logo 11" />
-            <img src="https://i.ibb.co/TBy1VSPC/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-10.png" alt="Logo 12" />
+            <img
+              src="https://i.ibb.co/Y45T7tXh/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-1.png"
+              alt="Logo 5"
+            />
+            <img
+              src="https://i.ibb.co/TMcyKnx4/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-3.png"
+              alt="Logo 6"
+            />
+            <img
+              src="https://i.ibb.co/TxGf8DxS/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-4.png"
+              alt="Logo 7"
+            />
+            <img
+              src="https://i.ibb.co/CK1Frqpz/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-5.png"
+              alt="Logo 8"
+            />
+            <img
+              src="https://i.ibb.co/TMSNscj7/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-6.png"
+              alt="Logo 9"
+            />
+            <img
+              src="https://i.ibb.co/9mHfQJSc/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-7.png"
+              alt="Logo 10"
+            />
+            <img
+              src="https://i.ibb.co/kVQBkD29/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-9.png"
+              alt="Logo 11"
+            />
+            <img
+              src="https://i.ibb.co/TBy1VSPC/Gemini-Generated-Image-c9lzq6c9lzq6c9lz-10.png"
+              alt="Logo 12"
+            />
           </div>
         </div>
       </section>

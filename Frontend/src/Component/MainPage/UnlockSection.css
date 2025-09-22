@@ -280,6 +280,10 @@
 }
 
 .unlock-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem; 
   background:rgb(133, 2, 172);
   color: #ffffff;
   padding: 0.9rem 2rem;
@@ -636,5 +640,16 @@
     padding: 0.7rem;
   }
 }
+.unlock-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;  /* space between icon and text */
+}
 
+.btn-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
 
