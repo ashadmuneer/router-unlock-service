@@ -52,7 +52,6 @@ const devices = {
   "MU5001A/B/M/U/MU5002": { brand: "ZTE" },
   "AW1000": { brand: "TELSTRA" },
   "CP52": { brand: "FLYBOX" },
-  "TestModel": { brand: "TestBrand" },
   "Archer NX200": { brand: "TP-Link" },
   "Deco X50-5G": { brand: "Deco" },
   "SRT873HS": { brand: "Soyealink" },
