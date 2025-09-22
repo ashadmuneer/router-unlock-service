@@ -15,7 +15,8 @@ const Order = lazy(() => import("./Component/Order/Order"));
 const TermsAndConditions = lazy(() => import("./Component/Termandconditions/TermsAndConditions"));
 const About = lazy(() => import("./Component/AboutUs/About"));
 const HowToUseCodePage = lazy(() => import("./Component/UnlockCode/HowToUseCode"));
-const DevicePage = lazy(() => import("./Component/AllDevice/DevicePage")); // ✅ dynamic device page
+const DevicePage = lazy(() => import("./Component/AllDevice/DevicePage")); 
+const NotFound = lazy(() => import("./Component/NotFound/NotFound")); // ✅ create this
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -50,11 +51,12 @@ const App = () => {
         <Route path="/how-to-use-code" element={<HowToUseCodePage />} />
         <Route path="/about" element={<About />} />
 
-        {/* ✅ Dynamic Device Page Route */}
+        {/* ✅ Dynamic Device Page Routes */}
         <Route path="/all-devices" element={<AllDevices />} />
         <Route path="/device/:brand/:model" element={<DevicePage />} />
 
-
+        {/* ✅ Catch-all (404) */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
 
       <Footer />
