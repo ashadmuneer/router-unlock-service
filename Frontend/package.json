@@ -12,12 +12,6 @@
   "reactSnap": {
     "source": "dist",
     "include": [
-      "/",
-      "/home",
-      "/all-devices",
-      "/about",
-      "/terms",
-      "/how-to-use-code",
       "/device/HUAWEI/H112-370",
       "/device/HUAWEI/H112-372",
       "/device/HUAWEI/H122-373A",
@@ -86,6 +80,7 @@
     "react-select": "^5.10.2"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.28.3",
     "@eslint/js": "^9.25.0",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
