@@ -6,21 +6,7 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd());
 
   return {
-    plugins: [
-      react({
-        babel: {
-          presets: [
-            [
-              '@babel/preset-env',
-              {
-                targets: { chrome: '80' }, // Puppeteer supports Chrome 80+
-                bugfixes: true,
-              },
-            ],
-          ],
-        },
-      }),
-    ],
+    plugins: [react()],
     build: {
       outDir: 'dist',
     },
