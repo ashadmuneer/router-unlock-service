@@ -1,29 +1,29 @@
-.blogcard-wrapper {
+.Youtubecard-wrapper {
   padding: 20px 50px 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Ubuntu, sans-serif;
   min-height: 100vh; /* or desired height */
   scroll-behavior: smooth;
 }
 
-.blogcard-heading {
+.Youtubecard-heading {
   text-align: center;
   margin: 40px 0;
   padding: 0 20px;
 }
 
-.blogcard-heading h3 {
+.Youtubecard-heading h3 {
   font-size: 28px;
   font-weight: 700;
   margin-bottom: 15px;
   line-height: 1.4;
 }
 
-.blogcard-heading span {
+.Youtubecard-heading span {
   color: #7c08b2;
   font-weight: 800;
 }
 
-.blogcard-heading p {
+.Youtubecard-heading p {
   font-size: 16px;
   color: #555;
   max-width: 600px;
@@ -31,14 +31,14 @@
   line-height: 1.6;
 }
 
-.blogcard-container {
+.Youtubecard-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
   padding: 20px;
 }
 
-.blogcard {
+.Youtubecard {
   border-radius: 10px;
   overflow: hidden;
   background: #fff;
@@ -47,24 +47,24 @@
   cursor: pointer;
 }
 
-.blogcard:hover {
+.Youtubecard:hover {
   transform: translateY(-5px);
 }
 
-.blogcard-header img {
+.Youtubecard-header img {
   width: 100%;
   height: auto;
   object-fit: cover;
 }
 
-.blogcard-body {
+.Youtubecard-body {
   padding: 20px;
   display: flex;
   flex-direction: column;
   min-height: 200px;
 }
 
-.blogcard-body .tag {
+.Youtubecard-body .tag {
   display: inline-block;
   padding: 0.25em 0.75em;         /* Scales with font size */
   background: royalblue;
@@ -77,21 +77,21 @@
   width: fit-content;             /* Ensures width fits text exactly */
 }
 
-.blogcard-body .tag-teal {
+.Youtubecard-body .tag-teal {
   background: royalblue;
 }
 
-.blogcard-body .tag-travel {
+.Youtubecard-body .tag-travel {
   background: #8e44ad;
 }
 
-.blogcard-body h4 {
+.Youtubecard-body h4 {
   margin: 10px 0;
   font-size: 1.1rem;
   font-weight: 600;
 }
 
-.blogcard-body p {
+.Youtubecard-body p {
   font-size: 14px;
   color: #555;
   flex-grow: 1;
@@ -149,7 +149,7 @@
   cursor: not-allowed;
 }
 @media (max-width: 768px){
-  .blogcard-wrapper {
+  .Youtubecard-wrapper {
   padding: 20px;
 }
 }

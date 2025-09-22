@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import UnlockSection from "../Component/MainPage/UnlockSection";
-import Blogcard from "../Component/blogcard/Blogcard";
+import Blogcard from "../Component/Youtubecard/Youtubecard";
 import Faq from "../Component/FAQ/Faq";
 import { Helmet } from "react-helmet-async";
 

@@ -56,10 +56,11 @@
 }
 
 .unlock-section p {
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   line-height: 1.7;
   color: #ffffff;
   width: auto;
+  text-align: justify;
 }
 
 .error-message {
