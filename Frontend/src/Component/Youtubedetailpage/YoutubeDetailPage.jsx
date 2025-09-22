@@ -1,17 +1,17 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import './BlogDetailPage.css';
+import './YoutubeDetailPage.css';
 import { cardData } from "../../cardData.js"; // Import cardData
 
 
 // Sample cardData (move to a separate file or context in a real app)
 
-const BlogDetailPage = () => {
-  const { id } = useParams(); // Get the ID from the URL
-  const card = cardData.find((card) => card.id === parseInt(id)); // Find the card by ID
+const YoutubeDetailPage = () => {
+  const { title } = useParams(); // Get the ID from the URL
+  const card = cardData.find((card) => card.title.replace(/\s+/g, "-").toLowerCase() === title.replace(/\s+/g, "-").toLowerCase()); // Find the card by ID
 
   if (!card) {
-    return <div>Blog not found</div>;
+    return <div>Youtube not found</div>;
   }
 
   return (
@@ -55,4 +55,4 @@ const BlogDetailPage = () => {
   );
 };
 
-export default BlogDetailPage;
+export default YoutubeDetailPage;

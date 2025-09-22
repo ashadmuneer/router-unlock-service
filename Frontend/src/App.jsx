@@ -2,13 +2,14 @@ import React, { lazy, Suspense, useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import Loader from "./Component/loader/Loader.jsx"; // ✅ custom loader
 import AllDevices from "./Component/AllDevice/AllDevicePage.jsx";
+import YoutubeDetailPage from "./Component/Youtubedetailpage/YoutubeDetailPage.jsx";
 
 // ✅ Lazy load all components
 const NavBar = lazy(() => import("./Component/NavBar/NavBar"));
 const Footer = lazy(() => import("./Component/Footer/Footer"));
 const ScrollToTop = lazy(() => import("./Component/ScrollToTop"));
 const Home = lazy(() => import("./Pages/Home"));
-const BlogDetailPage = lazy(() => import("./Component/Blogdetailpage/BlogDetailPage"));
+const BlogDetailPage = lazy(() => import("./Component/Youtubedetailpage/YoutubeDetailPage.jsx"));
 const OrderTracking = lazy(() => import("./Component/OrderTracking/OrderTracking"));
 const Order = lazy(() => import("./Component/Order/Order"));
 const TermsAndConditions = lazy(() => import("./Component/Termandconditions/TermsAndConditions"));
@@ -42,7 +43,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/order/:orderId" element={<Order />} />
-        <Route path="/blog/:id" element={<BlogDetailPage />} />
+        <Route path="/Youtube/:title" element={<YoutubeDetailPage />} />
         <Route path="/track-order" element={<OrderTracking />} />
         <Route path="/order-tracking" element={<OrderTracking />} />
         <Route path="/terms" element={<TermsAndConditions />} />
