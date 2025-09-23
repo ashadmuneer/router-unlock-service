@@ -1,9 +1,7 @@
 import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Youtubecard.css";
-import { cardData } from "../../cardData.js"; // Replace with your actual path
-import { Helmet } from "react-helmet-async";
-import { useEffect } from "react";
+import { cardData } from "../../cardData.js"; import { useEffect } from "react";
 
 const Youtubecard = () => {
   const [currentPage, setCurrentPage] = useState(1);

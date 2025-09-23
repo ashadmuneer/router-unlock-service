@@ -2,7 +2,6 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
-// ✅ Device list
 const devices = {
   "H112-370": { brand: "HUAWEI" },
   "H112-372": { brand: "HUAWEI" },
@@ -88,7 +87,6 @@ return (
                 color: " #702083",
             }}
         >
-            {/* ✅ BUY BUTTON */}
             <div style={{ textAlign: "center", marginBottom: "30px" }}>
                 <a
                     href="https://genuineunlocker.net/"

@@ -1,7 +1,7 @@
 .Youtubecard-wrapper {
   padding: 20px 50px 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Ubuntu, sans-serif;
-  min-height: 100vh; /* or desired height */
+  min-height: 100vh; 
   scroll-behavior: smooth;
 }
 
@@ -66,15 +66,15 @@
 
 .Youtubecard-body .tag {
   display: inline-block;
-  padding: 0.25em 0.75em;         /* Scales with font size */
+  padding: 0.25em 0.75em;         
   background: royalblue;
-  font-size: 0.75rem;             /* Use rem for responsiveness */
+  font-size: 0.75rem;             
   margin-bottom: 10px;
   color: #fff;
-  border-radius: 9999px;          /* Ensures fully rounded tag */
+  border-radius: 9999px;          
   text-transform: uppercase;
-  white-space: nowrap;            /* Prevents wrapping */
-  width: fit-content;             /* Ensures width fits text exactly */
+  white-space: nowrap;            
+  width: fit-content;   
 }
 
 .Youtubecard-body .tag-teal {
