@@ -489,15 +489,27 @@ async function createOrder(req, res) {
     return res.status(400).json({ error: "IMEI must be exactly 15 digits" });
   }
 
-  const tac = imei.substring(0, 8);
-  let amount = DEFAULT_PRICE;
-  if (tacPricing[tac] && tacPricing[tac][network]) {
+const tac = imei.substring(0, 8);
+
+let amount = DEFAULT_PRICE;
+
+if (tacPricing[tac]) {
+  if (tacPricing[tac][network] !== undefined) {
+    // ✅ Exact TAC + network price found
     amount = tacPricing[tac][network];
+  } else if (tacPricing[tac].Other !== undefined) {
+    // ✅ Use TAC-specific "Other" as default
+    amount = tacPricing[tac].Other;
   } else {
     console.warn(
-      `[Create Order] No price found for TAC ${tac} and network ${network}. Using default price: ${DEFAULT_PRICE}`
+      `[Create Order] TAC ${tac} exists but no price for network ${network}, using global default ${DEFAULT_PRICE}`
     );
   }
+} else {
+  console.warn(
+    `[Create Order] No TAC pricing found for ${tac}, using global default ${DEFAULT_PRICE}`
+  );
+}  
 
   const deliveryTime =
     networkDeliveryTimes[network] || networkDeliveryTimes.Other;
