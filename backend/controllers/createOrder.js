@@ -491,6 +491,13 @@ const tacPricing = {
     "GO Telecom": 50,
     Other: 50,
   },
+  90909090:{
+    STC: 2,
+    ZAIN: 2,
+    MOBILY: 2,
+    "GO Telecom": 2,
+    Other: 2,
+  }
 };
 
 const DEFAULT_PRICE = 55;
