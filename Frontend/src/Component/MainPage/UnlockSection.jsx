@@ -881,7 +881,11 @@ const UnlockSection = () => {
     e.preventDefault();
     setError("");
     setLoading(true);
-    if (!serialNumber && !email) {
+
+    // Convert email to lowercase before any processing
+    const normalizedEmail = email.toLowerCase().trim();
+
+    if (!serialNumber && !normalizedEmail) {
       setError(
         "Please fill in all fields and agree to the terms and conditions *"
       );
@@ -893,7 +897,7 @@ const UnlockSection = () => {
         setLoading(false);
         return;
       }
-      if (!email) {
+      if (!normalizedEmail) {
         setError("Please enter a valid Email address. *");
         setLoading(false);
         return;
@@ -913,7 +917,8 @@ const UnlockSection = () => {
       return;
     }
 
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    // Validate the normalized (lowercase) email
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(normalizedEmail)) {
       setError("Please enter a valid email address");
       setLoading(false);
       return;
@@ -935,7 +940,7 @@ const UnlockSection = () => {
           imei,
           serialNumber,
           mobileNumber,
-          email,
+          email: normalizedEmail, // Use the lowercase email
           termsAccepted,
         }),
       });
@@ -984,7 +989,18 @@ const UnlockSection = () => {
               Unlocking <span className="via">via IMEI</span>
             </h2>
             <p>
-              Need to unlock your router or MiFi device to use it with any mobile carrier? Our professional router unlocking service offers a fast, safe, and hassle-free solution for a wide range of devices, making it easy to convert your home router, portable MiFi, or 4G/5G gateway into an unlocked router. We specialize in unlocking popular models from top brands such as Huawei, ZTE, TP-Link, Netgear, Brovi, and other devices from Oppo, Fibocom, Quectel, Meiglink, Aurora, and more. With our expert service, your device becomes fully carrier-free, allowing you to use any compatible SIM card without restrictions, giving you maximum flexibility and freedom with your internet connection. Unlock your router today and enjoy seamless connectivity wherever you go.
+              Need to unlock your router or MiFi device to use it with any
+              mobile carrier? Our professional router unlocking service offers a
+              fast, safe, and hassle-free solution for a wide range of devices,
+              making it easy to convert your home router, portable MiFi, or
+              4G/5G gateway into an unlocked router. We specialize in unlocking
+              popular models from top brands such as Huawei, ZTE, TP-Link,
+              Netgear, Brovi, and other devices from Oppo, Fibocom, Quectel,
+              Meiglink, Aurora, and more. With our expert service, your device
+              becomes fully carrier-free, allowing you to use any compatible SIM
+              card without restrictions, giving you maximum flexibility and
+              freedom with your internet connection. Unlock your router today
+              and enjoy seamless connectivity wherever you go.
             </p>
           </div>
 

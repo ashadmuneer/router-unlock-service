@@ -16,7 +16,7 @@ async function paypalWebhook(req, res) {
     if (event.event_type === "PAYMENT.CAPTURE.COMPLETED") {
       const capture = event.resource;
       const captureId = capture.id;
-      const orderId = capture.supplementary_data?.related_ids?.order_id;
+      const orderId = capture.supplementary_data?.related_ids?.order_id || capture.custom_id;;
 
       console.log("[PayPal Webhook] Processing capture:", {
         captureId,
@@ -151,7 +151,7 @@ async function paypalWebhook(req, res) {
       // Handle pending payments
       const capture = event.resource;
       const captureId = capture.id;
-      const orderId = capture.supplementary_data?.related_ids?.order_id;
+      const orderId = capture.supplementary_data?.related_ids?.order_id || capture.custom_id;
 
       console.log("[PayPal Webhook] Payment capture pending:", {
         captureId,
@@ -178,7 +178,7 @@ async function paypalWebhook(req, res) {
       // Handle denied payments
       const capture = event.resource;
       const captureId = capture.id;
-      const orderId = capture.supplementary_data?.related_ids?.order_id;
+      const orderId = capture.supplementary_data?.related_ids?.order_id || capture.custom_id;;
 
       console.log("[PayPal Webhook] Payment capture denied:", {
         captureId,
