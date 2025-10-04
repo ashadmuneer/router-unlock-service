@@ -379,16 +379,28 @@ const countryNetworkData = [
     code: "PH",
     networks: [
       {
-        name: "Globe Telecom",
-        logo_url: "https://logo.clearbit.com/globe.com.ph",
+        name: "PLDT Inc.",
+        logo_url: "https://logo.clearbit.com/pldt.com",
       },
       {
         name: "Smart Communications",
         logo_url: "https://logo.clearbit.com/smart.com.ph",
       },
       {
+        name: "Globe Telecom",
+        logo_url: "https://logo.clearbit.com/globe.com.ph",
+      },
+      {
         name: "DITO Telecommunity",
         logo_url: "https://logo.clearbit.com/dito.ph",
+      },
+      {
+        name: "TNT",
+        logo_url: "https://logo.clearbit.com/tntph.com",
+      },
+      {
+        name: "TM (Touch Mobile)",
+        logo_url: "https://logo.clearbit.com/tntph.com",
       },
     ],
   },
@@ -622,6 +634,68 @@ const countryNetworkData = [
       },
       { name: "Irancell", logo_url: "https://logo.clearbit.com/irancell.ir" },
       { name: "Rightel", logo_url: "https://logo.clearbit.com/rightel.ir" },
+    ],
+  },
+  {
+    country: "Kenya",
+    code: "KE",
+    networks: [
+      {
+        name: "Safaricom",
+        logo_url: "https://logo.clearbit.com/safaricom.co.ke",
+      },
+      {
+        name: "Airtel Kenya",
+        logo_url: "https://logo.clearbit.com/airtel.co.ke",
+      },
+      {
+        name: "Telkom Kenya",
+        logo_url: "https://logo.clearbit.com/telkom.co.ke",
+      },
+      {
+        name: "Faiba Mobile (Jamii Telecom)",
+        logo_url: "https://logo.clearbit.com/faiba4g.co.ke",
+      },
+      {
+        name: "Equitel (Finserve Africa)",
+        logo_url: "https://logo.clearbit.com/equitel.com",
+        type: "MVNO",
+      },
+      {
+        name: "Lycamobile Kenya",
+        logo_url: "https://logo.clearbit.com/lycamobile.com",
+        type: "MVNO",
+      },
+      {
+        name: "JamboPay",
+        logo_url: "https://logo.clearbit.com/jambopay.com",
+        type: "MVNO",
+      },
+    ],
+  },
+  {
+    country: "Morocco",
+    code: "MA",
+    networks: [
+      {
+        name: "Maroc Telecom (IAM)",
+        logo_url: "https://logo.clearbit.com/iam.ma",
+      },
+      {
+        name: "Orange Morocco",
+        logo_url: "https://logo.clearbit.com/orange.ma",
+      },
+      { name: "Inwi", logo_url: "https://logo.clearbit.com/inwi.ma" },
+      {
+        name: "Bayn Consortium",
+        logo_url: "https://logo.clearbit.com/bayn.ma",
+        type: "MVNO",
+      },
+      {
+        name: "Wana Corporate",
+        logo_url: "https://logo.clearbit.com/wanacorporate.ma",
+        type: "MVNO",
+      },
     ],
   },
 ];
@@ -979,14 +1053,14 @@ const UnlockSection = () => {
         <div className="unlock-container">
           <div className="unlock-content">
             <h1>
-              <span className="highlight">Unlock your Wi-Fi router</span> today
-              with{" "}
+              <span className="highlight">Unlock Your Wi-Fi Router</span> Today
+              With{" "}
               <span style={{ color: "#FFD700" }} className="highlight">
                 Genuine Unlocker
               </span>
             </h1>
             <h2>
-              Unlocking <span className="via">via IMEI</span>
+              Unlocking <span className="via">Via IMEI</span>
             </h2>
             <p>
               Need to unlock your router or MiFi device to use it with any

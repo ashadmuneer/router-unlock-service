@@ -10,13 +10,17 @@ const orderSchema = new mongoose.Schema({
   mobileNumber: { type: String },
   email: { type: String, required: true },
   amount: { type: Number, required: true },
-  termsAccepted: { type: Boolean, required: true },
-  orderId: { type: String, required: true },
-  paymentId: { type: String },
-  paymentStatus: { type: String, default: "Pending" },
+  orderId: { type: String, required: true }, // PayPal orderId
+  paymentId: { type: String },               // PayPal captureId
+  paymentStatus: {
+    type: String,
+    enum: ["Pending", "Success", "Failed"],
+    default: "Pending",
+  },
   paymentTime: { type: Date },
   paymentType: { type: String, enum: ["PayPal"], default: "PayPal" },
   deliveryTime: { type: String },
+  termsAccepted: { type: Boolean, required: true }, 
   createdAt: { type: Date, default: Date.now },
 });
 

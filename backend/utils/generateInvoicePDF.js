@@ -94,7 +94,7 @@ const generateInvoicePDF = async (order) => {
       .font("Helvetica")
       .fontSize(10)
       .fillColor("#555")
-      .text(`IMIE-${order.imei} `|| "N/A", billToX, currentY + 15)
+      .text(`IMEI-${order.imei} `|| "N/A", billToX, currentY + 15)
       .text(order.email || "Not provided", billToX, currentY + 30)
       .text(order.mobileNumber || "Not provided", billToX, currentY + 45);
 
@@ -113,7 +113,7 @@ const generateInvoicePDF = async (order) => {
       { label: "IMEI", value: order.imei || "N/A" },
       { label: "Serial Number", value: order.serialNumber || "N/A" },
       { label: "Payment Method", value: order.paymentType || "Unknown" },
-      { label: "Payment Time", value: formatDateTime(order.paymentTime) },
+      { label: "Payment Date &Time", value: formatDateTime(order.paymentTime) },
     ];
 
     let y = tableTop;
