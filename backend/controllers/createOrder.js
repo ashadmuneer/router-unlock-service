@@ -12,492 +12,453 @@ const paypalClient = new paypal.core.PayPalHttpClient(environment);
 const tacPricing = {
   86720604: {
     // Huawei H112-370
-    STC: 50,
-    ZAIN: 30,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
+    STC: 55,
+    ZAIN: 35,
+    MOBILY: 55,
+    "GO Telecom": 55,
+    Other: 55,
   },
   86073004: {
     // Huawei H112-372
-    STC: 50,
-    ZAIN: 50,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
-  },
-  86193505: {
-    // Huawei H122-373-A
-    STC: 50,
-    ZAIN: 50,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
-  },
-  86688704: {
-    // Huawei H122-373
-    STC: 50,
-    ZAIN: 30,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
-  },
-  86406705: {
-    // Huawei N5368X
     STC: 55,
     ZAIN: 55,
     MOBILY: 55,
     "GO Telecom": 55,
     Other: 55,
   },
+  86193505: {
+    // Huawei H122-373A
+    STC: 55,
+    ZAIN: 55,
+    MOBILY: 55,
+    "GO Telecom": 55,
+    Other: 55,
+  },
+  86688704: {
+    // Huawei H122-373
+    STC: 55,
+    ZAIN: 35,
+    MOBILY: 55,
+    "GO Telecom": 55,
+    Other: 55,
+  },
+  86406705: {
+    // Huawei N5368X
+    STC: 60,
+    ZAIN: 60,
+    MOBILY: 60,
+    "GO Telecom": 60,
+    Other: 60,
+  },
   86597804: {
     // Huawei E6878-370
-    STC: 50,
-    ZAIN: 30,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
+    STC: 55,
+    ZAIN: 35,
+    MOBILY: 55,
+    "GO Telecom": 55,
+    Other: 55,
   },
   86037604: {
     // Huawei E6878-870
-    STC: 50,
-    ZAIN: 50,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
+    STC: 55,
+    ZAIN: 55,
+    MOBILY: 55,
+    "GO Telecom": 55,
+    Other: 55,
   },
   86584007: {
     // Brovi H153-381
-    STC: 50,
-    ZAIN: 50,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
+    STC: 55,
+    ZAIN: 55,
+    MOBILY: 55,
+    "GO Telecom": 55,
+    Other: 55,
   },
   86124107: {
     // Brovi H151-370
-    STC: 50,
-    ZAIN: 50,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
+    STC: 55,
+    ZAIN: 55,
+    MOBILY: 55,
+    "GO Telecom": 55,
+    Other: 55,
   },
   86075606: {
     // Brovi H155-381
-    STC: 50,
-    ZAIN: 30,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
+    STC: 55,
+    ZAIN: 35,
+    MOBILY: 55,
+    "GO Telecom": 55,
+    Other: 55,
   },
   86681507: {
     // Brovi H155-381 (TAC2)
-    STC: 50,
-    ZAIN: 30,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
+    STC: 55,
+    ZAIN: 35,
+    MOBILY: 55,
+    "GO Telecom": 55,
+    Other: 55,
   },
   86688806: {
     // Brovi H155-382
-    STC: 50,
-    ZAIN: 30,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
+    STC: 55,
+    ZAIN: 35,
+    MOBILY: 55,
+    "GO Telecom": 55,
+    Other: 55,
   },
   86241607: {
     // Brovi H155-383
-    STC: 50,
-    ZAIN: 30,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
+    STC: 55,
+    ZAIN: 35,
+    MOBILY: 55,
+    "GO Telecom": 55,
+    Other: 55,
   },
   86717306: {
     // Brovi H158-381
-    STC: 50,
-    ZAIN: 50,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
+    STC: 55,
+    ZAIN: 55,
+    MOBILY: 55,
+    "GO Telecom": 55,
+    Other: 55,
   },
   86120006: {
     // Brovi H352-381
-    STC: 50,
-    ZAIN: 50,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
+    STC: 55,
+    ZAIN: 55,
+    MOBILY: 55,
+    "GO Telecom": 55,
+    Other: 55,
   },
   86968607: {
     // Brovi E6888-982
-    STC: 50,
-    ZAIN: 50,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
+    STC: 55,
+    ZAIN: 55,
+    MOBILY: 55,
+    "GO Telecom": 55,
+    Other: 55,
   },
   86119206: {
     // Brovi Plus H155-380
-    STC: 50,
-    ZAIN: 50,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
+    STC: 55,
+    ZAIN: 55,
+    MOBILY: 55,
+    "GO Telecom": 55,
+    Other: 55,
   },
   86015506: {
     // ZTE MU5120
-    STC: 30,
-    ZAIN: 25,
-    MOBILY: 25,
-    "GO Telecom": 25,
-    Other: 25,
+    STC: 29,
+    ZAIN: 29,
+    MOBILY: 29,
+    "GO Telecom": 29,
+    Other: 29,
   },
   86581106: {
     // ZTE MC888
-    STC: 30,
-    ZAIN: 25,
-    MOBILY: 25,
-    "GO Telecom": 25,
-    Other: 25,
+    STC: 29,
+    ZAIN: 29,
+    MOBILY: 29,
+    "GO Telecom": 29,
+    Other: 29,
   },
   86367104: {
     // ZTE MC801A
-    STC: 24,
-    ZAIN: 24,
-    MOBILY: 24,
-    "GO Telecom": 24,
-    Other: 24,
+    STC: 29,
+    ZAIN: 29,
+    MOBILY: 29,
+    "GO Telecom": 29,
+    Other: 29,
   },
   86556005: {
     // ZTE MC801A (TAC2)
-    STC: 24,
-    ZAIN: 24,
-    MOBILY: 24,
-    "GO Telecom": 24,
-    Other: 24,
+    STC: 29,
+    ZAIN: 29,
+    MOBILY: 29,
+    "GO Telecom": 29,
+    Other: 29,
   },
   86896605: {
     // ZTE MC801A (TAC3)
-    STC: 24,
-    ZAIN: 24,
-    MOBILY: 24,
-    "GO Telecom": 24,
-    Other: 24,
+    STC: 29,
+    ZAIN: 29,
+    MOBILY: 29,
+    "GO Telecom": 29,
+    Other: 29,
   },
   86156906: {
     // ZTE MC888A ULTRA
-    STC: 30,
-    ZAIN: 25,
-    MOBILY: 25,
-    "GO Telecom": 25,
-    Other: 25,
+    STC: 29,
+    ZAIN: 29,
+    MOBILY: 29,
+    "GO Telecom": 29,
+    Other: 29,
   },
   86992605: {
     // ZTE MU5001M
-    STC: 25,
-    ZAIN: 25,
-    MOBILY: 25,
-    "GO Telecom": 25,
-    Other: 25,
+    STC: 29,
+    ZAIN: 29,
+    MOBILY: 29,
+    "GO Telecom": 29,
+    Other: 29,
   },
   86637807: {
     // ZTE G5C
-    STC: 25,
-    ZAIN: 25,
-    MOBILY: 25,
-    "GO Telecom": 25,
-    Other: 25,
+    STC: 29,
+    ZAIN: 29,
+    MOBILY: 29,
+    "GO Telecom": 29,
+    Other: 29,
   },
   86062806: {
     // ZTE MC801A1
-    STC: 24,
-    ZAIN: 24,
-    MOBILY: 24,
-    "GO Telecom": 24,
-    Other: 24,
+    STC: 29,
+    ZAIN: 29,
+    MOBILY: 29,
+    "GO Telecom": 29,
+    Other: 29,
   },
   86160006: {
     // ZTE MC801A1 (TAC2)
-    STC: 25,
-    ZAIN: 25,
-    MOBILY: 25,
-    "GO Telecom": 25,
-    Other: 25,
+    STC: 29,
+    ZAIN: 29,
+    MOBILY: 29,
+    "GO Telecom": 29,
+    Other: 29,
   },
   86583105: {
     // Oppo T1A (CTC03)
-    STC: 50,
-    ZAIN: 30,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
+    STC: 55,
+    ZAIN: 35,
+    MOBILY: 55,
+    "GO Telecom": 55,
+    Other: 55,
   },
   86264406: {
     // Oppo T1A (CTC03) (TAC2)
-    STC: 50,
-    ZAIN: 30,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
+    STC: 55,
+    ZAIN: 35,
+    MOBILY: 55,
+    "GO Telecom": 55,
+    Other: 55,
   },
   86782206: {
     // Oppo T2 (CTD05)
-    STC: 50,
-    ZAIN: 30,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
+    STC: 55,
+    ZAIN: 35,
+    MOBILY: 55,
+    "GO Telecom": 55,
+    Other: 55,
   },
 
   86481205: {
     // GHTelcom H138-380
-    STC: 50,
-    ZAIN: 30,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
+    STC: 55,
+    ZAIN: 35,
+    MOBILY: 55,
+    "GO Telecom": 55,
+    Other: 55,
   },
   86588106: {
     // Soyealink SRT873
-    STC: 50,
-    ZAIN: 30,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
+    STC: 55,
+    ZAIN: 35,
+    MOBILY: 55,
+    "GO Telecom": 55,
+    Other: 55,
   },
   86399806: {
     // Soyealink SRT875
-    STC: 50,
-    ZAIN: 30,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
+    STC: 55,
+    ZAIN: 35,
+    MOBILY: 55,
+    "GO Telecom": 55,
+    Other: 55,
   },
   35840799: {
     // GreenPacket D5H-250MK
-    STC: 50,
-    ZAIN: 30,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
+    STC: 55,
+    ZAIN: 35,
+    MOBILY: 55,
+    "GO Telecom": 55,
+    Other: 55,
   },
   35162435: {
     // GreenPacket D5H-EA20/EA60/EA62
-    STC: 50,
-    ZAIN: 30,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
+    STC: 55,
+    ZAIN: 35,
+    MOBILY: 55,
+    "GO Telecom": 55,
+    Other: 55,
   },
   35759615: {
     // GreenPacket Y5-210MU
-    STC: 50,
-    ZAIN: 35,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
+    STC: 55,
+    ZAIN: 55,
+    MOBILY: 55,
+    "GO Telecom": 55,
+    Other: 55,
   },
   35181075: {
     // AVXAV WQRTM-838A
-    STC: 50,
-    ZAIN: 35,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
+    STC: 55,
+    ZAIN: 55,
+    MOBILY: 55,
+    "GO Telecom": 55,
+    Other: 55,
   },
   86055606: {
     // AURORA C082 PRO
-    STC: 50,
-    ZAIN: 35,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
+    STC: 55,
+    ZAIN: 55,
+    MOBILY: 55,
+    "GO Telecom": 55,
+    Other: 55,
   },
   35813213: {
     // D-Link DWR-2000M
-    STC: 50,
-    ZAIN: 35,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
+    STC: 55,
+    ZAIN: 55,
+    MOBILY: 55,
+    "GO Telecom": 55,
+    Other: 55,
   },
   86886605: {
     // FIBOCOM AX3600
-    STC: 50,
-    ZAIN: 35,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
+    STC: 55,
+    ZAIN: 55,
+    MOBILY: 55,
+    "GO Telecom": 55,
+    Other: 55,
   },
   86962406: {
-    // TD TECH IC5980
-    STC: 50,
-    ZAIN: 35,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
+    // TD TECH IC5989
+    STC: 55,
+    ZAIN: 55,
+    MOBILY: 55,
+    "GO Telecom": 55,
+    Other: 55,
   },
   86204005: {
     // OPPO T1A (CTC02)
-    STC: 50,
-    ZAIN: 35,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
+    STC: 55,
+    ZAIN: 55,
+    MOBILY: 55,
+    "GO Telecom": 55,
+    Other: 55,
   },
   35418669: {
     // NOKIA AOD311NK
-    STC: 50,
-    ZAIN: 35,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
+    STC: 55,
+    ZAIN: 55,
+    MOBILY: 55,
+    "GO Telecom": 55,
+    Other: 55,
   },
   86719705: {
     // QUECTEL RM500Q-AE
-    STC: 50,
-    ZAIN: 35,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
+    STC: 55,
+    ZAIN: 55,
+    MOBILY: 55,
+    "GO Telecom": 55,
+    Other: 55,
   },
   86133507: {
     // BROVI H165-383
-    STC: 50,
-    ZAIN: 50,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
+    STC: 55,
+    ZAIN: 55,
+    MOBILY: 55,
+    "GO Telecom": 55,
+    Other: 55,
   },
   86490205: {
     // OPPO T1A (CTB06)
-    STC: 50,
-    ZAIN: 35,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
+    STC: 55,
+    ZAIN: 55,
+    MOBILY: 55,
+    "GO Telecom": 55,
+    Other: 55,
   },
   86172305: {
     // OPPO T1A (CTB03)
-    STC: 50,
-    ZAIN: 35,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
+    STC: 55,
+    ZAIN: 55,
+    MOBILY: 55,
+    "GO Telecom": 55,
+    Other: 55,
   },
   86851005: {
     // MEIGLINK A50E
-    STC: 50,
-    ZAIN: 35,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
+    STC: 55,
+    ZAIN: 55,
+    MOBILY: 55,
+    "GO Telecom": 55,
+    Other: 55,
   },
   35705623: {
     // NOKIA FASTMILE 5G GATEWAY 3.2
-    STC: 50,
+    STC: 55,
     ZAIN: 35,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
+    MOBILY: 55,
+    "GO Telecom": 55,
+    Other: 55,
   },
   35277834: {
     // NOKIA FASTMILE 5G GATEWAY 3.1
-    STC: 50,
+    STC: 55,
     ZAIN: 35,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
+    MOBILY: 55,
+    "GO Telecom": 55,
+    Other: 55,
   },
   86144007: {
     // QUECTEL RG50OL-EU
-    STC: 50,
-    ZAIN: 35,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
+    STC: 55,
+    ZAIN: 55,
+    MOBILY: 55,
+    "GO Telecom": 55,
+    Other: 55,
   },
   86441004: {
     // ZLT X21
-    STC: 50,
-    ZAIN: 35,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
+    STC: 55,
+    ZAIN: 55,
+    MOBILY: 55,
+    "GO Telecom": 55,
+    Other: 55,
   },
   86529706: {
     // ZTE MU5001A-B-M-U/MU5002
-    STC: 24,
-    ZAIN: 24,
-    MOBILY: 24,
-    "GO Telecom": 24,
-    Other: 24,
+    STC: 29,
+    ZAIN: 29,
+    MOBILY: 29,
+    "GO Telecom": 29,
+    Other: 29,
   },
   86911905: {
     // TELSTRA AW1000
-    STC: 50,
-    ZAIN: 35,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
+    STC: 55,
+    ZAIN: 55,
+    MOBILY: 55,
+    "GO Telecom": 55,
+    Other: 55,
   },
   86237606: {
-    // Flybox CP52
-    STC: 50,
-    ZAIN: 35,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
+    // FLYBOX CP52
+    STC: 55,
+    ZAIN: 55,
+    MOBILY: 55,
+    "GO Telecom": 55,
+    Other: 55,
   },
-  35041894: {
-    // TP-Link Archer NX200
-    STC: 50,
-    ZAIN: 35,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
+  90909090: {
+    // Test
+    STC: 0.1,
+    ZAIN: 0.1,
+    MOBILY: 0.1,
+    "GO Telecom": 0.1,
+    Other: 1,
   },
-  86500606: {
-    // Deco Deco X50-5G
-    STC: 50,
-    ZAIN: 35,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
-  },
-  86920106: {
-    // Soyealink SRT873HS
-    STC: 50,
-    ZAIN: 35,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
-  },
-  35041746: {
-    // Flybox 5G19-01W-A
-    STC: 50,
-    ZAIN: 35,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
-  },
-  86181505: {
-    // Soyealink SLT869-A51
-    STC: 50,
-    ZAIN: 50,
-    MOBILY: 50,
-    "GO Telecom": 50,
-    Other: 50,
-  },
-  90909090:{
-    STC: 2,
-    ZAIN: 2,
-    MOBILY: 2,
-    "GO Telecom": 2,
-    Other: 2,
-  }
 };
 
 const DEFAULT_PRICE = 55;
@@ -550,24 +511,12 @@ async function createOrder(req, res) {
   }
 
   const tac = imei.substring(0, 8);
-
   let amount = DEFAULT_PRICE;
-
-  if (tacPricing[tac]) {
-    if (tacPricing[tac][network] !== undefined) {
-      // ✅ Exact TAC + network price found
-      amount = tacPricing[tac][network];
-    } else if (tacPricing[tac].Other !== undefined) {
-      // ✅ Use TAC-specific "Other" as default
-      amount = tacPricing[tac].Other;
-    } else {
-      console.warn(
-        `[Create Order] TAC ${tac} exists but no price for network ${network}, using global default ${DEFAULT_PRICE}`
-      );
-    }
+  if (tacPricing[tac] && tacPricing[tac][network]) {
+    amount = tacPricing[tac][network];
   } else {
     console.warn(
-      `[Create Order] No TAC pricing found for ${tac}, using global default ${DEFAULT_PRICE}`
+      `[Create Order] No price found for TAC ${tac} and network ${network}. Using default price: ${DEFAULT_PRICE}`
     );
   }
 
