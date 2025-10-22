@@ -94,7 +94,7 @@ const generateInvoicePDF = async (order) => {
       .font("Helvetica")
       .fontSize(10)
       .fillColor("#555")
-      .text(`IMEI-${order.imei} `|| "N/A", billToX, currentY + 15)
+      .text(`IMIE-${order.imei} `|| "N/A", billToX, currentY + 15)
       .text(order.email || "Not provided", billToX, currentY + 30)
       .text(order.mobileNumber || "Not provided", billToX, currentY + 45);
 
