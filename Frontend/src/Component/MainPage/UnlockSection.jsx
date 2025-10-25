@@ -418,6 +418,54 @@ const countryNetworkData = [
     ],
   },
   {
+    country: "South Africa",
+    code: "ZA",
+    networks: [
+      {
+        name: "Vodacom",
+        logo_url: "https://logo.clearbit.com/vodacom.co.za",
+      },
+      {
+        name: "MTN",
+        logo_url: "https://logo.clearbit.com/mtn.co.za",
+      },
+      {
+        name: "Telkom Mobile",
+        logo_url: "https://logo.clearbit.com/telkom.co.za",
+      },
+      {
+        name: "Cell C",
+        logo_url: "https://logo.clearbit.com/cellc.co.za",
+      },
+      {
+        name: "Rain",
+        logo_url: "https://logo.clearbit.com/rain.co.za",
+      },
+    ],
+  },
+  {
+    country: "Singapore",
+    code: "SG",
+    networks: [
+      {
+        name: "Singtel",
+        logo_url: "https://logo.clearbit.com/singtel.com",
+      },
+      {
+        name: "StarHub",
+        logo_url: "https://logo.clearbit.com/starhub.com",
+      },
+      {
+        name: "M1",
+        logo_url: "https://logo.clearbit.com/m1.com.sg",
+      },
+      {
+        name: "SIMBA Telecom",
+        logo_url: "https://logo.clearbit.com/simba.sg",
+      },
+    ],
+  },
+  {
     country: "Vietnam",
     code: "VN",
     networks: [
@@ -509,7 +557,10 @@ const countryNetworkData = [
     networks: [
       { name: "STC", logo_url: "https://logo.clearbit.com/stc.com.sa" },
       { name: "MOBILY", logo_url: "https://logo.clearbit.com/mobily.com.sa" },
-      { name: "ZAIN", logo_url: "https://logo.clearbit.com/zain.com" },
+      {
+        name: "ZAIN",
+        logo_url: "https://sa.zain.com/themes/zain_theme/logo.svg",
+      },
       {
         name: "GO Telecom",
         logo_url: "https://logo.clearbit.com/go.com.sa",
@@ -704,7 +755,7 @@ const countryNetworkData = [
 const tacRouterDB = {
   86720604: { brand: "HUAWEI", model: "H112-370" },
   86073004: { brand: "HUAWEI", model: "H112-372" },
-  86193505: { brand: "HUAWEI", model: "H122-373A" },
+  86193505: { brand: "HUAWEI", model: "H122-373-A" },
   86688704: { brand: "HUAWEI", model: "H122-373" },
   86406705: { brand: "HUAWEI", model: "N5368X" },
   86597804: { brand: "HUAWEI", model: "E6878-370" },
@@ -736,13 +787,13 @@ const tacRouterDB = {
   86588106: { brand: "Soyealink", model: "SRT873" },
   86399806: { brand: "Soyealink", model: "SRT875" },
   35840799: { brand: "GreenPacket", model: "D5H-250MK" },
-  35162435: { brand: "GreenPacket", model: "D5H-EA20/EA60/EA62" },
+  35162435: { brand: "GreenPacket", model: "D5H-EA20" },
   35759615: { brand: "GreenPacket", model: "Y5-210MU" },
   35181075: { brand: "AVXAV", model: "WQRTM-838A" },
   86055606: { brand: "AURORA", model: "C082 PRO" },
   35813213: { brand: "D-Link", model: "DWR-2000M" },
   86886605: { brand: "FIBOCOM", model: "AX3600" },
-  86962406: { brand: "TD TECH", model: "IC5989" },
+  86962406: { brand: "TD TECH", model: "IC5980" },
   86204005: { brand: "OPPO", model: "T1A (CTC02)" },
   35418669: { brand: "NOKIA", model: "AOD311NK" },
   86719705: { brand: "QUECTEL", model: "RM500Q-AE" },
@@ -756,14 +807,15 @@ const tacRouterDB = {
   86441004: { brand: "ZLT", model: "X21" },
   86529706: { brand: "ZTE", model: "MU5001A/B/M/U/MU5002" },
   86911905: { brand: "TELSTRA", model: "AW1000" },
-  86237606: { brand: "FLYBOX", model: "CP52" },
-  86237606: { brand: "FLYBOX", model: "CP52" },
-  90909090: { brand: "TestBrand", model: "TestModel" },
+  86237606: { brand: "Flybox", model: "CP52" },
   35041894: { brand: "TP-Link", model: "Archer NX200" },
   86500606: { brand: "Deco", model: "Deco X50-5G" },
   86920106: { brand: "Soyealink", model: "SRT873HS" },
   35041746: { brand: "Flybox", model: "5G19-01W-A" },
   86181505: { brand: "Soyealink", model: "SLT869-A51" },
+  86582006: { brand: "MeiG Smart", model: "SRT858M" },
+  86668004: { brand: "Xunison", model: "Q30-06" },
+  35760655: { brand: "GREEN PACKET", model: "C5" },
 };
 
 const UnlockSection = () => {
