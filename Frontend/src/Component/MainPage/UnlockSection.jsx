@@ -82,7 +82,7 @@ const countryNetworkData = [
       },
       {
         name: "China Unicom",
-        logo_url: "https://logo.clearbit.com/chinaunicom.com",
+        logo_url: "https://www.chinaunicom.com/_nuxt/img/logo.5e80d1e.png",
       },
       {
         name: "China Telecom",
@@ -524,7 +524,7 @@ const countryNetworkData = [
         name: "Etisalat Misr",
         logo_url: "https://logo.clearbit.com/etisalat.eg",
       },
-      { name: "WE", logo_url: "https://logo.clearbit.com/we.com.eg" },
+      { name: "WE", logo_url: "https://te.eg/TEStaticThemeResidential8/themes/Portal8.0/css/tedata/images/svgfallback/logo.png" },
     ],
   },
   {
@@ -586,7 +586,7 @@ const countryNetworkData = [
       },
       {
         name: "Vodafone Qatar",
-        logo_url: "https://logo.clearbit.com/vodafone.com.qa",
+        logo_url: "https://logo.clearbit.com/vodafone.com",
       },
     ],
   },
@@ -632,10 +632,10 @@ const countryNetworkData = [
     country: "Bahrain",
     code: "BH",
     networks: [
-      { name: "Batelco", logo_url: "https://logo.clearbit.com/batelco.com.bh" },
+      { name: "Batelco", logo_url: "https://logo.clearbit.com/batelco.com" },
       {
         name: "Zain Bahrain",
-        logo_url: "https://logo.clearbit.com/zain.com.bh",
+        logo_url: "https://logo.clearbit.com/zain.com",
       },
       { name: "STC Bahrain", logo_url: "https://logo.clearbit.com/stc.com.bh" },
     ],
@@ -646,13 +646,13 @@ const countryNetworkData = [
     networks: [
       {
         name: "Zain Jordan",
-        logo_url: "https://logo.clearbit.com/zain.com.jo",
+        logo_url: "https://logo.clearbit.com/zain.com",
       },
       {
         name: "Orange Jordan",
         logo_url: "https://logo.clearbit.com/orange.jo",
       },
-      { name: "Umniah", logo_url: "https://logo.clearbit.com/umniah.com.jo" },
+      { name: "Umniah", logo_url: "https://logo.clearbit.com/umniah.com" },
     ],
   },
   {
