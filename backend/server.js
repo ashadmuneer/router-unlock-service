@@ -9,7 +9,7 @@ const orderRoutes = require("./routes/orderRoutes");
 const app = express();
 const port = process.env.PORT || 5000;
 app.use(cors({
-  origin: ["https://genuineunlocker.net", "http://localhost:5173"],
+  origin: ["https://genuineunlocker.net", "http://localhost:5173","https://routerunlocker.com"],
   credentials: true,
   optionsSuccessStatus: 200,
 }));
@@ -17,9 +17,16 @@ app.use(cors({
 // Set Content-Security-Policy header for all responses
 app.use((req, res, next) => {
   res.setHeader(
-    "Content-Security-Policy",
-    "default-src 'self' https://genuineunlocker.net; script-src 'self' https://genuineunlocker.net; style-src 'self' 'unsafe-inline' https://genuineunlocker.net https://cdnjs.cloudflare.com; img-src 'self' data: https://genuineunlocker.net; font-src 'self' https://cdnjs.cloudflare.com; connect-src 'self' https://genuineunlocker.net https://api.genuineunlocker.net; object-src 'none'; frame-ancestors 'self'; base-uri 'self'; form-action 'self';"
-  );
+  "Content-Security-Policy",
+  "default-src 'self' https://genuineunlocker.net https://routerunlocker.com; " +
+  "script-src 'self' https://genuineunlocker.net https://routerunlocker.com; " +
+  "style-src 'self' 'unsafe-inline' https://genuineunlocker.net https://routerunlocker.com https://cdnjs.cloudflare.com; " +
+  "img-src 'self' data: https://genuineunlocker.net https://routerunlocker.com; " +
+  "font-src 'self' https://cdnjs.cloudflare.com https://routerunlocker.com; " +
+  "connect-src 'self' https://genuineunlocker.net https://api.genuineunlocker.net https://routerunlocker.com; " +
+  "object-src 'none'; frame-ancestors 'self'; base-uri 'self'; form-action 'self';"
+);
+
   next();
 });
 
