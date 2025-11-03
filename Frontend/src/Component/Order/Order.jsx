@@ -215,6 +215,7 @@ const Order = () => {
   return (
     <>
       <Helmet>
+        <title>{`Order Details for ${order.brand || 'Device'} ${order.model || 'Model'} | GenuineUnlocker`}</title>
         <meta
           name="description"
           content="Unlock your routers, modems, and MiFi devices instantly for use with any SIM or mobile network worldwide. Whether you're using a Huawei modem, ZTE router, STC 5G device, Zain MiFi, Go Telecom unit, or any other brand, GenuineUnlocker provides fast, secure, and permanent unlock codes delivered online.

@@ -99,7 +99,7 @@ const NavBar = () => {
           >
             <FaWhatsapp />
           </a>
-          <a href="mailto:ashadmuneerofficial@gmail.com">
+          <a href="mailto:genuineunlockerinfo@gmail.com">
             <FaEnvelope />
           </a>
         </div>

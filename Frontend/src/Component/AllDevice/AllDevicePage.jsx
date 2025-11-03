@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const devices = {
   "H112-370": { brand: "HUAWEI" },
@@ -61,38 +62,48 @@ const devices = {
 
 
 const AllDevices = () => (
-  <div style={{ maxWidth: "800px", margin: "40px auto", padding: "20px", fontFamily: "'Segoe UI', Arial, sans-serif", color: "#702083" }}>
-    <h2 style={{ fontSize: "2em", marginBottom: "20px", textAlign: "center", textTransform: "uppercase" }}>All Devices</h2>
-    <ul style={{ listStyle: "none", padding: 0 }}>
-      {Object.entries(devices).map(([model, { brand }]) => (
-        <li key={model} style={{ marginBottom: "12px" }}>
-          <Link
-            to={`/device/${brand}/${model}`}
-            style={{
-              display: "block",
-              padding: "12px 15px",
-              background: "#f9f9f9",
-              borderRadius: "8px",
-              textDecoration: "none",
-              color: "#702083",
-              fontWeight: 600,
-              transition: "background 0.3s, transform 0.2s",
-            }}
-            onMouseOver={e => {
-              e.currentTarget.style.background = "#e6d0f5";
-              e.currentTarget.style.transform = "translateX(5px)";
-            }}
-            onMouseOut={e => {
-              e.currentTarget.style.background = "#f9f9f9";
-              e.currentTarget.style.transform = "translateX(0)";
-            }}
-          >
-            {brand} {model} Unlock
-          </Link>
-        </li>
-      ))}
-    </ul>
-  </div>
+  <>
+    <Helmet>
+      <title>All Supported Devices for Unlocking | GenuineUnlocker</title>
+      <meta
+        name="description"
+        content="Browse all supported router and modem models for unlocking. We support devices from Huawei, ZTE, Oppo, Nokia, and more."
+      />
+      <link rel="canonical" href="https://genuineunlocker.net/all-devices" />
+    </Helmet>
+    <div style={{ maxWidth: "800px", margin: "40px auto", padding: "20px", fontFamily: "'Segoe UI', Arial, sans-serif", color: "#702083" }}>
+      <h2 style={{ fontSize: "2em", marginBottom: "20px", textAlign: "center", textTransform: "uppercase" }}>All Devices</h2>
+      <ul style={{ listStyle: "none", padding: 0 }}>
+        {Object.entries(devices).map(([model, { brand }]) => (
+          <li key={model} style={{ marginBottom: "12px" }}>
+            <Link
+              to={`/device/${brand}/${model}`}
+              style={{
+                display: "block",
+                padding: "12px 15px",
+                background: "#f9f9f9",
+                borderRadius: "8px",
+                textDecoration: "none",
+                color: "#702083",
+                fontWeight: 600,
+                transition: "background 0.3s, transform 0.2s",
+              }}
+              onMouseOver={e => {
+                e.currentTarget.style.background = "#e6d0f5";
+                e.currentTarget.style.transform = "translateX(5px)";
+              }}
+              onMouseOut={e => {
+                e.currentTarget.style.background = "#f9f9f9";
+                e.currentTarget.style.transform = "translateX(0)";
+              }}
+            >
+              {brand} {model} Unlock
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </>
 );
 
 export default AllDevices;
