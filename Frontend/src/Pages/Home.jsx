@@ -23,7 +23,7 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>GenuineUnlocker | Modem & Router Unlock Code Service</title>
+        <title>GenuineUnlocker | Router Unlock, WiFi Unlock, 4G & 5G Modem & MiFi Unlocking Code Service</title>
         <meta
           name="description"
           content="Unlock your routers, modems, and MiFi devices instantly for use with any SIM or mobile network worldwide. Whether you're using a Huawei modem, ZTE router, STC 5G device, Zain MiFi, Go Telecom unit, or any other brand, GenuineUnlocker provides fast, secure, and permanent unlock codes delivered online.
