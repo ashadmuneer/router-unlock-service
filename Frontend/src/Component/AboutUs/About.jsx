@@ -23,10 +23,10 @@ const About = () => {
             <h2>Our Mission</h2>
             <p>
               At GenuineUnlocker, we are dedicated to providing fast, reliable,
-              and legal WiFi router unlocking services to customers worldwide.
-              Our mission is to empower you to use your router with any
+              and legal WiFi router, modem, and MiFi unlocking services to customers worldwide.
+              Our mission is to empower you to use your device with any
               compatible network, giving you the freedom and flexibility to stay
-              connected without restrictions.
+              connected without restrictions. Whether you need a router unlock code, a software solution, or a free tool, we are your one-stop-shop.
             </p>
           </section>
 

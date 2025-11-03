@@ -59,7 +59,7 @@ useEffect(() => {
               onClick={() => handleCardClick(card.title)}
             >
               <div className="Youtubecard-header">
-                <img src={card.image} alt="Youtube" />
+                <img src={card.image} alt={card.title} />
               </div>
               <div className="Youtubecard-body">
                 <span className={`tag ${card.tagColor}`}>{card.tag}</span>

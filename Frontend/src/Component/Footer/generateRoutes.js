@@ -66,7 +66,7 @@ const staticPages = ["/", "/home", "/all-devices", "/about", "/terms", "/how-to-
 
 // Generate dynamic device routes
 const deviceRoutes = Object.entries(devices).map(
-  ([model, { brand }]) => `/device/${brand}/${model}`
+  ([model, { brand }]) => `/device/${encodeURIComponent(brand)}/${encodeURIComponent(model)}`
 );
 
 const allRoutes = [...staticPages, ...deviceRoutes];
