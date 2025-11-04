@@ -85,6 +85,12 @@ const sendEmail = async ({ to, subject, template, data, attachments = [] }) => {
               <li><strong>Expected Delivery:</strong> ${deliveryTime}</li>
             </ul>
           </div>
+
+          <div class="note">
+          <p><strong>Note:</strong> If an order is cancelled or not fulfilled, the amount will be refunded after
+              deducting PayPal transaction fees. Please read our refund policy for
+              more details.(approximately 5.9% of the total amount).</p>
+          </div>
           
           <p><strong>Your invoice is attached to this email.</strong></p>
           <p>We will process your unlock request and deliver it within the specified timeframe.</p>

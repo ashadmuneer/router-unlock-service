@@ -1690,7 +1690,7 @@ const UnlockSection = () => {
                             <p>
                               1.1 <strong>GenuineUnlocker.net</strong> provides
                               professional WiFi router unlocking services using
-                              a 16-digit unlock code to remove network
+                              a 8 or 16-digit unlock code to remove network
                               restrictions, allowing your router to work with
                               any compatible SIM card or network provider. The
                               service begins upon receipt of payment.
@@ -1708,6 +1708,13 @@ const UnlockSection = () => {
                               made, as unlocking costs are incurred immediately.
                               By selecting Credit/Debit Payment, you authorize
                               the order to commence immediately.
+                            </p>
+                            <p>
+                              2.2 If an order is cancelled or not fulfilled, the
+                              amount will be refunded after deducting PayPal
+                              transaction fees. Please note that PayPal charges
+                              a transaction fee of 5.9% of the total amount,
+                              which will be subtracted from the refund.
                             </p>
                           </section>
 
@@ -1761,13 +1768,10 @@ const UnlockSection = () => {
                           </section>
 
                           <section>
-                            <h2>
-                              6. 100% Money Back Guarantee / Refund Policy
-                            </h2>
+                            <h2>6. Money Back Guarantee / Refund Policy</h2>
                             <p>
-                              6.1 All services are covered by our 100% Money
-                              Back Guarantee, subject to the following
-                              conditions:
+                              6.1 All services are covered by our Money Back
+                              Guarantee, subject to the following conditions:
                             </p>
                             <ul>
                               <li>

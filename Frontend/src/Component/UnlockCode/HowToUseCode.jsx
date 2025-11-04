@@ -141,7 +141,7 @@ const HowToUseCode = () => {
               "Power ON your Router after inserting the SIM card.",
               "Connect it to your computer or smartphone via LAN cable or Wi-Fi.",
               "Open your web browser, type the IP address (http://192.168.8.1 or http://192.168.0.1) in the address bar, and press Enter.",
-              "Enter the 16-digit code received via email and click submit.",
+              "Enter the 8 or 16-digit code received via email and click submit.",
               "Log in to the web interface using the default credentials unless previously changed.",
             ].map((step, index) => (
               <li

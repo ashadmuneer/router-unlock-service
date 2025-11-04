@@ -5,3 +5,6 @@
 /Frontend/.env
 /backend/.env
 *.log
+backend/tmp/invoice-INV-1001.pdf
+backend/utils/TestGenerateInvoice.js
+backend/utils/testSendEmail.js

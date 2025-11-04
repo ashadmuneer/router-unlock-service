@@ -35,7 +35,7 @@ const generateInvoicePDF = async (order) => {
           });
     };
 
-    // Download images if missing
+    // ===== DOWNLOAD IMAGES =====
     if (!fs.existsSync(logoFilePath)) {
       try {
         const res = await fetch(logoUrl);
@@ -56,34 +56,32 @@ const generateInvoicePDF = async (order) => {
     // ===== HEADER =====
     const headerTop = 40;
 
-    // Invoice Heading - Center
     doc
       .fontSize(22)
       .fillColor("#333")
       .font("Helvetica-Bold")
       .text("INVOICE", 0, headerTop, { align: "center" });
 
-    // Add gap before logo & info
     let currentY = headerTop + 40;
 
     // Logo
     if (fs.existsSync(logoFilePath)) {
-      doc.image(logoFilePath, 50, currentY-5, { width: 70 });
+      doc.image(logoFilePath, 50, currentY - 5, { width: 70 });
     } else {
-      doc.fontSize(16).text("Genuine Unlocker", 50, currentY-5);
+      doc.fontSize(16).text("Genuine Unlocker", 50, currentY - 5);
     }
 
-    // Company Info next to logo
+    // Company Info
     const infoStartX = 130;
     doc
       .font("Helvetica")
       .fontSize(10)
       .fillColor("#555")
-      .text("Genuine Unlocker", infoStartX, currentY+10)
+      .text("Genuine Unlocker", infoStartX, currentY + 10)
       .text("Email: genuineunlockerinfo@gmail.com", infoStartX, currentY + 25)
       .text("Website: www.genuineunlocker.net", infoStartX, currentY + 40);
 
-    // Bill To block on right
+    // Bill To section
     const billToX = 350;
     doc
       .fillColor("#557")
@@ -94,7 +92,7 @@ const generateInvoicePDF = async (order) => {
       .font("Helvetica")
       .fontSize(10)
       .fillColor("#555")
-      .text(`IMIE-${order.imei} `|| "N/A", billToX, currentY + 15)
+      .text(`IMEI: ${order.imei || "N/A"}`, billToX, currentY + 15)
       .text(order.email || "Not provided", billToX, currentY + 30)
       .text(order.mobileNumber || "Not provided", billToX, currentY + 45);
 
@@ -113,7 +111,7 @@ const generateInvoicePDF = async (order) => {
       { label: "IMEI", value: order.imei || "N/A" },
       { label: "Serial Number", value: order.serialNumber || "N/A" },
       { label: "Payment Method", value: order.paymentType || "Unknown" },
-      { label: "Payment Date &Time", value: formatDateTime(order.paymentTime) },
+      { label: "Payment Date & Time", value: formatDateTime(order.paymentTime) },
     ];
 
     let y = tableTop;
@@ -160,6 +158,25 @@ const generateInvoicePDF = async (order) => {
 
     y += rowHeight + 20;
 
+    // ===== NOTE SECTION =====
+    doc
+      .fillColor("#fff3cd")
+      .rect(50, y, col1Width + col2Width, 40)
+      .fill();
+
+    doc
+      .fillColor("#000")
+      .font("Helvetica")
+      .fontSize(8)
+      .text(
+        "Note: If an order is cancelled or not fulfilled, the amount will be refunded after deducting PayPal transaction fees. Please read our refund policy for more details. (approximately 5.9% of the total amount).",
+        60,
+        y + 10,
+        { width: col1Width + col2Width - 30, align: "left" }
+      );
+
+    y += 60;
+
     // ===== SIGNATURE =====
     if (fs.existsSync(signatureFilePath)) {
       doc.image(signatureFilePath, 50, y, { width: 160 });
@@ -168,15 +185,15 @@ const generateInvoicePDF = async (order) => {
       .font("Helvetica")
       .fontSize(10)
       .fillColor("#000")
-      .text("Authorized Signature", 50, y + 50);
+      .text("Authorized Signature", 80, y + 40);
 
     // ===== FOOTER =====
-    const footerY = 550; // fixed position to force same-page placement
+    const footerY = 550;
     doc
       .fontSize(9)
       .fillColor("#888")
       .text(
-        "Thank you for choosing Genuine Unlocker. For support, contact us at genuineunlockerinfo@gmail.com ",
+        "Thank you for choosing Genuine Unlocker. For support, contact us at genuineunlockerinfo@gmail.com",
         50,
         footerY,
         { align: "center" }

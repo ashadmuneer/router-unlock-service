@@ -4,7 +4,6 @@ import "./Order.css";
 import Logo from "../../assets/Genuine Unlocker Logo.png";
 import { Helmet } from "react-helmet-async";
 
-
 const Order = () => {
   const { orderId } = useParams();
   const [order, setOrder] = useState(null);
@@ -215,7 +214,9 @@ const Order = () => {
   return (
     <>
       <Helmet>
-        <title>{`Order Details for ${order.brand || 'Device'} ${order.model || 'Model'} | GenuineUnlocker`}</title>
+        <title>{`Order Details for ${order.brand || "Device"} ${
+          order.model || "Model"
+        } | GenuineUnlocker`}</title>
         <meta
           name="description"
           content="Unlock your routers, modems, and MiFi devices instantly for use with any SIM or mobile network worldwide. Whether you're using a Huawei modem, ZTE router, STC 5G device, Zain MiFi, Go Telecom unit, or any other brand, GenuineUnlocker provides fast, secure, and permanent unlock codes delivered online.
@@ -335,6 +336,15 @@ Unlock your modem now and use it with any SIM worldwide."
               issued.
             </p>
 
+            <p
+              className="refund-note"
+              style={{ fontSize: "12px", color: "#666", marginTop: "8px" }}
+            >
+              (*If an order is cancelled or not fulfilled, the amount will be refunded after
+              deducting PayPal transaction fees. Please read our refund policy for
+              more details.)
+            </p>
+
             <p className="track-link">
               Want to track another order?{" "}
               <Link to="/track-order">Click here</Link>
@@ -356,6 +366,20 @@ Unlock your modem now and use it with any SIM worldwide."
             <div className="logo-container">
               <img src={Logo} alt="Genuine Unlocker Logo" />
             </div>
+
+            <p
+              className="summary-note"
+              style={{
+                fontSize: "12px",
+                color: "#666",
+                marginTop: "12px",
+                textAlign: "center",
+              }}
+            >
+              *Note: If an order is cancelled or not fulfilled, the amount will be refunded after
+              deducting PayPal transaction fees. Please read our refund policy for
+              more details.
+            </p>
           </div>
         </div>
       </div>
