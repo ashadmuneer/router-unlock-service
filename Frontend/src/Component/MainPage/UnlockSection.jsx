@@ -753,6 +753,20 @@ const countryNetworkData = [
       },
     ],
   },
+  {
+  country: "Poland",
+  code: "PL",
+  networks: [
+    { name: "Orange Polska", logo_url: "https://logo.clearbit.com/orange.pl" },
+    { name: "Play", logo_url: "https://logo.clearbit.com/play.pl" },
+    { name: "Plus", logo_url: "https://logo.clearbit.com/plus.pl" },
+    { name: "T-Mobile Polska", logo_url: "https://logo.clearbit.com/t-mobile.pl" },
+    { name: "Virgin Mobile", logo_url: "https://logo.clearbit.com/virginmobile.pl" },
+    { name: "Premium Mobile", logo_url: "https://logo.clearbit.com/premiummobile.pl" },
+    { name: "nju mobile", logo_url: "https://logo.clearbit.com/nju.pl" },
+    { name: "Heyah", logo_url: "https://logo.clearbit.com/heyah.pl" },
+  ],
+}
 ];
 
 // TAC Router Database
@@ -813,13 +827,14 @@ const tacRouterDB = {
   86911905: { brand: "TELSTRA", model: "AW1000" },
   86237606: { brand: "Flybox", model: "CP52" },
   35041894: { brand: "TP-Link", model: "Archer NX200" },
-  86500606: { brand: "Deco", model: "Deco X50-5G" },
+  86500606: { brand: "TP-Link", model: "Deco X50-5G" },
   86920106: { brand: "Soyealink", model: "SRT873HS" },
   35041746: { brand: "Flybox", model: "5G19-01W-A" },
   86181505: { brand: "Soyealink", model: "SLT869-A51" },
   86582006: { brand: "MeiG Smart", model: "SRT858M" },
   86668004: { brand: "Xunison", model: "Q30-06" },
   35760655: { brand: "GREEN PACKET", model: "C5" },
+  86024106: { brand: "ZLT", model: "X28 PRO" },
 };
 
 const UnlockSection = () => {
