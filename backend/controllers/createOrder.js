@@ -23,6 +23,7 @@ let tacPricing = {};
 
 getTacPricingDB().then((data) => {
   tacPricing = data;
+  console.log(tacPricing);
 });
 
 const DEFAULT_PRICE = 55;
