@@ -1,39 +1,59 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Youtubecard.css";
-import { cardData } from "../../cardData.js"; import { useEffect } from "react";
 
 const Youtubecard = () => {
+  const [cards, setCards] = useState([]);
+  const [totalPages, setTotalPages] = useState(1);
+
   const [currentPage, setCurrentPage] = useState(1);
   const cardsPerPage = 12;
+
   const YoutubeSectionRef = useRef(null);
+  const scrollOnPageChange = useRef(false);
+  const isFirstRender = useRef(true);
+
   const navigate = useNavigate();
 
-  const indexOfLastCard = currentPage * cardsPerPage;
-  const indexOfFirstCard = indexOfLastCard - cardsPerPage;
-  const currentCards = cardData.slice(indexOfFirstCard, indexOfLastCard);
-  const totalPages = Math.ceil(cardData.length / cardsPerPage);
-const scrollOnPageChange = useRef(false);
-const isFirstRender = useRef(true);
+  // ⭐ Load paginated cards from backend
+  useEffect(() => {
+    const loadCards = async () => {
+      try {
+        const response = await fetch(
+          `${import.meta.env.VITE_DATA_API_URL}/api/cards?page=${currentPage}&limit=${cardsPerPage}`
+        );
 
-// Call this on Next/Prev click
-const handlePageChange = (newPage) => {
-  scrollOnPageChange.current = true;
-  setCurrentPage(newPage);
-};
+        const res = await response.json();
 
-useEffect(() => {
-  if (isFirstRender.current) {
-    isFirstRender.current = false;
-    return; // skip on initial load
-  }
+        // res.data = card array
+        // res.pages = total pages
+        setCards(res.data || []);
+        setTotalPages(res.pages || 1);
+      } catch (err) {
+        console.error("Error fetching cards:", err);
+      }
+    };
 
-  if (scrollOnPageChange.current && YoutubeSectionRef.current) {
-    YoutubeSectionRef.current.scrollIntoView({ behavior: "smooth" });
-    scrollOnPageChange.current = false;
-  }
-}, [currentPage]);
+    loadCards();
+  }, [currentPage]);
 
+  // ⭐ Scroll to top when page changes
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+
+    if (scrollOnPageChange.current && YoutubeSectionRef.current) {
+      YoutubeSectionRef.current.scrollIntoView({ behavior: "smooth" });
+      scrollOnPageChange.current = false;
+    }
+  }, [currentPage]);
+
+  const handlePageChange = (newPage) => {
+    scrollOnPageChange.current = true;
+    setCurrentPage(newPage);
+  };
 
   const handleCardClick = (title) => {
     navigate(`/Youtube/${title.replace(/\s+/g, "-").toLowerCase()}`);
@@ -42,20 +62,24 @@ useEffect(() => {
   return (
     <>
       <div ref={YoutubeSectionRef} className="Youtubecard-wrapper">
-        <div  className="Youtubecard-heading">
+        <div className="Youtubecard-heading">
           <h3>
             Best <span> Router & MiFi </span>Unlocking Videos
           </h3>
           <p>
-            Watch step-by-step guides and tutorials from our YouTube channel to easily unlock your router or MiFi device
+            Watch step-by-step guides and tutorials from our YouTube channel to
+            easily unlock your router or MiFi device
           </p>
         </div>
 
+        {/* ⭐ Cards */}
         <div className="Youtubecard-container">
-          {currentCards.map((card) => (
+          {cards.length === 0 && <p>No videos available.</p>}
+
+          {cards.map((card) => (
             <div
               className="Youtubecard"
-              key={card.id}
+              key={card._id}
               onClick={() => handleCardClick(card.title)}
             >
               <div className="Youtubecard-header">
@@ -69,6 +93,8 @@ useEffect(() => {
             </div>
           ))}
         </div>
+
+        {/* ⭐ Pagination */}
         {totalPages > 1 && (
           <div className="pagination">
             <div className="page-numbers">
@@ -76,28 +102,32 @@ useEffect(() => {
                 <span
                   key={index}
                   onClick={() => handlePageChange(index + 1)}
-                  className={currentPage === index + 1 ? "page-number active" : "page-number"}
+                  className={
+                    currentPage === index + 1
+                      ? "page-number active"
+                      : "page-number"
+                  }
                 >
                   {index + 1}
                 </span>
               ))}
             </div>
+
             <div className="pagination-buttons">
               <button
                 type="button"
                 onClick={() => handlePageChange(currentPage - 1)}
                 className={currentPage === 1 ? "disabled" : ""}
                 disabled={currentPage === 1}
-                aria-label="Previous page"
               >
                 Prev
               </button>
+
               <button
                 type="button"
                 onClick={() => handlePageChange(currentPage + 1)}
                 className={currentPage === totalPages ? "disabled" : ""}
                 disabled={currentPage === totalPages}
-                aria-label="Next page"
               >
                 Next
               </button>

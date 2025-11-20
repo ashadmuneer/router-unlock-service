@@ -1,27 +1,76 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import './YoutubeDetailPage.css';
-import { cardData } from "../../cardData.js"; // Import cardData
-import { Helmet } from 'react-helmet-async';
-
-
-// Sample cardData (move to a separate file or context in a real app)
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import "./YoutubeDetailPage.css";
+import { Helmet } from "react-helmet-async";
 
 const YoutubeDetailPage = () => {
-  const { title } = useParams(); // Get the ID from the URL
-  const card = cardData.find((card) => card.title.replace(/\s+/g, "-").toLowerCase() === title.replace(/\s+/g, "-").toLowerCase()); // Find the card by ID
+  const { title } = useParams();
 
-  if (!card) {
-    return <div>Youtube not found</div>;
-  }
+  const [card, setCard] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  // ⭐ Fetch specific card by matching slug
+  useEffect(() => {
+    const loadCard = async () => {
+      try {
+        // Fetch all cards (disable pagination by setting high limit)
+        const response = await fetch(
+          `${import.meta.env.VITE_DATA_API_URL}/api/cards?limit=200`
+        );
+
+        const res = await response.json();
+
+        // res.data = array of cards
+        const cardList = res.data || [];
+
+        // Create slug for comparison
+        const slug = (str) =>
+          str.replace(/\s+/g, "-").toLowerCase();
+
+        const found = cardList.find(
+          (c) => slug(c.title) === slug(title)
+        );
+
+        setCard(found || null);
+      } catch (error) {
+        console.error("Error loading card:", error);
+        setCard(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadCard();
+  }, [title]);
+  if (loading) {
+  return (
+    <div className="loading-screen">
+      <div className="loading-hero-skeleton"></div>
+
+      <div className="loading-content">
+        <div className="loading-line w-60"></div>
+        <div className="loading-line w-48"></div>
+        <div className="loading-line w-72"></div>
+
+        <div className="loading-video"></div>
+      </div>
+    </div>
+  );
+}
+
+  if (!card) return <div className="p-6">Youtube not found</div>;
 
   return (
     <>
       <Helmet>
         <title>{`${card.title} | GenuineUnlocker`}</title>
         <meta name="description" content={card.description} />
-        <link rel="canonical" href={`https://genuineunlocker.net/youtube/${title}`} />
+        <link
+          rel="canonical"
+          href={`https://genuineunlocker.net/youtube/${title}`}
+        />
       </Helmet>
+
       <div className="app-container">
         <main className="main">
           <section
@@ -36,7 +85,7 @@ const YoutubeDetailPage = () => {
           </section>
 
           <section className="content-section">
-            {card.content.map((section, index) => (
+            {card.content?.map((section, index) => (
               <div key={index}>
                 <h3 className="content-title">{section.title}</h3>
                 <p className="content-text">{section.text}</p>
@@ -50,7 +99,7 @@ const YoutubeDetailPage = () => {
                   className="video-iframe"
                   src={card.video.url}
                   title={card.video.title}
-                  frameBorder="0"
+                  style={{ border: 0 }}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 ></iframe>
